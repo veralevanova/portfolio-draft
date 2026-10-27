@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1793300018">
-  <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300012">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1793300021">
+  <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300020">
 </head>
 <body class="theme-dark tr-case">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -43,8 +43,8 @@
       <h1>Fintiba: банковские переводы для веба и мобильного приложения</h1>
       <div class="hero-wrap">
         <picture>
-          <source media="(max-width: 1100px)" srcset="../assets/img/tr/hero-m-soft2.webp">
-          <img class="hero-img" src="../assets/img/tr/hero-soft2.webp" width="1440" height="1380" alt="Надпись Fintiba, телефон с экраном нового перевода и карточки Web + Mobile, Instant, Recurring и Calendar">
+          <source media="(max-width: 1100px)" srcset="../assets/img/tr/hero-m-v3.webp">
+          <img class="hero-img" src="../assets/img/tr/hero-v3.webp" width="1440" height="1405" alt="Надпись Fintiba, телефон с экраном нового перевода и карточки Web + Mobile, Instant, Recurring и Calendar">
         </picture>
         <p class="byline">Вера Леванова · UI/UX-дизайнер</p>
       </div>
@@ -118,7 +118,7 @@
         <img class="a only-d" style="--x:-120; --y:0; --w:1440" src="../assets/img/tr/main.webp" width="2160" height="1576" loading="lazy" alt="Карточка счёта с кнопкой Transfer — «Отсюда начинается наш флоу» — и главный экран Fintiba Banking в телефоне">
         <img class="a only-m" src="../assets/img/tr/main-card.webp" width="1260" height="980" loading="lazy" alt="Карточка счёта с кнопкой Transfer: отсюда начинается флоу перевода">
         <div class="a txt" style="--x:5; --y:626; --w:620">
-          <h2>ГЛАВНЫЙ ЭКРАН</h2>
+          <h2>Главный экран</h2>
           <p>Главная страница Fintiba Banking: баланс и реквизиты счёта, ожидающие операции и история транзакций с поиском и фильтром. Отсюда начинается перевод.</p>
         </div>
         <img class="a only-m" src="../assets/img/tr/main-phone.webp" width="1390" height="1810" loading="lazy" alt="Главный экран Fintiba Banking в телефоне: баланс, ожидающие операции и история транзакций">
@@ -155,41 +155,40 @@
       </div>
     </section>
 
-    <!-- Получатель -->
-    <section class="dsec tr-split" style="--h:960; background-image:url(../assets/img/tr/bg-recip.webp)">
+    <!-- Получатель · Тип перевода · Параметры (вкладки) -->
+    <section class="dsec tr-steps" style="--h:1070; background-image:url(../assets/img/tr/bg-type.webp)">
       <div class="st">
-        <div class="a txt" style="--x:0; --y:300; --w:440">
+        <div class="steps-tabs" role="tablist" aria-label="Шаги формы перевода">
+          <button type="button" role="tab" class="steps-tab is-active" id="st-tab-0" aria-controls="st-panel-0" aria-selected="true"><b>01</b>Получатель</button>
+          <button type="button" role="tab" class="steps-tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="false"><b>02</b>Тип перевода</button>
+          <button type="button" role="tab" class="steps-tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false"><b>03</b>Параметры перевода</button>
+        </div>
+        <div class="tr-split steps-panel is-active" id="st-panel-0" role="tabpanel" aria-labelledby="st-tab-0">
+        <div class="a txt" style="--x:0; --y:380; --w:440">
           <p class="lbl">Получатель</p>
           <h2>Выбор или добавление получателя</h2>
           <p>Список получателей, поиск и добавление нового. Продумала пустое состояние и форму с валидацией полей.</p>
           <div class="pills"><span class="pill glass">Пустое состояние</span><span class="pill glass">Поиск</span><span class="pill glass">Валидация</span></div>
         </div>
-        <img class="a" style="--x:521; --y:92; --w:762" src="../assets/img/tr/recip.webp" width="1524" height="1650" loading="lazy" alt="Экран выбора получателя со списком и экран пустого состояния «No one here..»">
-      </div>
-    </section>
-
-    <!-- Тип перевода -->
-    <section class="dsec tr-split" style="--h:960; background-image:url(../assets/img/tr/bg-type.webp)">
-      <div class="st">
-        <div class="a txt" style="--x:0; --y:300; --w:440">
+        <img class="a" style="--x:521; --y:172; --w:762" src="../assets/img/tr/recip.webp" width="1524" height="1650" loading="lazy" alt="Экран выбора получателя со списком и экран пустого состояния «No one here..»">
+        </div>
+        <div class="tr-split steps-panel" id="st-panel-1" role="tabpanel" aria-labelledby="st-tab-1">
+        <div class="a txt" style="--x:0; --y:380; --w:440">
           <p class="lbl">Тип перевода</p>
           <h2>Standard или Instant</h2>
           <p>Выбор типа перевода: Standard (1–2 рабочих дня, бесплатно) или Instant (за несколько минут, бесплатно). Рядом — дата платежа и переключатель регулярных платежей. Оба типа я добавила в логику платежей.</p>
           <div class="pills"><span class="pill glass">Standard</span><span class="pill glass">Instant</span><span class="pill glass">Дата платежа</span></div>
         </div>
-        <img class="a" style="--x:521; --y:92; --w:762" src="../assets/img/tr/type.webp" width="1524" height="1650" loading="lazy" alt="Два экрана деталей перевода: выбран Standard и выбран Instant">
-      </div>
-    </section>
-
-    <!-- Регулярные платежи -->
-    <section class="dsec tr-split" style="--h:960; background-image:url(../assets/img/tr/bg-recur.webp)">
-      <div class="st">
-        <img class="a" style="--x:-59; --y:92; --w:762" src="../assets/img/tr/recur.webp" width="1524" height="1650" loading="lazy" alt="Экраны регулярного платежа: переключатель Recurring Payment, частота повторения и «Без даты окончания»">
-        <div class="a txt" style="--x:760; --y:300; --w:440">
+        <img class="a" style="--x:521; --y:172; --w:762" src="../assets/img/tr/type.webp" width="1524" height="1650" loading="lazy" alt="Два экрана деталей перевода: выбран Standard и выбран Instant">
+        </div>
+        <div class="tr-split steps-panel" id="st-panel-2" role="tabpanel" aria-labelledby="st-tab-2">
+        <img class="a" style="--x:-59; --y:172; --w:762" src="../assets/img/tr/recur.webp" width="1524" height="1650" loading="lazy" alt="Экраны регулярного платежа: переключатель Recurring Payment, частота повторения и «Без даты окончания»">
+        <div class="a txt" style="--x:760; --y:380; --w:440">
           <p class="lbl">Параметры перевода</p>
           <h2>Регулярные платежи</h2>
           <p>Дата платежа и настройка повторяющихся переводов: частота, дата окончания и переключатель «Без даты окончания». Этот сценарий я добавила в процесс.</p>
           <div class="pills"><span class="pill glass">Календарь</span><span class="pill glass">Частота</span><span class="pill glass">Переключатели</span></div>
+        </div>
         </div>
       </div>
     </section>
@@ -294,10 +293,15 @@
     <!-- Результат -->
     <section class="dsec tr-result" style="--h:825; background-image:url(../assets/img/tr/bg-result.webp)">
       <div class="st">
-        <div class="a" style="--x:0; --y:175; --w:640">
+        <div class="a" style="--x:0; --y:120; --w:640">
           <p class="lbl">Результат</p>
           <h2 style="margin-top:26px">Банковская команда согласовала решение.</h2>
           <h2 class="grad-text">Разработанные интерфейсы вошли в продукт.</h2>
+          <ul class="res-list">
+            <li>Весь путь перевода, от выбора получателя до подтверждения, спроектирован для веба и мобильного приложения.</li>
+            <li>Добавила сценарий регулярных платежей: частота, дата окончания и состояния ошибок.</li>
+            <li>Интерфейсы собраны на компонентах дизайн-системы; новые компоненты (переключатель, чипы, календарь) пополнили её.</li>
+          </ul>
         </div>
         <img class="a" style="--x:660; --y:80; --w:650" src="../assets/img/tr/result.webp" width="1300" height="1400" loading="lazy" alt="Телефон с экраном Payment Done и отметки «Согласовано командой банка» и «Вошло в продукт»">
       </div>
@@ -345,6 +349,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793091998" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/transfers.js?v=1793300016" defer></script>
+  <script src="../assets/js/transfers.js?v=1793300020" defer></script>
 </body>
 </html>

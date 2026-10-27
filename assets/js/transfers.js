@@ -1,4 +1,4 @@
-// Кейс «Банковские переводы»: полоса прогресса, параллакс обложки, наклон телефонов, поэтапное появление.
+// Кейс «Банковские переводы»: вкладки шагов, полоса прогресса, поэтапное появление.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -14,6 +14,23 @@
     fill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
   }
   window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(prog); } }, { passive: true }); prog();
+
+  /* вкладки: получатель / тип перевода / параметры */
+  var tabs = $('.steps-tab'), panels = $('.steps-panel');
+  if (tabs.length) {
+    function pick(i, focus) {
+      tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(i); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); pick((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); pick((i + tabs.length - 1) % tabs.length, true); }
+      });
+    });
+    pick(0);
+  }
 
   if (reduce) return;
   document.documentElement.classList.add('tr-anim');
@@ -52,5 +69,6 @@
   function req() { if (!chk) { chk = true; requestAnimationFrame(check); } }
   window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', req);
   check();
+
 
 })();
