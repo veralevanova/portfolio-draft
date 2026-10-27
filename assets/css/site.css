@@ -959,7 +959,7 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-zone"] > .st { top: 98px !important; }
   .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
   .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
-  .tr-case .dsec[style*="bg-flow"] { height: 2330px !important; }
+  .tr-case .dsec[style*="bg-flow"] { height: 2410px !important; }
   .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
   .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
   .tr-case .dsec[style*="bg-key"] > .st { top: 48px !important; }
@@ -1123,3 +1123,25 @@ body.lb-open { overflow: hidden; }
 .cbr .cbr__s1 { margin-top: 74px; }
 .cbr > .cbr__arr { margin-top: 294px; }
 @media (max-width: 900px) { .cbr .cbr__s1 { margin-top: 0; } }
+
+/* ветка по стране: две строки */
+.crow__lead { margin: 14px 0 26px; color: #9fb4bd; font-size: 17px; max-width: 640px; }
+.crow { display: flex; align-items: flex-start; gap: 48px; padding: 28px 32px 22px; margin-bottom: 22px; border-radius: 22px; }
+.crow__info { width: 250px; flex: none; }
+.crow__info h4 { margin: 0 0 16px; font-size: 22px; font-weight: 600; color: #e8f1f5; }
+.crow__pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.crow__figs { display: flex; align-items: flex-start; gap: 18px; min-width: 0; }
+.crow__figs figure { width: 170px; margin: 0; flex: none; }
+.crow__figs figcaption { font-size: 14px; }
+.crow__arr { margin-top: 130px; font-size: 20px; color: #5fd0e0; flex: none; }
+@media (max-width: 900px) {
+  .crow { flex-direction: column; gap: 24px; padding: 22px 18px; }
+  .crow__info { width: auto; }
+  .crow__figs { flex-wrap: wrap; justify-content: center; }
+  .crow__arr { display: none; }
+}
+.country__shots.crow__figs { margin-top: 0; gap: 18px; }
+.crow__figs.country__shots figure { width: 170px; }
+.crow__figs.country__shots img { border-radius: 22px; }
+.crow__figs.country__shots figcaption { font-size: 14px; line-height: 20px; margin-top: 12px; }
+@media (max-width: 900px) { .country__shots.crow__figs { flex-direction: row; align-items: flex-start; } .crow__figs.country__shots figure { width: min(150px, 42%); margin: 0; } }
