@@ -940,9 +940,6 @@ body.lb-open { overflow: hidden; }
 .tr-anim .tr-h.tr-in { clip-path: inset(0 0 -20% 0); transform: none; }
 
 /* телефоны: наклон и подъём */
-.tr-case .st { perspective: 1400px; }
-.tr-tilt { transition: translate .35s ease, filter .35s ease, rotate .12s linear; will-change: rotate, translate; }
-.tr-tilt:hover { translate: 0 -8px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
 
 /* центр схемы зоны ответственности — мягкое свечение */
 .tr-zone .zitem--c .ic, .tr-zone .zitem .ic { animation: none; }

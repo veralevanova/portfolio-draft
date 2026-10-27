@@ -53,22 +53,4 @@
   window.addEventListener('scroll', req, { passive: true }); window.addEventListener('resize', req);
   check();
 
-  /* наклон телефонов за курсором (4–6°), подъём и тень */
-  if (finePointer) {
-    $('.dsec img.a, .dsec .a img, .dsec figure img').forEach(function (img) {
-      if (!/\/(main|flow|recip|type|recur|confirm|web|swift|key|result|phone|m-|p-|ph-)/i.test(img.src) && !img.closest('.tr-split, .tr-main, .tr-web, .tr-key, .tr-swift')) return;
-      if (img.closest('.flow-scroll, .case-end') || img.classList.contains('ic')) return;
-      img.classList.add('tr-tilt');
-      var raf = 0, ax = 0, ay = 0, an = 0;
-      function go() { raf = 0; img.style.rotate = an ? (ax.toFixed(3) + ' ' + ay.toFixed(3) + ' 0 ' + an.toFixed(2) + 'deg') : 'none'; }
-      img.addEventListener('mousemove', function (e) {
-        var r = img.getBoundingClientRect();
-        var nx = (e.clientX - r.left) / r.width - 0.5, ny = (e.clientY - r.top) / r.height - 0.5;
-        var rx = -ny * 10, ry = nx * 12, mag = Math.sqrt(rx * rx + ry * ry);
-        an = Math.min(6, mag); ax = mag ? rx / mag : 0; ay = mag ? ry / mag : 0;
-        if (!raf) raf = requestAnimationFrame(go);
-      });
-      img.addEventListener('mouseleave', function () { an = 0; if (!raf) raf = requestAnimationFrame(go); });
-    });
-  }
 })();
