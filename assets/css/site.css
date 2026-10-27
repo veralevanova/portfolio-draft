@@ -990,7 +990,7 @@ body.lb-open { overflow: hidden; }
 
 /* transfers: три шага формы перевода во вкладках */
 .steps-head { position: absolute; left: 0; right: 0; top: 120px; text-align: center; }
-.steps-head h2 { font-size: 44px; font-weight: 700; letter-spacing: -.01em; line-height: 52px; margin: 20px 0 0; color: #fff; }
+.steps-head h2 { font-size: 44px; font-weight: 700; letter-spacing: -.01em; line-height: 52px; margin: 18px 0 0; color: #fff; }
 .steps-head .sub { font-size: 18px; color: #93a0b4; margin: 10px 0 0; }
 .steps-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 58px 0 0; }
 .steps-tab { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 24px; border-radius: 23px; border: 1px solid rgba(95,208,224,.45); background: rgba(255,255,255,.07); color: #e6ecf5; font: 600 15px/1 var(--font, inherit); cursor: pointer; transition: background .25s, color .25s, border-color .25s, transform .25s; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
