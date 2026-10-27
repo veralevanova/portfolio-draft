@@ -222,7 +222,7 @@ body.theme-dark { background: #0a0d12; color: #fff; }
 }
 
 /* Результат */
-.tr-result h2 { font-size: 58px; font-weight: 800; line-height: 70px; letter-spacing: -.01em; }
+.tr-result h2 { font-size: 44px; font-weight: 700; line-height: 54px; letter-spacing: -.01em; }
 .tr-result h2 + h2 { margin-top: 14px; }
 
 /* мобильные правки сплит-секций */
