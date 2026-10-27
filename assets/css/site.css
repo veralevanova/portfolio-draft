@@ -952,11 +952,32 @@ body.lb-open { overflow: hidden; }
 /* transfers: единый фон — плавные стыки между секциями и меньше пустоты между экранами */
 .tr-case .dsec::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: linear-gradient(#0a0d12 0, rgba(10,13,18,.55) 90px, rgba(10,13,18,0) 260px, rgba(10,13,18,0) calc(100% - 260px), rgba(10,13,18,.55) calc(100% - 90px), #0a0d12 100%); }
+/* transfers: единый ритм — одинаковые интервалы между экранами (~180px) */
 @media (min-width: 1101px) {
-  .tr-case .dsec:not(.tr-about):not(.tr-main):not(.tr-sg) { height: calc(var(--h) * 1px - 44px); }
-  .tr-case .dsec:not(.tr-about):not(.tr-main):not(.tr-sg) > .st { top: -44px; }
-}
-@media (min-width: 1101px) {
-  .tr-case .dsec.tr-key { height: calc(var(--h) * 1px - 20px) !important; }
-  .tr-case .dsec.tr-key > .st { top: -20px !important; }
+  .tr-case .dsec[style*="bg-about"] { height: 745px !important; }
+  .tr-case .dsec[style*="bg-about"] > .st { top: 37px !important; }
+  .tr-case .dsec[style*="bg-team"] { height: 671px !important; }
+  .tr-case .dsec[style*="bg-team"] > .st { top: 28px !important; }
+  .tr-case .dsec[style*="bg-zone"] { height: 1008px !important; }
+  .tr-case .dsec[style*="bg-zone"] > .st { top: 48px !important; }
+  .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
+  .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
+  .tr-case .dsec[style*="bg-flow"] { height: 1351px !important; }
+  .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
+  .tr-case .dsec[style*="bg-recip"] { height: 1005px !important; }
+  .tr-case .dsec[style*="bg-recip"] > .st { top: 15px !important; }
+  .tr-case .dsec[style*="bg-type"] { height: 1005px !important; }
+  .tr-case .dsec[style*="bg-type"] > .st { top: 15px !important; }
+  .tr-case .dsec[style*="bg-recur"] { height: 1005px !important; }
+  .tr-case .dsec[style*="bg-recur"] > .st { top: 16px !important; }
+  .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
+  .tr-case .dsec[style*="bg-key"] > .st { top: 48px !important; }
+  .tr-case .dsec[style*="bg-confirm"] { height: 895px !important; }
+  .tr-case .dsec[style*="bg-confirm"] > .st { top: 16px !important; }
+  .tr-case .dsec[style*="bg-web"] { height: 1222px !important; }
+  .tr-case .dsec[style*="bg-web"] > .st { top: 8px !important; }
+  .tr-case .dsec[style*="bg-swift"] { height: 1200px !important; }
+  .tr-case .dsec[style*="bg-swift"] > .st { top: 47px !important; }
+  .tr-case .dsec[style*="bg-result"] { height: 880px !important; }
+  .tr-case .dsec[style*="bg-result"] > .st { top: 27px !important; }
 }
