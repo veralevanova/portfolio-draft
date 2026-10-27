@@ -1163,3 +1163,4 @@ body.lb-open { overflow: hidden; }
   .tr-case .tr-sg .lead { margin-top: 24px; }
   .tr-case .tr-sg { height: 900px !important; }
 }
+@media (min-width: 1101px) { .tr-case .tr-sg .sg-title { margin-top: 0; } .tr-case .tr-sg { height: 850px !important; } }
