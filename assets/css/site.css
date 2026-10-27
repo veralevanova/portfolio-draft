@@ -947,3 +947,6 @@ body.lb-open { overflow: hidden; }
 /* центр схемы зоны ответственности — мягкое свечение */
 .tr-zone .zitem--c .ic, .tr-zone .zitem .ic { animation: none; }
 @media (prefers-reduced-motion: reduce) { .tr-progress span { transition: none; } }
+
+/* transfers hero: byline below the image, not over the phone */
+.tr-case .dk-hero .tr-byline { position: static; text-align: center; margin: 0; padding: 28px 16px 56px; font-size: 15px; font-weight: 500; color: #c2ccdb; }
