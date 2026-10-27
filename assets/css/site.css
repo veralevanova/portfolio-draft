@@ -958,8 +958,8 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-about"] > .st { top: 37px !important; }
   .tr-case .dsec[style*="bg-team"] { height: 671px !important; }
   .tr-case .dsec[style*="bg-team"] > .st { top: 28px !important; }
-  .tr-case .dsec[style*="bg-zone"] { height: 1008px !important; }
-  .tr-case .dsec[style*="bg-zone"] > .st { top: 48px !important; }
+  .tr-case .dsec[style*="bg-zone"] { height: 1058px !important; }
+  .tr-case .dsec[style*="bg-zone"] > .st { top: 98px !important; }
   .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
   .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
   .tr-case .dsec[style*="bg-flow"] { height: 1351px !important; }
