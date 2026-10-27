@@ -1154,3 +1154,7 @@ body.lb-open { overflow: hidden; }
 .cbh__eye { display: block; margin-bottom: 12px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: #5fd0e0; font-weight: 600; }
 .cbh__title { margin: 0; font-size: 40px; line-height: 1.15; font-weight: 600; color: #fff; letter-spacing: -.01em; }
 @media (max-width: 900px) { .cbh__title { font-size: 28px; } }
+.sg-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; padding: 14px 26px; border-radius: 28px; font-size: 17px; font-weight: 600; color: #e8f1f5; text-decoration: none; background: rgba(255,255,255,.06); border: 1px solid rgba(95,208,224,.45); transition: background .2s, border-color .2s, transform .2s; }
+.sg-link:hover { background: rgba(95,208,224,.14); border-color: #5fd0e0; transform: translateY(-1px); }
+.sg-link span { color: #5fd0e0; }
+@media (min-width: 1101px) { .tr-case .tr-sg { height: 1010px !important; } .tr-sg .sg-link { margin-top: 70px; } }
