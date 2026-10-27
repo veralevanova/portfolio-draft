@@ -768,3 +768,8 @@ img[src$="us-stop.webp"] { border-radius: 40px; box-shadow: 0 24px 60px rgba(11,
 .hero-visual .ph { filter: none; max-width: none; }
 .hero-visual .ph--tr { left: -60px; top: 130px; width: 459px; }
 .hero-visual .ph--home { left: 69px; top: 5px; width: 480px; }
+/* корпус телефонов добавлен в картинки; уточнены размеры и свечение */
+.hero-visual { margin-top: 24px; }
+.hero-visual .ph--tr { left: -65px; top: 125px; width: 469px; }
+.hero-visual .ph--home { left: 64px; top: 0; width: 490px; }
+.hero-visual .orb-glow { background: radial-gradient(circle at 50% 50%, rgba(140, 90, 255, 1) 0%, rgba(125, 80, 235, .65) 40%, rgba(110, 70, 220, 0) 72%); filter: blur(10px); }
