@@ -1158,3 +1158,8 @@ body.lb-open { overflow: hidden; }
 .sg-link:hover { background: rgba(95,208,224,.14); border-color: #5fd0e0; transform: translateY(-1px); }
 .sg-link span { color: #5fd0e0; }
 @media (min-width: 1101px) { .tr-case .tr-sg { height: 1010px !important; } .tr-sg .sg-link { margin-top: 70px; } }
+@media (min-width: 1101px) {
+  .tr-case .tr-sg .sg-title { font-size: 60px; font-weight: 700; letter-spacing: -.01em; line-height: 72px; height: auto; margin-top: 20px; }
+  .tr-case .tr-sg .lead { margin-top: 24px; }
+  .tr-case .tr-sg { height: 900px !important; }
+}
