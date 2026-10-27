@@ -981,3 +981,9 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-result"] { height: 880px !important; }
   .tr-case .dsec[style*="bg-result"] > .st { top: 27px !important; }
 }
+
+/* transfers: обложка плавно перетекает в следующий экран */
+.tr-case .dk-hero .hero-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 15%; z-index: 1; pointer-events: none;
+  background: linear-gradient(rgba(10,13,18,0), rgba(10,13,18,.55) 45%, rgba(10,13,18,.92) 80%, #0a0d12 100%); }
+.tr-case .dk-hero .byline { z-index: 2; }
+@media (max-width: 1100px) { .tr-case .dk-hero .byline { position: relative; } }
