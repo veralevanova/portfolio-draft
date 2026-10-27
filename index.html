@@ -13,15 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=1793200006">
+  <link rel="stylesheet" href="assets/css/site.css?v=1793200007">
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html">Вера Леванова</a>
-      <nav class="nav-pill" aria-label="Основная навигация">
+      <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+      <nav class="nav-pill" id="site-nav" aria-label="Основная навигация">
         <a href="#projects">Проекты</a>
         <a href="#about">Обо мне</a>
         <a href="#contacts">Контакты</a>
@@ -55,34 +56,34 @@
         <div class="cases-grid">
           <a class="case-card" href="cases/transfers.html">
             <span class="case-num">01</span>
-            <img class="cover" src="assets/img/cover-transfers.webp?v=1793200006" width="1156" height="800" alt="Обложка кейса: экран нового перевода в мобильном приложении Fintiba" loading="lazy">
+            <img class="cover" src="assets/img/cover-transfers.webp?v=1793200007" width="1156" height="800" alt="Обложка кейса: экран нового перевода в мобильном приложении Fintiba" loading="lazy">
             <div class="body">
               <div class="tags"><span class="tag">Web</span><span class="tag">Mobile</span><span class="tag">UI/UX</span></div>
               <h3>Fintiba: банковские переводы</h3>
               <p>Переводы, регулярные платежи и подтверждение платежа для веба и мобильного приложения: сценарий, ключевые решения и результат.</p>
-              <span class="link-arrow">Смотреть кейс →</span>
+              <span class="link-arrow">Смотреть кейс <span class="arr" aria-hidden="true">→</span></span>
             </div>
           </a>
 
           <a class="case-card" href="cases/design-system.html">
             <span class="case-num">02</span>
-            <img class="cover" src="assets/img/cover-ds.webp?v=1793200006" width="1156" height="800" alt="Обложка кейса: дизайн-система Fintiba, компоненты и цифры" loading="lazy">
+            <img class="cover" src="assets/img/cover-ds.webp?v=1793200007" width="1156" height="800" alt="Обложка кейса: дизайн-система Fintiba, компоненты и цифры" loading="lazy">
             <div class="body">
               <div class="tags"><span class="tag">Design System</span><span class="tag">Figma</span><span class="tag">Atomic</span></div>
               <h3>Дизайн-система Fintiba</h3>
               <p>Единая основа интерфейсов банковского продукта: токены, 150 компонентов и 944 варианта, правила для bottom sheet и модальных окон.</p>
-              <span class="link-arrow">Смотреть кейс →</span>
+              <span class="link-arrow">Смотреть кейс <span class="arr" aria-hidden="true">→</span></span>
             </div>
           </a>
 
           <a class="case-card case-card--wide" href="cases/onboarding.html">
             <span class="case-num">03</span>
-            <img class="cover" src="assets/img/cover-onb.webp?v=1793200006" width="1156" height="800" alt="Обложка кейса: редизайн онбординга, экраны анкеты в телефоне" loading="lazy">
+            <img class="cover" src="assets/img/cover-onb.webp?v=1793200007" width="1156" height="800" alt="Обложка кейса: редизайн онбординга, экраны анкеты в телефоне" loading="lazy">
             <div class="body">
               <div class="tags"><span class="tag">Онбординг</span><span class="tag">Web + Mobile</span><span class="tag">UI/UX</span></div>
               <h3>Онбординг Fintiba</h3>
               <p>Обязательная анкета для открытия блокированного счёта: пошаговый флоу с одним вопросом на экране, условными ветками и подсказками для Web и приложения.</p>
-              <span class="link-arrow">Смотреть кейс →</span>
+              <span class="link-arrow">Смотреть кейс <span class="arr" aria-hidden="true">→</span></span>
             </div>
           </a>
         </div>
@@ -182,5 +183,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/home.js?v=1793200007" defer></script>
 </body>
 </html>
