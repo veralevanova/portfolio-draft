@@ -950,3 +950,15 @@ body.lb-open { overflow: hidden; }
 
 /* transfers hero: byline below the image, not over the phone */
 .tr-case .dk-hero .tr-byline { position: static; text-align: center; margin: 0; padding: 28px 16px 56px; font-size: 15px; font-weight: 500; color: #c2ccdb; }
+
+/* transfers: единый фон — плавные стыки между секциями и меньше пустоты между экранами */
+.tr-case .dsec::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(#0a0d12 0, rgba(10,13,18,.55) 90px, rgba(10,13,18,0) 260px, rgba(10,13,18,0) calc(100% - 260px), rgba(10,13,18,.55) calc(100% - 90px), #0a0d12 100%); }
+@media (min-width: 1101px) {
+  .tr-case .dsec:not(.tr-about):not(.tr-main):not(.tr-sg) { height: calc(var(--h) * 1px - 44px); }
+  .tr-case .dsec:not(.tr-about):not(.tr-main):not(.tr-sg) > .st { top: -44px; }
+}
+@media (min-width: 1101px) {
+  .tr-case .dsec.tr-key { height: calc(var(--h) * 1px - 20px) !important; }
+  .tr-case .dsec.tr-key > .st { top: -20px !important; }
+}
