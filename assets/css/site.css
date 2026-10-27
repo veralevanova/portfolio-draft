@@ -963,8 +963,8 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
   .tr-case .dsec[style*="bg-recip"] { height: 1005px !important; }
   .tr-case .dsec[style*="bg-recip"] > .st { top: 15px !important; }
-  .tr-case .dsec[style*="bg-type"] { height: 1005px !important; }
-  .tr-case .dsec[style*="bg-type"] > .st { top: 15px !important; }
+  .tr-case .dsec[style*="bg-type"] { height: 915px !important; }
+  .tr-case .dsec[style*="bg-type"] > .st { top: -75px !important; }
   .tr-case .dsec[style*="bg-recur"] { height: 910px !important; }
   .tr-case .dsec[style*="bg-recur"] > .st { top: -80px !important; }
   .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
