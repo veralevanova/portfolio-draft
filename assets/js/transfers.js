@@ -18,16 +18,29 @@
   /* вкладки: получатель / тип перевода / параметры */
   var tabs = $('.steps-tab'), panels = $('.steps-panel');
   if (tabs.length) {
+    var box = document.querySelector('.tr-steps');
+    if (box) box.classList.add('steps-nudge');
+    function stopNudge() { if (box) box.classList.remove('steps-nudge'); }
     function pick(i, focus) {
       tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
       panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
     }
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { pick(i); });
+      t.addEventListener('click', function () { stopNudge(); pick(i); });
       t.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight') { e.preventDefault(); pick((i + 1) % tabs.length, true); }
         if (e.key === 'ArrowLeft') { e.preventDefault(); pick((i + tabs.length - 1) % tabs.length, true); }
       });
+    });
+    var names = ['Получатель', 'Тип перевода', 'Параметры перевода'];
+    panels.forEach(function (pn, i) {
+      var txt = pn.querySelector('.txt'); if (!txt) return;
+      var nx = (i + 1) % panels.length;
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'steps-next';
+      btn.innerHTML = (i === panels.length - 1 ? 'Сначала: ' : 'Дальше: ') + names[nx] + ' <span>→</span>';
+      btn.addEventListener('click', function () { stopNudge(); pick(nx); });
+      txt.appendChild(btn);
     });
     pick(0);
   }
