@@ -921,8 +921,8 @@ body.lb-open { overflow: hidden; }
 .js-reveal .tr-case [data-reveal="fade"].is-in { transform: none; }
 
 /* обложка */
-.tr-anim .dk-hero .hero-img { opacity: 0; transform: scale(1.05) translate3d(var(--mx, 0), calc(var(--my, 0px) + var(--py, 0px)), 0); transition: opacity 1s ease, transform .9s cubic-bezier(.2,.7,.2,1); will-change: transform; }
-.tr-anim .dk-hero .hero-img.is-in { opacity: 1; transform: scale(1) translate3d(var(--mx, 0), calc(var(--my, 0px) + var(--py, 0px)), 0); }
+  .tr-anim .dk-hero .hero-img { opacity: 0; transition: opacity 1s ease; }
+  .tr-anim .dk-hero .hero-img.is-in { opacity: 1; }
 .tr-anim .dk-hero .hero-wrap { overflow: hidden; }
 
 /* группы: карточки команды, зоны, чипы появляются по очереди */
@@ -948,8 +948,6 @@ body.lb-open { overflow: hidden; }
 .tr-zone .zitem--c .ic, .tr-zone .zitem .ic { animation: none; }
 @media (prefers-reduced-motion: reduce) { .tr-progress span { transition: none; } }
 
-/* transfers hero: byline below the image, not over the phone */
-.tr-case .dk-hero .tr-byline { position: static; text-align: center; margin: 0; padding: 28px 16px 56px; font-size: 15px; font-weight: 500; color: #c2ccdb; }
 
 /* transfers: единый фон — плавные стыки между секциями и меньше пустоты между экранами */
 .tr-case .dsec::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;

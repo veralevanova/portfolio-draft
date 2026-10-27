@@ -69,7 +69,7 @@ body.theme-dark { background: #0a0d12; color: #fff; }
 .dk-hero .hero-wrap { position: relative; width: 1440px; height: 1380px; left: 50%; margin-left: -720px; }
 .dk-hero .hero-img { width: 1440px; height: 1380px; }
 .dk-hero h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.dk-hero .byline { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-size: 15px; font-weight: 500; color: #c2ccdb; }
+.dk-hero .byline { margin-top: 0; position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-size: 15px; font-weight: 500; color: #c2ccdb; }
 @media (max-width: 1100px) {
   .dk-hero { padding-top: 120px; }
   .dk-hero .hero-wrap { width: auto; height: auto; left: 0; margin: 0; }

@@ -18,29 +18,10 @@
   if (reduce) return;
   document.documentElement.classList.add('tr-anim');
 
-  /* обложка: плавный вход, лёгкий параллакс при прокрутке и сдвиг за курсором */
+  /* обложка: плавный вход, только плавное появление, без движения */
   var hero = document.querySelector('.dk-hero .hero-img'), wrap = document.querySelector('.dk-hero .hero-wrap');
   if (hero && wrap) {
     requestAnimationFrame(function () { hero.classList.add('is-in'); });
-    var py = 0, mx = 0, my = 0, hraf = 0;
-    function heroFrame() {
-      hraf = 0;
-      hero.style.setProperty('--py', py.toFixed(1) + 'px');
-      hero.style.setProperty('--mx', mx.toFixed(1) + 'px');
-      hero.style.setProperty('--my', my.toFixed(1) + 'px');
-    }
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 1600) return;
-      py = window.scrollY * 0.12; if (!hraf) hraf = requestAnimationFrame(heroFrame);
-    }, { passive: true });
-    if (finePointer) {
-      wrap.addEventListener('mousemove', function (e) {
-        var r = wrap.getBoundingClientRect();
-        mx = ((e.clientX - r.left) / r.width - 0.5) * -14; my = ((e.clientY - r.top) / r.height - 0.5) * -10;
-        if (!hraf) hraf = requestAnimationFrame(heroFrame);
-      });
-      wrap.addEventListener('mouseleave', function () { mx = 0; my = 0; if (!hraf) hraf = requestAnimationFrame(heroFrame); });
-    }
   }
 
   /* поэтапное появление групп */
