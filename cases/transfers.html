@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1793300025">
-  <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300026">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1793300028">
+  <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300027">
 </head>
 <body class="theme-dark tr-case">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -156,35 +156,39 @@
     </section>
 
     <!-- Получатель · Тип перевода · Параметры (вкладки) -->
-    <section class="dsec tr-steps" style="--h:1070; background-image:url(../assets/img/tr/bg-type.webp)">
+    <section class="dsec tr-steps" style="--h:1334; background-image:url(../assets/img/tr/bg-type.webp)">
       <div class="st">
-        <p class="steps-hint">Три шага формы перевода: нажмите, чтобы переключить</p>
+        <div class="steps-head">
+          <span class="tagbox glass">Экраны</span>
+          <h2>Как устроена форма перевода</h2>
+          <p class="sub">Три шага с состояниями и условиями.<span class="steps-tip"> Нажмите на шаг, чтобы переключить.</span></p>
+        </div>
         <div class="steps-tabs" role="tablist" aria-label="Шаги формы перевода">
           <button type="button" role="tab" class="steps-tab is-active" id="st-tab-0" aria-controls="st-panel-0" aria-selected="true"><b>01</b>Получатель</button>
           <button type="button" role="tab" class="steps-tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="false"><b>02</b>Тип перевода</button>
           <button type="button" role="tab" class="steps-tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false"><b>03</b>Параметры перевода</button>
         </div>
         <div class="tr-split steps-panel is-active" id="st-panel-0" role="tabpanel" aria-labelledby="st-tab-0">
-        <div class="a txt" style="--x:0; --y:380; --w:440">
+        <div class="a txt" style="--x:0; --y:644; --w:440">
           <p class="lbl">Получатель</p>
           <h2>Выбор или добавление получателя</h2>
           <p>Список получателей, поиск и добавление нового. Продумала пустое состояние и форму с валидацией полей.</p>
           <div class="pills"><span class="pill glass">Пустое состояние</span><span class="pill glass">Поиск</span><span class="pill glass">Валидация</span></div>
         </div>
-        <img class="a" style="--x:521; --y:172; --w:762" src="../assets/img/tr/recip.webp" width="1524" height="1650" loading="lazy" alt="Экран выбора получателя со списком и экран пустого состояния «No one here..»">
+        <img class="a" style="--x:521; --y:436; --w:762" src="../assets/img/tr/recip.webp" width="1524" height="1650" loading="lazy" alt="Экран выбора получателя со списком и экран пустого состояния «No one here..»">
         </div>
         <div class="tr-split steps-panel" id="st-panel-1" role="tabpanel" aria-labelledby="st-tab-1">
-        <div class="a txt" style="--x:0; --y:380; --w:440">
+        <div class="a txt" style="--x:0; --y:644; --w:440">
           <p class="lbl">Тип перевода</p>
           <h2>Standard или Instant</h2>
           <p>Выбор типа перевода: Standard (1–2 рабочих дня, бесплатно) или Instant (за несколько минут, бесплатно). Рядом — дата платежа и переключатель регулярных платежей. Оба типа я добавила в логику платежей. Доступные варианты зависят от страны получателя: для европейской страны открыты мгновенный и регулярный переводы, а для Индии, например, только SWIFT-перевод.</p>
           <div class="pills"><span class="pill glass">Standard</span><span class="pill glass">Instant</span><span class="pill glass">Дата платежа</span></div>
         </div>
-        <img class="a" style="--x:521; --y:172; --w:762" src="../assets/img/tr/type.webp" width="1524" height="1650" loading="lazy" alt="Два экрана деталей перевода: выбран Standard и выбран Instant">
+        <img class="a" style="--x:521; --y:436; --w:762" src="../assets/img/tr/type.webp" width="1524" height="1650" loading="lazy" alt="Два экрана деталей перевода: выбран Standard и выбран Instant">
         </div>
         <div class="tr-split steps-panel" id="st-panel-2" role="tabpanel" aria-labelledby="st-tab-2">
-        <img class="a" style="--x:-59; --y:172; --w:762" src="../assets/img/tr/recur.webp" width="1524" height="1650" loading="lazy" alt="Экраны регулярного платежа: переключатель Recurring Payment, частота повторения и «Без даты окончания»">
-        <div class="a txt" style="--x:760; --y:380; --w:440">
+        <img class="a" style="--x:-59; --y:436; --w:762" src="../assets/img/tr/recur.webp" width="1524" height="1650" loading="lazy" alt="Экраны регулярного платежа: переключатель Recurring Payment, частота повторения и «Без даты окончания»">
+        <div class="a txt" style="--x:760; --y:644; --w:440">
           <p class="lbl">Параметры перевода</p>
           <h2>Регулярные платежи</h2>
           <p>Дата платежа и настройка повторяющихся переводов: частота, дата окончания и переключатель «Без даты окончания». Этот сценарий я добавила в процесс.</p>
