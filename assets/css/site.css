@@ -959,7 +959,7 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-zone"] > .st { top: 98px !important; }
   .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
   .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
-  .tr-case .dsec[style*="bg-flow"] { height: 2290px !important; }
+  .tr-case .dsec[style*="bg-flow"] { height: 2330px !important; }
   .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
   .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
   .tr-case .dsec[style*="bg-key"] > .st { top: 48px !important; }
@@ -1099,3 +1099,27 @@ body.lb-open { overflow: hidden; }
   .fork2__rows { flex-direction: column; }
   .fork2 .fork2__s1 { margin-top: 0; }
 }
+
+/* ветка по стране: вкладки */
+.country__shots.cbr { display: flex; align-items: flex-start; gap: 26px; padding-top: 0; margin-top: 34px; }
+.cbr figure { width: 230px; margin: 0; flex: none; }
+.cbr__arr { margin-top: 220px; width: 28px; text-align: center; font-size: 22px; color: #5fd0e0; flex: none; }
+.cbr__panel { min-width: 0; }
+.cbr__tabs { display: inline-flex; gap: 8px; padding: 5px; margin-bottom: 22px; border-radius: 26px; background: rgba(255,255,255,.05); border: 1px solid rgba(95,208,224,.25); }
+.cbr__tab { font: inherit; font-size: 16px; font-weight: 600; padding: 8px 22px; border-radius: 20px; border: 0; background: transparent; color: #9fb4bd; cursor: pointer; transition: background .2s, color .2s; }
+.cbr__tab:hover { color: #e8f1f5; }
+.cbr__tab.is-on { background: #0b222a; color: #e8f1f5; box-shadow: inset 0 0 0 1px rgba(95,208,224,.55); }
+.cbr__pane { display: none; align-items: flex-start; gap: 20px; }
+.cbr__pane.is-on { display: flex; animation: cbrIn .35s ease; }
+.cbr__pane .cbr__arr { margin-top: 220px; }
+@keyframes cbrIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) {
+  .country__shots.cbr { flex-direction: column; align-items: center; }
+  .cbr > .cbr__arr { display: none; }
+  .cbr__pane { flex-direction: column; align-items: center; }
+  .cbr__pane .cbr__arr { margin-top: 0; transform: rotate(90deg); }
+  .cbr figure { width: min(260px, 100%); }
+}
+.cbr .cbr__s1 { margin-top: 74px; }
+.cbr > .cbr__arr { margin-top: 294px; }
+@media (max-width: 900px) { .cbr .cbr__s1 { margin-top: 0; } }
