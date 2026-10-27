@@ -959,7 +959,7 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-zone"] > .st { top: 98px !important; }
   .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
   .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
-  .tr-case .dsec[style*="bg-flow"] { height: 1351px !important; }
+  .tr-case .dsec[style*="bg-flow"] { height: 1580px !important; }
   .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
   .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
   .tr-case .dsec[style*="bg-key"] > .st { top: 48px !important; }
@@ -1027,3 +1027,21 @@ body.lb-open { overflow: hidden; }
 @media (max-width: 1100px) { .steps-next { display: none; } .steps-head { position: static; padding-bottom: 28px; } .steps-head h2 { font-size: clamp(30px, 8vw, 40px); line-height: 1.15; } }
 @media (prefers-reduced-motion: reduce) { .steps-nudge .steps-tab:not(.is-active) { animation: none; } }
 @media (max-width: 1100px) { .steps-tip { display: none; } }
+
+/* user flow: ветка по стране получателя */
+.country { position: relative; }
+.country .flow-lbl { margin: 0 0 18px; }
+.country__grid { display: flex; align-items: center; gap: 26px; padding: 26px 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.country__node { flex: none; width: 250px; padding: 18px 20px; border-radius: 14px; background: linear-gradient(135deg, rgba(42,167,192,.28), rgba(122,91,214,.28)); border: 1px solid rgba(95,208,224,.35); }
+.country__node b { display: block; font-size: 18px; color: #fff; }
+.country__node small { display: block; margin-top: 6px; font-size: 14px; line-height: 20px; color: #c2ccdb; }
+.country__arrow { color: #5fd0e0; font-size: 26px; }
+.country__opts { display: grid; gap: 14px; flex: 1; }
+.country__opt { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.country__opt b { width: 180px; font-size: 16px; color: #fff; }
+.flow-row img[data-zoom] { transition: filter .25s; }
+.flow-row img[data-zoom]:hover { filter: brightness(1.06); }
+@media (max-width: 1100px) { .country { margin-top: 36px; } .country__grid { flex-direction: column; align-items: stretch; } .country__arrow { transform: rotate(90deg); align-self: center; } .country__node { width: auto; } .country__opt b { width: 100%; } }
+.country .flow-lbl { position: static; display: block; }
+.lightbox img[src*="flow-row"] { max-width: none; width: 2200px; }
+@media (max-width: 1100px) { .lightbox img[src*="flow-row"] { width: 1600px; } }

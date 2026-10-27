@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1793300029">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1793300031">
   <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300027">
 </head>
 <body class="theme-dark tr-case">
@@ -131,11 +131,11 @@
         <div class="a" style="--x:0; --y:90; --w:1100">
           <span class="tagbox glass">User Flow</span>
           <h2 style="margin:20px 0 0 -6px">От получателя до подтверждения</h2>
-          <p class="sub" style="margin-top:-4px">Основной путь перевода и экраны с состояниями, которые я проектировала.</p>
+          <p class="sub" style="margin-top:-4px">Основной путь перевода и экраны с состояниями, которые я проектировала. Нажмите на экраны, чтобы рассмотреть их крупно.</p>
         </div>
         <div class="a flow-scroll" style="--x:0; --y:320; --w:1200">
           <div class="flow-row flow-row--1">
-            <img src="../assets/img/tr/flow-row1.webp" width="2504" height="696" loading="lazy" alt="Шесть экранов основного пути перевода со стрелками между ними">
+            <img data-zoom src="../assets/img/tr/flow-row1.webp" width="2504" height="696" loading="lazy" alt="Шесть экранов основного пути перевода со стрелками между ними">
             <div class="flow-cap" style="left:0;top:349px"><b>01</b><span>Получатель</span></div>
             <div class="flow-cap" style="left:208px;top:349px"><b>02</b><span>Параметры</span></div>
             <div class="flow-cap" style="left:416px;top:349px"><b>03</b><span>Сумма</span></div>
@@ -144,12 +144,23 @@
             <div class="flow-cap" style="left:1040px;top:349px"><b>06</b><span>Готово</span></div>
           </div>
           <div class="flow-row flow-row--2">
-            <img src="../assets/img/tr/flow-row2.webp" width="2504" height="900" loading="lazy" alt="Состояния и ответвления: новый получатель, регулярный платёж, недостаточно средств, код подтверждения">
+            <img data-zoom src="../assets/img/tr/flow-row2.webp" width="2504" height="900" loading="lazy" alt="Состояния и ответвления: новый получатель, регулярный платёж, недостаточно средств, код подтверждения">
             <p class="flow-lbl">СОСТОЯНИЯ И ОТВЕТВЛЕНИЯ</p>
             <div class="flow-cap flow-cap--br" style="left:0;top:470px"><span>Новый получатель</span><small>Валидация полей</small></div>
             <div class="flow-cap flow-cap--br" style="left:208px;top:470px"><span>Регулярный платёж</span><small>Частота и дата окончания</small></div>
             <div class="flow-cap flow-cap--br" style="left:416px;top:470px"><span>Сумма</span><small>Недостаточно средств</small></div>
             <div class="flow-cap flow-cap--br" style="left:832px;top:470px"><span>Код подтверждения</span><small>Ввод кода</small></div>
+          </div>
+        </div>
+        <div class="a country" style="--x:0; --y:1290; --w:1200">
+          <p class="flow-lbl">ВЕТКА ПО СТРАНЕ ПОЛУЧАТЕЛЯ</p>
+          <div class="country__grid">
+            <div class="country__node"><b>Страна получателя</b><small>Определяет доступные типы перевода</small></div>
+            <span class="country__arrow" aria-hidden="true">→</span>
+            <div class="country__opts">
+              <div class="country__opt"><b>Европейская страна</b><span class="pill glass">Standard</span><span class="pill glass">Instant</span><span class="pill glass">Регулярный платёж</span></div>
+              <div class="country__opt"><b>Например, Индия</b><span class="pill glass">Только SWIFT</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -353,7 +364,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
   <script src="../assets/js/back-to-top.js?v=1793091998" defer></script>
-  <script src="../assets/js/cases.js?v=1793200010" defer></script>
+  <script src="../assets/js/cases.js?v=1793300030" defer></script>
   <script src="../assets/js/transfers.js?v=1793300025" defer></script>
 </body>
 </html>
