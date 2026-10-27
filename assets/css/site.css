@@ -908,3 +908,42 @@ body.lb-open { overflow: hidden; }
 .sec-nav a.is-current span { max-width: 0; opacity: 0; padding: 0; border-width: 0; }
 .sec-nav:hover a.is-current span { max-width: 0; }
 @media (min-width: 1720px) { .sec-nav a.is-current span { max-width: 220px; opacity: 1; padding: 5px 12px; border-width: 1px; } }
+
+/* ==========================================================
+   КЕЙС «БАНКОВСКИЕ ПЕРЕВОДЫ»: анимации
+   ========================================================== */
+.tr-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 50; background: rgba(255,255,255,.06); pointer-events: none; }
+.tr-progress span { display: block; height: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, #59d1e0, #8a6cf0, #c06cff); box-shadow: 0 0 12px rgba(138,108,240,.6); }
+
+/* появление блоков со сдвигом (вместо простого fade) */
+.tr-case.theme-dark .dsec .a { will-change: opacity, transform; }
+.js-reveal .tr-case [data-reveal="fade"] { transform: translateY(28px); transition: opacity .6s ease var(--d, 0ms), transform .6s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+.js-reveal .tr-case [data-reveal="fade"].is-in { transform: none; }
+
+/* обложка */
+.tr-anim .dk-hero .hero-img { opacity: 0; transform: scale(1.05) translate3d(var(--mx, 0), calc(var(--my, 0px) + var(--py, 0px)), 0); transition: opacity 1s ease, transform .9s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.tr-anim .dk-hero .hero-img.is-in { opacity: 1; transform: scale(1) translate3d(var(--mx, 0), calc(var(--my, 0px) + var(--py, 0px)), 0); }
+.tr-anim .dk-hero .hero-wrap { overflow: hidden; }
+
+/* группы: карточки команды, зоны, чипы появляются по очереди */
+.tr-anim .tr-st.tr-pop { opacity: 0; transform: translateY(26px) scale(.94); transition: opacity .55s ease var(--si, 0ms), transform .6s cubic-bezier(.2,.8,.2,1.1) var(--si, 0ms); }
+.tr-anim .tr-st.tr-pop.tr-in { opacity: 1; transform: none; }
+/* блок .a, внутри которого группа, не должен прятать детей до своего срока */
+.tr-anim .a.tr-st { transition-property: opacity, transform; }
+
+/* картинки с экранами «проявляются» слева направо */
+.tr-anim .tr-wipe { clip-path: inset(0 100% 0 0 round 12px); transition: clip-path 1.1s cubic-bezier(.65,0,.2,1); }
+.tr-anim .tr-wipe.tr-in { clip-path: inset(0 0 0 0 round 0); }
+
+/* заголовки: выезжают из-под маски */
+.tr-anim .tr-h { clip-path: inset(0 0 100% 0); transform: translateY(14px); transition: clip-path .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.tr-anim .tr-h.tr-in { clip-path: inset(0 0 -20% 0); transform: none; }
+
+/* телефоны: наклон и подъём */
+.tr-case .st { perspective: 1400px; }
+.tr-tilt { transition: translate .35s ease, filter .35s ease, rotate .12s linear; will-change: rotate, translate; }
+.tr-tilt:hover { translate: 0 -8px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
+
+/* центр схемы зоны ответственности — мягкое свечение */
+.tr-zone .zitem--c .ic, .tr-zone .zitem .ic { animation: none; }
+@media (prefers-reduced-motion: reduce) { .tr-progress span { transition: none; } }
