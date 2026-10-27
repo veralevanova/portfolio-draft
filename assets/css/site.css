@@ -969,7 +969,7 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-web"] > .st { top: 8px !important; }
   .tr-case .dsec[style*="bg-swift"] { height: 1200px !important; }
   .tr-case .dsec[style*="bg-swift"] > .st { top: 47px !important; }
-  .tr-case .dsec[style*="bg-result"] { height: 880px !important; }
+  .tr-case .dsec[style*="bg-result"] { height: 1010px !important; }
   .tr-case .dsec[style*="bg-result"] > .st { top: 27px !important; }
 }
 
