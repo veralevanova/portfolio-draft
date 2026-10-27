@@ -764,3 +764,7 @@ img[src$="us-stop.webp"] { border-radius: 40px; box-shadow: 0 24px 60px rgba(11,
 .hero-chip--onb { left: 10px; top: 160px; }
 .hero-chip--ds { left: 20px; top: 610px; }
 @media (max-width: 560px) { .hero-visual { transform: scale(.64); margin: 10px 0 -250px; } }
+/* телефоны: оригиналы из макета, поворот и тень уже в картинке */
+.hero-visual .ph { filter: none; max-width: none; }
+.hero-visual .ph--tr { left: -60px; top: 130px; width: 459px; }
+.hero-visual .ph--home { left: 69px; top: 5px; width: 480px; }
