@@ -1190,3 +1190,27 @@ body.lb-open { overflow: hidden; }
 
 /* Transfers case: no all-caps eyebrows (contacts block too) */
 .tr-case .eyebrow { text-transform: none; letter-spacing: .02em; font-size: 17px; }
+
+/* Кейс «Дизайн-система»: без заглавных подписей, анимация */
+.ds-case .dtile .k, .ds-case .mcard .k, .ds-case .mgoal .k, .ds-case .stmt .k, .ds-case .dk .lbl, .ds-case .dk-head .crumb { text-transform: none; letter-spacing: .02em; font-size: 16px; }
+.ds-case .btable th { text-transform: none; letter-spacing: .02em; font-size: 15px; }
+.ds-case .dsh h2 .tail { margin-left: -14px; }
+@media (max-width: 1100px) { .ds-case .dsh h2 .tail { margin-left: -8px; } }
+.ds-case .tr-progress { display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  .ds-anim .dk-hero .hero-img { opacity: 0; transition: opacity 1s ease; }
+  .ds-anim .dk-hero .hero-img.is-in { opacity: 1; }
+  .ds-anim .ds-st { opacity: 0; transform: translateY(26px) scale(.96); transition: opacity .55s ease var(--si, 0ms), transform .6s cubic-bezier(.2,.8,.2,1.1) var(--si, 0ms); }
+  .ds-anim .ds-st.ds-row { transform: translateX(-14px); }
+  .ds-anim .ds-st.ds-in { opacity: 1; transform: none; }
+  .ds-anim .ds-h .pl { transform: scale(.7); opacity: 0; transition: transform .6s cubic-bezier(.2,.8,.2,1.2) .25s, opacity .4s ease .25s; }
+  .ds-anim .ds-h.ds-in .pl { transform: none; opacity: 1; }
+}
+
+/* Кейс «Дизайн-система»: плавные стыки фонов между секциями */
+.ds-case .dsec::before, .ds-case .dsec::after { content: ""; position: absolute; left: 0; right: 0; height: 140px; pointer-events: none; z-index: 0; -webkit-mask: none; mask: none; inset-inline: 0; }
+.ds-case .dsec::before { top: 0; bottom: auto; background: linear-gradient(#0a0d12, rgba(10,13,18,0)); }
+.ds-case .dsec::after { bottom: 0; top: auto; background: linear-gradient(rgba(10,13,18,0), #0a0d12); }
+.ds-case .dk-hero .hero-wrap { position: relative; }
+.ds-case .dk-hero .hero-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 150px; pointer-events: none; background: linear-gradient(rgba(10,13,18,0), #0a0d12); }
+.ds-case .dk-hero { background-color: #0a0d12; }
