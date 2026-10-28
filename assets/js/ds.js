@@ -17,29 +17,17 @@
 
   /* вкладки внутри секций */
   $('.dsec--tabs').forEach(function (sec) {
-    var bar = $('.dtabs', sec)[0], tabs = $('.dtab', sec), panels = $('.dpanel', sec), cur = 0, used = false;
-    /* сегмент-контрол: ползунок, счётчик и подсказка */
+    var bar = $('.dtabs', sec)[0], tabs = $('.dtab', sec), panels = $('.dpanel', sec), cur = 0;
     var seg = document.createElement('div'); seg.className = 'dtabs__seg';
-    var thumb = document.createElement('i'); thumb.className = 'dtabs__thumb'; thumb.setAttribute('aria-hidden', 'true');
-    seg.appendChild(thumb); tabs.forEach(function (t) { seg.appendChild(t); });
+    tabs.forEach(function (t) { seg.appendChild(t); });
     var hint = document.createElement('span'); hint.className = 'dtabs__hint';
-    hint.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18"/></svg><span class="dtabs__txt">Нажми, чтобы переключить</span><b class="dtabs__cnt"></b>';
+    hint.textContent = 'Два раздела — нажми, чтобы переключить';
     bar.appendChild(seg); bar.appendChild(hint);
-    var cnt = $('.dtabs__cnt', bar)[0], txt = $('.dtabs__txt', bar)[0];
-    tabs.forEach(function (t) { var a = document.createElement('span'); a.className = 'dtab__go'; a.setAttribute('aria-hidden', 'true'); a.textContent = '→'; t.appendChild(a); });
-    function place() {
-      var t = tabs[cur]; if (!t.offsetWidth) return;
-      thumb.style.width = t.offsetWidth + 'px'; thumb.style.transform = 'translateX(' + t.offsetLeft + 'px)';
-    }
     function pick(i, focus, init) {
       cur = i;
       tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
       panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
-      tabs.forEach(function (t, k) { var g = $('.dtab__go', t)[0]; if (g) g.textContent = k < i ? '←' : '→'; });
-      cnt.textContent = (i + 1) + ' / ' + tabs.length;
-      place();
       if (init) return;
-      used = true; bar.classList.remove('nudge'); txt.textContent = 'Переключай вкладки';
       requestAnimationFrame(function () { $('[data-reveal], .ds-st, .ds-h', panels[i]).forEach(function (el) { el.classList.add('is-in', 'ds-in'); }); });
     }
     tabs.forEach(function (t, i) {
@@ -49,7 +37,6 @@
         if (e.key === 'ArrowLeft') { e.preventDefault(); pick((i + tabs.length - 1) % tabs.length, true); }
       });
     });
-    /* свайп на мобильном */
     var x0 = null;
     sec.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     sec.addEventListener('touchend', function (e) {
@@ -57,15 +44,6 @@
       if (Math.abs(dx) > 70 && window.matchMedia('(max-width:1100px)').matches) pick(Math.max(0, Math.min(tabs.length - 1, cur + (dx < 0 ? 1 : -1))));
     }, { passive: true });
     pick(0, false, true);
-    window.addEventListener('resize', place);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
-    /* один раз подсказываем движением */
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (e) {
-        if (e[0].isIntersecting) { io.disconnect(); place(); setTimeout(function () { if (!used) bar.classList.add('nudge'); }, 700); }
-      }, { threshold: .35 });
-      io.observe(sec);
-    }
   });
 
   /* живая палитра */
