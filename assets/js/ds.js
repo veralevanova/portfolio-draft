@@ -20,9 +20,7 @@
     var bar = $('.dtabs', sec)[0], tabs = $('.dtab', sec), panels = $('.dpanel', sec), cur = 0;
     var seg = document.createElement('div'); seg.className = 'dtabs__seg';
     tabs.forEach(function (t) { seg.appendChild(t); });
-    var hint = document.createElement('span'); hint.className = 'dtabs__hint';
-    hint.textContent = 'Два раздела — нажми, чтобы переключить';
-    bar.appendChild(seg); bar.appendChild(hint);
+    bar.appendChild(seg);
     function pick(i, focus, init) {
       cur = i;
       tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
