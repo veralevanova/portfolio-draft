@@ -1382,3 +1382,4 @@ body.lb-open { overflow: hidden; }
 .ds-case .dtabs__seg .dtab:not(.is-active):has(+ .dtab.is-active)::before { content: "←"; margin-right: 8px; font-size: 14px; opacity: .45; display: inline-block; transition: transform .2s ease, opacity .2s ease; }
 .ds-case .dtabs__seg .dtab:not(.is-active):hover::after { transform: translateX(3px); opacity: .9; }
 .ds-case .dtabs__seg .dtab:not(.is-active):hover::before { transform: translateX(-3px); opacity: .9; }
+.ds-case .dtabs__seg .dtab:focus-visible { outline: 2px solid rgba(255,255,255,.75); outline-offset: -4px; }
