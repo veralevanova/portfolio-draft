@@ -1376,3 +1376,9 @@ body.lb-open { overflow: hidden; }
 .ds-case .dtabs__hint { font-size: 14px; color: rgba(255,255,255,.55); }
 .ds-case .dtabs__hint::before { content: none; }
 @media (max-width: 1100px) { .ds-case .dtabs__hint { display: none; } .ds-case .dtabs__seg .dtab { padding: 10px 16px; } }
+/* ненавязчивая стрелка на неактивной вкладке */
+.ds-case .dtabs__seg .dtab:not(.is-active)::after { content: "→"; margin-left: 8px; font-size: 14px; opacity: .45; display: inline-block; transition: transform .2s ease, opacity .2s ease; }
+.ds-case .dtabs__seg .dtab:not(.is-active):has(+ .dtab.is-active)::after { content: none; }
+.ds-case .dtabs__seg .dtab:not(.is-active):has(+ .dtab.is-active)::before { content: "←"; margin-right: 8px; font-size: 14px; opacity: .45; display: inline-block; transition: transform .2s ease, opacity .2s ease; }
+.ds-case .dtabs__seg .dtab:not(.is-active):hover::after { transform: translateX(3px); opacity: .9; }
+.ds-case .dtabs__seg .dtab:not(.is-active):hover::before { transform: translateX(-3px); opacity: .9; }
