@@ -959,7 +959,7 @@ body.lb-open { overflow: hidden; }
   .tr-case .dsec[style*="bg-zone"] > .st { top: 98px !important; }
   .tr-case .dsec[style*="bg-main"] { height: 1231px !important; }
   .tr-case .dsec[style*="bg-main"] > .st { top: 107px !important; }
-  .tr-case .dsec[style*="bg-flow"] { height: 2510px !important; }
+  .tr-case .dsec[style*="bg-flow"] { height: 2450px !important; }
   .tr-case .dsec[style*="bg-flow"] > .st { top: 18px !important; }
   .tr-case .dsec[style*="bg-key"] { height: 904px !important; }
   .tr-case .dsec[style*="bg-key"] > .st { top: 48px !important; }
@@ -1165,3 +1165,11 @@ body.lb-open { overflow: hidden; }
 }
 @media (min-width: 1101px) { .tr-case .tr-sg .sg-title { margin-top: 0; } .tr-case .tr-sg { height: 850px !important; } }
 @media (min-width: 1101px) { .tr-case .tr-sg .flow { padding-top: 0; } .tr-case .tr-sg { height: 760px !important; } }
+/* ветка — продолжение флоу: общая пунктирная линия слева */
+.tr-case .country { position: relative; }
+.tr-case .country::before { content: ""; position: absolute; left: -26px; top: -46px; bottom: 36px; border-left: 2px dashed rgba(95,208,224,.55); }
+.tr-case .cbh { margin: 0; padding: 0; border: 0; }
+.tr-case .cbh::before { content: ""; position: absolute; left: -32px; top: 12px; width: 14px; height: 14px; border-radius: 50%; background: #5fd0e0; box-shadow: 0 0 0 5px rgba(95,208,224,.18); }
+.tr-case .cbh__title { font-size: 26px; line-height: 1.3; font-weight: 600; letter-spacing: 0; color: #e8f1f5; }
+.tr-case .crow__lead { margin: 10px 0 24px; font-size: 16px; }
+@media (max-width: 1100px) { .tr-case .country::before, .tr-case .cbh::before { display: none; } .tr-case .cbh__title { font-size: 22px; } }
