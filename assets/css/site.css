@@ -1402,3 +1402,4 @@ body.lb-open { overflow: hidden; }
 @media (max-width: 1100px) {
   .ds-case .ds-stats small, .ds-case .dtile .k, .ds-case .pal-hint, .ds-case .mpal span { font-size: 14px; }
 }
+.ds-case .rcard p { color: rgba(255,255,255,.74); }
