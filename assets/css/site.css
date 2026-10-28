@@ -1324,3 +1324,29 @@ body.lb-open { overflow: hidden; }
   .ds-case .chaos__top { flex-direction: column; }
   .ds-case .chaos__field { height: 150px; }
 }
+
+/* вкладки: очевидный переключатель */
+.ds-case .dtabs { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.ds-case .dtabs__seg { position: relative; display: inline-flex; padding: 6px; gap: 4px; border-radius: 50px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 8px 28px rgba(0,0,0,.35); }
+.ds-case .dtabs__thumb { position: absolute; left: 6px; top: 6px; bottom: 6px; border-radius: 44px; background: linear-gradient(90deg, #3f8fa8, #6a5bc4); box-shadow: 0 6px 18px rgba(106,91,196,.45); transition: transform .35s cubic-bezier(.3,.9,.3,1), width .35s cubic-bezier(.3,.9,.3,1); }
+.ds-case .dtabs__seg .dtab { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; background: transparent !important; border: 0 !important; color: rgba(255,255,255,.82); padding: 13px 24px; border-radius: 44px; transform: none; transition: color .2s ease; }
+.ds-case .dtabs__seg .dtab:hover { color: #fff; transform: none; }
+.ds-case .dtabs__seg .dtab:not(.is-active):hover { background: rgba(255,255,255,.08) !important; }
+.ds-case .dtab.is-active { color: #fff; }
+.ds-case .dtab__go { font-size: 16px; opacity: .8; transition: transform .25s ease; }
+.ds-case .dtab.is-active .dtab__go { display: none; }
+.ds-case .dtab:not(.is-active):hover .dtab__go { transform: translateX(4px); }
+.ds-case .dtabs__hint { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.7); }
+.ds-case .dtabs__hint svg { color: #59d1e0; animation: dHint 1.8s ease-in-out infinite; }
+.ds-case .dtabs__cnt { font-weight: 700; color: #59d1e0; padding: 4px 10px; border-radius: 20px; background: rgba(89,209,224,.14); }
+@keyframes dHint { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+.ds-case .dtabs.nudge .dtab:not(.is-active) { animation: dNudge 1.6s ease-in-out 3; }
+@keyframes dNudge { 0%,100% { box-shadow: 0 0 0 0 rgba(89,209,224,0); } 50% { box-shadow: 0 0 0 7px rgba(89,209,224,.35); } }
+@media (max-width: 1100px) {
+  .ds-case .dtabs__seg { max-width: 100%; }
+  .ds-case .dtabs__seg .dtab { padding: 11px 16px; font-size: 15px; }
+  .ds-case .dtabs__txt { display: none; }
+  .ds-case .dtabs__hint:after { content: 'тап или свайп'; }
+  .ds-case .dtabs__seg .dtab { font-size: 14px; padding: 10px 14px; line-height: 1.15; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .ds-case .dtabs__thumb { transition: none; } .ds-case .dtabs__hint svg, .ds-case .dtabs.nudge .dtab { animation: none !important; } }
