@@ -1186,3 +1186,4 @@ body.lb-open { overflow: hidden; }
 .crow__note { margin: 16px 0 0; font-size: 15px; line-height: 22px; color: #9fb4bd; max-width: 260px; }
 /* подписи нижнего ряда состояний */
 .tr-case .flow-cap--br small { margin-top: 8px; }
+.tr-case .tr-sg .sg-title { padding-bottom: .12em; }
