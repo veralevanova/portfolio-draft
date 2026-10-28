@@ -1383,3 +1383,12 @@ body.lb-open { overflow: hidden; }
 .ds-case .dtabs__seg .dtab:not(.is-active):hover::after { transform: translateX(3px); opacity: .9; }
 .ds-case .dtabs__seg .dtab:not(.is-active):hover::before { transform: translateX(-3px); opacity: .9; }
 .ds-case .dtabs__seg .dtab:focus-visible { outline: 2px solid rgba(255,255,255,.75); outline-offset: -4px; }
+
+/* кейс «Дизайн-система»: читаемость мелкого текста */
+.ds-case .dnote, .ds-case .dk p.dnote { color: rgba(255,255,255,.72); font-size: 15px; line-height: 22px; }
+.ds-case .pal-hint { color: rgba(255,255,255,.68); font-size: 15px; }
+.ds-case .pal-sw span { color: rgba(255,255,255,.7); font-size: 13px; }
+.ds-case .chaos__top p { color: rgba(255,255,255,.72); font-size: 16px; }
+.ds-case .chaos__legend { color: rgba(255,255,255,.72); font-size: 14px; }
+.ds-case .pg__grp p { color: rgba(255,255,255,.7); font-size: 15px; }
+.ds-case .mnote { color: rgba(255,255,255,.72) !important; }
