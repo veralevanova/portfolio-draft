@@ -1225,8 +1225,9 @@ body.lb-open { overflow: hidden; }
 .ds-case .dpanel.is-active { display: block; animation: dpanelIn .45s ease both; }
 @keyframes dpanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @media (min-width: 1101px) {
-  .ds-case .dsec--tabs > .dtabs { position: absolute; left: calc(50% - 600px); top: 34px; z-index: 5; }
-  .ds-case .dsec--tabs > .dpanel { position: absolute; inset: 0; }
+  .ds-case .dsec--tabs { height: calc(var(--h) * 1px + 76px); }
+  .ds-case .dsec--tabs > .dtabs { position: absolute; left: calc(50% - 600px); top: 36px; z-index: 5; }
+  .ds-case .dsec--tabs > .dpanel { position: absolute; inset: 76px 0 0 0; }
   .ds-case .dsec--tabs > .dpanel .st { height: 100%; }
 }
 @media (min-width: 1101px) and (max-width: 1279px) { .ds-case .dsec--tabs > .dtabs { left: 50%; margin-left: -516px; } }
@@ -1350,3 +1351,8 @@ body.lb-open { overflow: hidden; }
   .ds-case .dtabs__seg .dtab { font-size: 14px; padding: 10px 14px; line-height: 1.15; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) { .ds-case .dtabs__thumb { transition: none; } .ds-case .dtabs__hint svg, .ds-case .dtabs.nudge .dtab { animation: none !important; } }
+
+/* вкладки: спокойнее и с воздухом */
+.ds-case .dtabs__seg { box-shadow: none; background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.16); }
+.ds-case .dtabs__thumb { box-shadow: 0 4px 14px rgba(106,91,196,.35); }
+.ds-case .dtab:focus-visible { outline-offset: -2px; }
