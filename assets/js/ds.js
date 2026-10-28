@@ -155,14 +155,6 @@
       $(':scope > *', group).forEach(function (k, i) { k.classList.add('ds-st'); k.style.setProperty('--si', i * (step || 90) + 'ms'); });
     });
   }
-  stagger('.ds-stats', 110);
-  stagger('.dtiles', 110);
-  stagger('.rcards', 110);
-  stagger('.role-top', 130);
-  stagger('.built .cols', 110);
-  $('.process li').forEach(function (k, i) { k.classList.add('ds-st'); k.style.setProperty('--si', i * 90 + 'ms'); });
-  $('.btable tbody tr').forEach(function (k, i) { k.classList.add('ds-st', 'ds-row'); k.style.setProperty('--si', i * 70 + 'ms'); });
-  $('.dsh h2').forEach(function (h) { h.classList.add('ds-h'); });
 
   /* появление по положению на экране */
   var pending = $('.ds-st, .ds-h'), chk = false;
