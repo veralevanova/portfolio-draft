@@ -14,6 +14,126 @@
   }
   window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(prog); } }, { passive: true }); prog();
 
+
+  /* вкладки внутри секций */
+  $('.dsec--tabs').forEach(function (sec) {
+    var tabs = $('.dtab', sec), panels = $('.dpanel', sec);
+    function pick(i, focus, init) {
+      tabs.forEach(function (t, k) { var on = k === i; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
+      /* то, что было скрыто во вкладке, показываем сразу */
+      if (init) return;
+      requestAnimationFrame(function () { $('[data-reveal], .ds-st, .ds-h', panels[i]).forEach(function (el) { el.classList.add('is-in', 'ds-in'); }); });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(i); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); pick((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); pick((i + tabs.length - 1) % tabs.length, true); }
+      });
+    });
+    pick(0, false, true);
+  });
+
+
+  /* живая палитра */
+  (function () {
+    var pal = document.getElementById('palLive');
+    if (!pal) return;
+    var use = {
+      'teal/400': 'button/primary/bg/default · основной цвет действий',
+      'teal/500': 'button/primary/bg/hover · наведение',
+      'teal/600': 'button/primary/bg/pressed · нажатие',
+      'teal/300': 'акценты и границы в активных состояниях',
+      'teal/200': 'мягкие фоны и выделения',
+      'teal/100': 'фон подсказок и бейджей',
+      'teal/50': 'самый светлый фон секций',
+      'teal/700': 'тёмный текст на светлом teal',
+      'teal/800': 'самый тёмный teal · заголовки в акцентных блоках',
+      'purple/400': 'вторичный акцент',
+      'purple/500': 'вторичный акцент · hover',
+      'purple/600': 'вторичный акцент · pressed',
+      'purple/300': 'декоративные элементы',
+      'purple/200': 'мягкий фон вторичных блоков',
+      'purple/100': 'фон вторичных бейджей',
+      'purple/50': 'самый светлый фиолетовый фон'
+    };
+    var sw = pal.querySelectorAll('.pal-sw'), box = pal.querySelector('.pal-info__sw'),
+        nm = pal.querySelector('.pal-info__name'), us = pal.querySelector('.pal-info__use'),
+        cp = pal.querySelector('.pal-copy'), cur = '#0C81A0', t;
+    function sel(b) {
+      sw.forEach(function (x) { x.classList.toggle('is-on', x === b); });
+      var key = b.dataset.scale + '/' + b.dataset.step;
+      cur = b.dataset.hex;
+      box.style.background = cur;
+      nm.textContent = key;
+      us.textContent = use[key] || 'шаг шкалы ' + b.dataset.scale;
+      cp.innerHTML = 'Скопировать HEX <em>' + cur + '</em>';
+    }
+    sw.forEach(function (b) { b.addEventListener('click', function () { sel(b); }); });
+    cp.addEventListener('click', function () {
+      try { navigator.clipboard.writeText(cur); } catch (e) {}
+      cp.innerHTML = 'Скопировано <em>' + cur + '</em>';
+      clearTimeout(t);
+      t = setTimeout(function () { cp.innerHTML = 'Скопировать HEX <em>' + cur + '</em>'; }, 1400);
+    });
+    sel(pal.querySelector('[data-scale="teal"][data-step="400"]'));
+  })();
+
+  /* было → стало */
+  (function () {
+    var c = document.getElementById('chaos');
+    if (!c) return;
+    var f = c.querySelector('.chaos__field'), btns = c.querySelectorAll('.chaos__tg button');
+    var teal = ['#F3F9FA','#E0F2F8','#B3DFF0','#80CBE7','#0C81A0','#0B748F','#096078','#064C60','#043B4A'];
+    var pur = ['#F7F2F7','#F3E7F6','#E1C3EA','#CF9FDE','#842385','#731E74','#601A62'];
+    var seed = 7;
+    function r() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var N = 98, cols = 16, per = Math.ceil(N / cols), all = teal.concat(pur);
+    for (var i = 0; i < N; i++) {
+      var d = document.createElement('i'), col = i % cols, row = Math.floor(i / cols);
+      d.className = 'chaos__dot';
+      var s1 = 8 + r() * 16;
+      d.style.cssText = '--x:' + (r() * 96).toFixed(1) + '%;--y:' + (r() * 88).toFixed(1) + '%;--s:' + s1.toFixed(0) + 'px;' +
+        '--c:hsl(' + Math.floor(r() * 360) + ' ' + (35 + Math.floor(r() * 50)) + '% ' + (35 + Math.floor(r() * 40)) + '%);' +
+        '--x2:' + (2 + col * 6.1).toFixed(1) + '%;--y2:' + (4 + row * (88 / per)).toFixed(1) + '%;--s2:10px;' +
+        '--c2:' + (col < 9 ? teal[col] : pur[col - 9]) + ';--d:' + (i * 6) + 'ms';
+      f.appendChild(d);
+    }
+    var touched = false;
+    function mode(m) {
+      c.classList.toggle('is-now', m === 'now');
+      btns.forEach(function (b) { b.classList.toggle('is-on', b.dataset.mode === m); });
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { touched = true; mode(b.dataset.mode); }); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting) {
+          io.disconnect();
+          setTimeout(function () { if (!touched) mode('now'); }, reduce ? 0 : 1500);
+        }
+      }, { threshold: .6 });
+      io.observe(c);
+    }
+  })();
+
+  /* конфигуратор Button */
+  (function () {
+    var pg = document.getElementById('pg');
+    if (!pg) return;
+    var b = pg.querySelector('.dbtn'), code = document.getElementById('pgCode');
+    var st = { type: 'primary', state: 'default', size: 'md', icon: 'off' };
+    pg.querySelectorAll('.pg-chip').forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        var g = ch.dataset.g;
+        st[g] = ch.dataset.v;
+        pg.querySelectorAll('.pg-chip[data-g="' + g + '"]').forEach(function (x) { x.classList.toggle('is-on', x === ch); });
+        b.dataset.type = st.type; b.dataset.state = st.state; b.dataset.size = st.size; b.dataset.icon = st.icon;
+        code.textContent = 'variant=' + st.type + ' · state=' + st.state + ' · size=' + st.size + ' · iconOnly=' + (st.icon === 'on');
+      });
+    });
+  })();
+
   if (reduce) return;
   document.documentElement.classList.add('ds-anim');
 
