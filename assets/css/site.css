@@ -1187,3 +1187,6 @@ body.lb-open { overflow: hidden; }
 /* подписи нижнего ряда состояний */
 .tr-case .flow-cap--br small { margin-top: 8px; }
 .tr-case .tr-sg .sg-title { padding-bottom: .12em; }
+
+/* Transfers case: no all-caps eyebrows (contacts block too) */
+.tr-case .eyebrow { text-transform: none; letter-spacing: .02em; font-size: 17px; }
