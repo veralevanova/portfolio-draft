@@ -1392,3 +1392,13 @@ body.lb-open { overflow: hidden; }
 .ds-case .chaos__legend { color: rgba(255,255,255,.72); font-size: 14px; }
 .ds-case .pg__grp p { color: rgba(255,255,255,.7); font-size: 15px; }
 .ds-case .mnote { color: rgba(255,255,255,.72) !important; }
+
+/* мобильная обложка: крупнее название */
+@media (max-width: 700px) {
+  .ds-case .dk-hero--ds .hero-wrap { height: 84vw !important; overflow: hidden; }
+  .ds-case .dk-hero--ds .hero-wrap .hero-img { width: 148vw !important; max-width: none !important; height: auto !important; margin-left: -27vw; margin-top: -18.5vw; }
+}
+/* мобильный: мелкий текст чуть крупнее */
+@media (max-width: 1100px) {
+  .ds-case .ds-stats small, .ds-case .dtile .k, .ds-case .pal-hint, .ds-case .mpal span { font-size: 14px; }
+}
