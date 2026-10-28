@@ -1225,9 +1225,9 @@ body.lb-open { overflow: hidden; }
 .ds-case .dpanel.is-active { display: block; animation: dpanelIn .45s ease both; }
 @keyframes dpanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @media (min-width: 1101px) {
-  .ds-case .dsec--tabs { height: calc(var(--h) * 1px + 76px); }
+  .ds-case .dsec--tabs { height: calc(var(--h) * 1px + 44px); }
   .ds-case .dsec--tabs > .dtabs { position: absolute; left: calc(50% - 600px); top: 36px; z-index: 5; }
-  .ds-case .dsec--tabs > .dpanel { position: absolute; inset: 76px 0 0 0; }
+  .ds-case .dsec--tabs > .dpanel { position: absolute; inset: 44px 0 0 0; }
   .ds-case .dsec--tabs > .dpanel .st { height: 100%; }
 }
 @media (min-width: 1101px) and (max-width: 1279px) { .ds-case .dsec--tabs > .dtabs { left: 50%; margin-left: -516px; } }
