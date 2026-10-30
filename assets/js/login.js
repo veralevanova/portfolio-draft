@@ -20,7 +20,14 @@
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
     });
-    shots.forEach(function (im, j) { im.classList.toggle('is-on', j === i); });
+    // старый экран остаётся под новым, пока новый проявляется, — фон не просвечивает
+    var prev = shots.filter(function (im) { return im.classList.contains('is-on'); })[0];
+    shots.forEach(function (im, j) { im.classList.remove('is-prev'); if (j !== i) im.classList.remove('is-on'); });
+    if (prev && prev !== shots[i]) {
+      prev.classList.add('is-prev');
+      clearTimeout(select.t); select.t = setTimeout(function () { prev.classList.remove('is-prev'); }, 300);
+    }
+    shots[i].classList.add('is-on');
     if (cap) cap.innerHTML = caps[i];
     if (focus) tabs[i].focus();
   }
