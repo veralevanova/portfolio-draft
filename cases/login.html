@@ -18,9 +18,9 @@
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400004">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400005">
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
@@ -92,7 +92,25 @@
         </div>
         <div class="lg-duo">
           <img src="../assets/img/login/vis-chips.webp" width="1240" height="1000" alt="Три способа входа: Google, email и пароль" loading="lazy" data-rv>
-          <img src="../assets/img/login/vis-phone.webp?v=3" width="1140" height="1000" alt="Телефон с экраном ввода кода и подсказкой об ошибке" loading="lazy" data-rv>
+          <div class="lg-proto" data-rv>
+            <img class="lg-proto__bg" src="../assets/img/login/vis-card-bg.webp" width="1140" height="1000" alt="" loading="lazy">
+            <noscript><img class="lg-proto__static" src="../assets/img/login/vis-phone.webp?v=3" width="1140" height="1000" alt="Телефон с экраном ввода кода и подсказкой об ошибке"></noscript>
+            <div class="lg-proto__stage" role="img" aria-label="Анимация экрана приложения: пользователь вводит код из письма, видит ошибку о неверном коде и таймер 60 секунд">
+              <div class="lg-ph" aria-hidden="true">
+                <div class="lg-ph__scr">
+                  <div class="lg-ph__bar"><b>9:41</b><i></i></div>
+                  <div class="lg-ph__nav"><span>‹ Back</span><span>Activate your account</span><span></span></div>
+                  <img class="lg-ph__env" src="../assets/img/login/envelope.webp" width="682" height="629" alt="">
+                  <p class="lg-ph__t">We Sent You An Email</p>
+                  <p class="lg-ph__p">Please enter the <b>4-digit code</b> we've sent to <b>address@email.de.</b> This code is necessary to verify your identity and proceed.</p>
+                  <div class="lg-ph__code"><span></span><span></span><span></span><span></span></div>
+                  <p class="lg-ph__err"><b>The code you entered is incorrect.</b> Please double-check and try again.</p>
+                  <div class="lg-ph__btn">Verify <span>→</span></div>
+                  <p class="lg-ph__exp">Expires in <b>60s</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -336,6 +354,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/login.js?v=1793400003" defer></script>
+  <script src="../assets/js/login.js?v=1793400005" defer></script>
 </body>
 </html>

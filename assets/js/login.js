@@ -52,6 +52,39 @@
     }, { passive: true });
   }
 
+  /* мини-прототип: ввод кода → ошибка → новая попытка; таймер идёт по-настоящему */
+  (function () {
+    var ph = document.querySelector('.lg-ph'); if (!ph) return;
+    var boxes = $('.lg-ph__code span', ph), code = ph.querySelector('.lg-ph__code');
+    var err = ph.querySelector('.lg-ph__err'), btn = ph.querySelector('.lg-ph__btn'), exp = ph.querySelector('.lg-ph__exp b');
+    var digits = ['9', '2', '5', '1'];
+    function setErr(on) { err.classList.toggle('is-on', on); boxes.forEach(function (b) { b.classList.toggle('is-err', on); }); }
+    function fill(n) { boxes.forEach(function (b, i) { b.firstChild && b.removeChild(b.firstChild); if (i < n) b.appendChild(document.createTextNode(digits[i])); b.classList.toggle('is-focus', i === n && n < 4); }); btn.classList.toggle('is-on', n === 4); }
+    // статичное состояние (без анимации): введённый код и ошибка, как в макете
+    if (reduce || !('IntersectionObserver' in window)) { fill(4); setErr(true); return; }
+    fill(0);
+    var sec = 60, timers = [], running = false, tick = null;
+    function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+    function cycle() {
+      timers.forEach(clearTimeout); timers = [];
+      setErr(false); fill(0);
+      var t = 700;
+      digits.forEach(function (d, i) { at(t + i * 420, function () { fill(i + 1); }); });
+      t += 4 * 420 + 500;
+      at(t, function () { btn.classList.add('is-press'); });
+      at(t + 180, function () { btn.classList.remove('is-press'); setErr(true); code.classList.remove('is-shake'); void code.offsetWidth; code.classList.add('is-shake'); });
+      at(t + 3400, function () { cycle(); });
+    }
+    function start() {
+      if (running) return; running = true; cycle();
+      tick = setInterval(function () { sec = sec > 1 ? sec - 1 : 60; exp.textContent = sec + 's'; }, 1000);
+    }
+    function stop() { running = false; timers.forEach(clearTimeout); timers = []; clearInterval(tick); }
+    var inView = false;
+    new IntersectionObserver(function (e) { inView = e[0].isIntersecting; inView ? start() : stop(); }, { threshold: .3 }).observe(ph.closest('.lg-proto'));
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (inView) start(); });
+  })();
+
   if (reduce || !('IntersectionObserver' in window)) { document.documentElement.classList.remove('lg-anim'); return; }
 
   /* схема флоу: порядковый номер шага для каждого узла (ветки растут одновременно) */
