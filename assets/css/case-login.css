@@ -203,6 +203,76 @@
 .js-reveal .lg [data-rv] { opacity: 0; transform: translateY(24px); transition: opacity .45s ease var(--d, 0ms), transform .45s ease var(--d, 0ms); }
 .js-reveal .lg [data-rv].is-in { opacity: 1; transform: none; }
 
+
+/* ---------- анимации ---------- */
+@keyframes lg-up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes lg-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lg-rise { from { opacity: 0; transform: translateY(60px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes lg-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@keyframes lg-glow { 0%, 100% { box-shadow: 0 0 22px rgba(111, 227, 238, .25); } 50% { box-shadow: 0 0 34px rgba(111, 227, 238, .55); } }
+
+/* обложка: элементы появляются по очереди при загрузке */
+.lg-anim .lg-hero .lg-crumbs { animation: lg-fade .6s ease both .05s; }
+.lg-anim .lg-hero h1 .l1 { animation: lg-up .8s cubic-bezier(.2,.7,.2,1) both .1s; }
+.lg-anim .lg-hero h1 .l2 { display: inline-block; animation: lg-up .8s cubic-bezier(.2,.7,.2,1) both .22s; }
+.lg-anim .lg-hero .lg-tags li { animation: lg-up .6s ease both; }
+.lg-anim .lg-hero .lg-tags li:nth-child(1) { animation-delay: .38s; }
+.lg-anim .lg-hero .lg-tags li:nth-child(2) { animation-delay: .46s; }
+.lg-anim .lg-hero .lg-tags li:nth-child(3) { animation-delay: .54s; }
+.lg-anim .lg-hero__row > div:first-child { animation: lg-up .7s ease both .6s; }
+.lg-anim .lg-hero__visual { animation: lg-rise 1s cubic-bezier(.2,.7,.2,1) both .45s; }
+.lg-anim .lg-scroll span { animation: lg-bob 1.8s ease-in-out infinite 1.6s; }
+.lg-hero__visual { perspective: 1400px; }
+.lg-hero__visual img { transition: transform .5s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+
+/* паспорт: ячейки по очереди */
+.lg-anim.js-reveal .lg-passport dl > div { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.lg-anim.js-reveal .lg-passport dl.is-in > div { opacity: 1; transform: none; }
+.lg-passport dl > div:nth-child(2) { transition-delay: .07s; }
+.lg-passport dl > div:nth-child(3) { transition-delay: .14s; }
+.lg-passport dl > div:nth-child(4) { transition-delay: .21s; }
+.lg-passport dl > div:nth-child(5) { transition-delay: .28s; }
+
+/* карточки «было / стало»: пункты списка выезжают по очереди */
+.lg-anim.js-reveal .lg-tc li { opacity: 0; transform: translateX(-14px); transition: opacity .45s ease, transform .45s ease; }
+.lg-anim.js-reveal .lg-tc.is-in li { opacity: 1; transform: none; }
+.lg-tc li:nth-child(1) { transition-delay: .25s; }
+.lg-tc li:nth-child(2) { transition-delay: .35s; }
+.lg-tc li:nth-child(3) { transition-delay: .45s; }
+
+/* наведение */
+.lg-step, .lg-tc, .lg-stat { transition: transform .3s ease, box-shadow .3s ease; }
+.lg-step:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(40, 20, 120, .1); }
+.lg-tc:hover, .lg-stat:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(40, 20, 120, .1); }
+.lg-gallery figure { border-radius: 22px; overflow: hidden; }
+.lg-gallery img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.lg-gallery figure:hover img { transform: scale(1.035); }
+.lg-gallery figcaption { transition: transform .3s ease, background .3s ease; }
+.lg-gallery figure:hover figcaption { transform: translateY(-3px); background: var(--p-violet); }
+.lg-duo img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.lg-duo img:hover { transform: scale(1.015); }
+
+/* схема флоу: узлы проявляются сверху вниз, все три ветки одновременно */
+.lg-anim.js-reveal .lg-flow [data-st] { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; transition-delay: calc(var(--st) * 110ms + 150ms); }
+.lg-anim.js-reveal .lg-flow.is-in [data-st] { opacity: 1; transform: none; }
+.lg-flow.is-in .lg-node--q { animation: lg-glow 2.6s ease-in-out infinite 2s; }
+
+/* ключевые решения: номер подсвечивается при появлении */
+.lg-dec li .n { transition: background .4s ease .3s, box-shadow .4s ease .3s; }
+.lg-dec li.is-in .n { background: rgba(111, 227, 238, .16); box-shadow: 0 0 24px rgba(111, 227, 238, .25); }
+
+/* манифест: слова проявляются при прокрутке */
+.lg-manifest .w { transition: opacity .25s linear; }
+.lg-anim.js-reveal .lg-manifest .w { opacity: .18; }
+.lg-anim.js-reveal .lg-manifest .w.on { opacity: 1; }
+
+/* параллакс */
+[data-par] { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-step:hover, .lg-tc:hover, .lg-stat:hover, .lg-gallery figure:hover img, .lg-duo img:hover, .lg-gallery figure:hover figcaption { transform: none; }
+}
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .lg-hero__row { grid-template-columns: minmax(0, 1fr); }

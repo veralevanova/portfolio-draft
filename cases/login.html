@@ -20,7 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400002">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400003">
+  <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -42,7 +43,7 @@
     <section class="lg-hero">
       <div class="container">
         <p class="lg-crumbs"><a href="../index.html">Главная</a> / <a href="../index.html#projects">Проекты</a> / Вход и регистрация</p>
-        <h1><em>Редизайн входа и</em> регистрации</h1>
+        <h1><em class="l1">Редизайн входа и</em> <span class="l2">регистрации</span></h1>
         <ul class="lg-tags" aria-label="Теги"><li>UI/UX-дизайн</li><li>Web + Mobile</li><li>2025</li></ul>
         <div class="lg-hero__row">
           <div>
@@ -59,7 +60,7 @@
     <!-- Паспорт -->
     <section class="lg-passport" aria-label="Коротко о проекте">
       <div class="container">
-        <dl>
+        <dl data-rv>
           <div><dt>Клиент</dt><dd>Fintiba</dd></div>
           <div><dt>Индустрия</dt><dd>Финтех</dd></div>
           <div><dt>Роль</dt><dd>UI/UX-дизайнер</dd></div>
@@ -228,7 +229,7 @@
             <li data-rv><span class="n">03</span><div><h3>Полное покрытие сценариев</h3><p>Ошибки, восстановление пароля, email не найден — все состояния прописаны и задокументированы для разработки</p></div></li>
           </ol>
         </div>
-        <div class="lg-dec__phones">
+        <div class="lg-dec__phones" data-par="0.12">
           <img src="../assets/img/login/phones.webp" width="1574" height="1226" alt="Три экрана приложения: вход через Google, ввод кода из письма, ошибка пароля со счётчиком попыток" loading="lazy" data-zoom>
         </div>
       </div>
@@ -264,8 +265,8 @@
       <div class="container">
         <h2 class="lg-h2">Мобильное <em>приложение</em></h2>
         <p class="lg-sub">Те же сценарии в нативном приложении: выбор услуги для нового пользователя и подтверждение аккаунта кодом из письма с повторной отправкой.</p>
-        <div class="lg-mobile__img" data-rv>
-          <img src="../assets/img/login/mobile-app.webp" width="1630" height="1660" alt="Два телефона: экран ввода кода из письма и экран выбора услуги" loading="lazy">
+        <div class="lg-mobile__img" data-rv><div data-par="0.08">
+          <img src="../assets/img/login/mobile-app.webp" width="1630" height="1660" alt="Два телефона: экран ввода кода из письма и экран выбора услуги" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -336,6 +337,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/login.js?v=1793400002" defer></script>
+  <script src="../assets/js/login.js?v=1793400003" defer></script>
 </body>
 </html>

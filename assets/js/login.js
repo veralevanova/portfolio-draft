@@ -52,9 +52,41 @@
     }, { passive: true });
   }
 
-  if (reduce || !('IntersectionObserver' in window)) return;
+  if (reduce || !('IntersectionObserver' in window)) { document.documentElement.classList.remove('lg-anim'); return; }
 
-  /* появление при прокрутке */
+  /* схема флоу: порядковый номер шага для каждого узла (ветки растут одновременно) */
+  var flow = document.querySelector('.lg-flow');
+  if (flow) {
+    var k = 0;
+    $('.lg-flow__top > *', flow).forEach(function (el) { el.setAttribute('data-st', ''); el.style.setProperty('--st', k++); });
+    var down = flow.querySelector('.lg-flow__top + .lg-arrow');
+    if (down) { down.setAttribute('data-st', ''); down.style.setProperty('--st', k++); }
+    $('.lg-branch', flow).forEach(function (br) {
+      $(':scope > *', br).forEach(function (el, n) { el.setAttribute('data-st', ''); el.style.setProperty('--st', k + n); });
+    });
+  }
+
+  /* манифест: слова проявляются по мере прокрутки */
+  var man = document.querySelector('.lg-manifest p');
+  var words = [];
+  if (man) {
+    (function wrap(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (ch) {
+        if (ch.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var w = document.createElement('span'); w.className = 'w'; w.textContent = part; frag.appendChild(w); words.push(w);
+          });
+          node.replaceChild(frag, ch);
+        } else if (ch.nodeType === 1 && ch.tagName !== 'BR') wrap(ch);
+      });
+    })(man);
+    man.removeAttribute('data-rv');
+  }
+
+  /* появление при прокрутке; после появления атрибут снимаем, чтобы работали hover-эффекты */
   document.documentElement.classList.add('js-reveal');
   var cnt = new Map();
   var els = $('.lg [data-rv]');
@@ -63,9 +95,46 @@
     el.style.setProperty('--d', Math.min(n, 6) * 70 + 'ms'); cnt.set(g, n + 1);
   });
   var io = new IntersectionObserver(function (en) {
-    en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    en.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target; el.classList.add('is-in'); io.unobserve(el);
+      setTimeout(function () { el.removeAttribute('data-rv'); }, 1100);
+    });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+
+  /* прокрутка: параллакс телефонов и слова манифеста */
+  var pars = $('[data-par]');
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    var vh = window.innerHeight;
+    pars.forEach(function (el) {
+      var r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var mid = r.top + r.height / 2 - vh / 2;
+      // телефоны поднимаются на место, пока блок доезжает до центра экрана (вверх не уходят — снизу обрез)
+      el.style.transform = 'translate3d(0,' + Math.max(0, mid * parseFloat(el.getAttribute('data-par'))).toFixed(1) + 'px,0)';
+    });
+    if (words.length) {
+      var mr = man.getBoundingClientRect();
+      var p = (vh * 0.85 - mr.top) / (vh * 0.45);
+      var on = Math.round(Math.max(0, Math.min(1, p)) * words.length);
+      words.forEach(function (w, i) { w.classList.toggle('on', i < on); });
+    }
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener('resize', onScroll); onScroll();
+
+  /* обложка: лёгкий наклон картинки за курсором */
+  var hv = document.querySelector('.lg-hero__visual'), hi = hv && hv.querySelector('img');
+  if (hv && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    hv.addEventListener('mousemove', function (e) {
+      var r = hv.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      hi.style.transform = 'rotateY(' + (x * 6).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg) scale(1.01)';
+    });
+    hv.addEventListener('mouseleave', function () { hi.style.transform = ''; });
+  }
 
   /* счётчики результата */
   $('.lg [data-count]').forEach(function (el) {
