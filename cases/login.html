@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Редизайн входа и регистрации Fintiba — Вера Леванова</title>
+  <meta name="description" content="Кейс: новый флоу входа и регистрации Fintiba для веба и приложения — вход через Google, три пути по статусу аккаунта и автопереход в обязательный онбординг.">
+  <meta property="og:title" content="Редизайн входа и регистрации Fintiba — кейс Веры Левановой">
+  <meta property="og:description" content="Без тупиков для каждого статуса аккаунта: вход через Google, понятные ошибки и автопереход в онбординг.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://veralevanova.github.io/assets/img/login/og-login.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://veralevanova.github.io/cases/login.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://veralevanova.github.io/cases/login.html">
+  <meta name="theme-color" content="#0a0a12">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400001">
+</head>
+<body class="lg-page">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">Вера Леванова</a>
+      <nav class="nav-pill" aria-label="Основная навигация">
+        <a href="../index.html#projects" aria-current="page">Проекты</a>
+        <a href="../index.html#about">Обо мне</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="lg">
+
+    <!-- Обложка -->
+    <section class="lg-hero">
+      <div class="container">
+        <p class="lg-crumbs"><a href="../index.html">Главная</a> / <a href="../index.html#projects">Проекты</a> / Вход и регистрация</p>
+        <h1><em>Редизайн входа и</em> регистрации</h1>
+        <ul class="lg-tags" aria-label="Теги"><li>UI/UX-дизайн</li><li>Web + Mobile</li><li>2025</li></ul>
+        <div class="lg-hero__row">
+          <div>
+            <p class="lg-hero__lead"><em>Без тупиков</em> для каждого статуса аккаунта</p>
+            <a class="lg-scroll" href="#flow">Листайте к флоу <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="lg-hero__visual">
+            <img src="../assets/img/login/hero.webp" width="1520" height="700" alt="Ноутбук с экраном подтверждения аккаунта: ввод кода из письма и сообщение об ошибке" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Паспорт -->
+    <section class="lg-passport" aria-label="Коротко о проекте">
+      <div class="container">
+        <dl>
+          <div><dt>Клиент</dt><dd>Fintiba</dd></div>
+          <div><dt>Индустрия</dt><dd>Финтех</dd></div>
+          <div><dt>Роль</dt><dd>UI/UX-дизайнер</dd></div>
+          <div><dt>Платформы</dt><dd>Web + Mobile</dd></div>
+          <div><dt>Год</dt><dd>2025</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- О проекте -->
+    <section class="lg-about">
+      <div class="container">
+        <div class="grid">
+          <p class="lg-label">О проекте</p>
+          <p class="big" data-rv><em>Fintiba</em> — финансовая платформа для переезда в Германию: блокированный счёт, страховка, а в дальнейшем и открытие банковского счёта. Я спроектировала новый флоу входа и регистрации для веба и мобильного приложения.</p>
+        </div>
+        <div class="grid row2">
+          <p class="lg-label">Команда</p>
+          <p class="team" data-rv>Вела дизайн всего флоу для веба и мобильного приложения, включая ошибки и восстановление пароля. Сеньор-дизайнер и продакт-оунер ревьюили решения. Проект сделан до появления дизайн-системы, поэтому экраны в прежнем визуальном стиле продукта.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ключевые изменения -->
+    <section class="lg-visuals">
+      <div class="container">
+        <div class="lg-head">
+          <p class="lg-label">Ключевые изменения</p>
+          <p class="lead">Вход через Google и понятные ошибки — два главных изменения, которые убрали тупики на входе.</p>
+        </div>
+        <div class="lg-duo">
+          <img src="../assets/img/login/vis-chips.webp" width="1240" height="1000" alt="Три способа входа: Google, email и пароль" loading="lazy" data-rv>
+          <img src="../assets/img/login/vis-phone.webp" width="1140" height="1000" alt="Телефон с экраном ввода кода и подсказкой об ошибке" loading="lazy" data-rv>
+        </div>
+      </div>
+    </section>
+
+    <!-- Главный экран: переключатель статусов -->
+    <section class="lg-main" aria-labelledby="sw-title">
+      <div class="container">
+        <h2 id="sw-title" class="lg-label" style="margin-bottom:20px">Один вход — три статуса аккаунта</h2>
+        <div class="lg-switch" data-rv>
+          <img class="lg-switch__base" src="../assets/img/login/main-card.webp" width="2400" height="1662" alt="" loading="lazy">
+          <div class="lg-switch__screen" id="sw-screen" role="tabpanel" aria-live="polite">
+            <img class="is-on" src="../assets/img/login/state-1.webp" width="1580" height="1120" alt="Экран выбора услуги для нового пользователя" loading="lazy">
+            <img src="../assets/img/login/state-2.webp" width="1580" height="1120" alt="Экран ввода кода из письма с таймером" loading="lazy">
+            <img src="../assets/img/login/state-3.webp" width="1580" height="1120" alt="Экран ввода пароля со счётчиком попыток" loading="lazy">
+          </div>
+          <div class="lg-seg" role="tablist" aria-label="Статус аккаунта">
+            <button type="button" role="tab" aria-selected="true" aria-controls="sw-screen">Нет аккаунта</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="sw-screen" tabindex="-1">Не активирован</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="sw-screen" tabindex="-1">Активирован</button>
+          </div>
+        </div>
+        <p class="lg-switch__cap" id="sw-cap"><b>Нет аккаунта:</b> выбор услуги → Blocked Account и онбординг</p>
+      </div>
+    </section>
+
+    <!-- Задача и решение -->
+    <section class="lg-task">
+      <div class="container">
+        <h2 class="lg-h2"><em>Задача</em> и решение</h2>
+        <div class="lg-pair">
+          <article class="lg-tc lg-tc--before" data-rv>
+            <span class="lg-pill">Было</span>
+            <h3><em>Флоу</em> с тупиками</h3>
+            <p>Новый пользователь регистрировался и оставался без следующего шага, а часть сценариев не была описана. Это снижало конверсию.</p>
+            <ul>
+              <li><i aria-hidden="true">✕</i>Нет входа через Google</li>
+              <li><i aria-hidden="true">✕</i>Нет перехода в обязательный онбординг</li>
+              <li><i aria-hidden="true">✕</i>Ошибки и восстановление пароля не описаны</li>
+            </ul>
+          </article>
+          <article class="lg-tc lg-tc--after" data-rv>
+            <span class="lg-pill">Стало</span>
+            <h3><em>Три</em> понятных пути</h3>
+            <p>Флоу ведёт по одному из трёх путей в зависимости от статуса аккаунта — для веба и мобильного приложения.</p>
+            <ul>
+              <li><i aria-hidden="true">✓</i>Вход через Google в один клик</li>
+              <li><i aria-hidden="true">✓</i>Автопереход в обязательный онбординг</li>
+              <li><i aria-hidden="true">✓</i>Все состояния описаны для разработки</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Процесс -->
+    <section class="lg-process">
+      <div class="container">
+        <h2 class="lg-h2"><em>Процесс</em></h2>
+        <div class="lg-steps">
+          <article class="lg-step" data-rv>
+            <img src="../assets/img/login/proc-1.webp" width="680" height="340" alt="" loading="lazy">
+            <span class="num">1</span>
+            <h3>Сценарии</h3>
+            <ul><li>Карта всех статусов аккаунта</li><li>Ветки и развилки флоу</li><li>Вход через Google</li><li>Связка с обязательным онбордингом</li></ul>
+          </article>
+          <article class="lg-step" data-rv>
+            <img src="../assets/img/login/proc-2.webp" width="680" height="340" alt="" loading="lazy">
+            <span class="num">2</span>
+            <h3>Экраны и состояния</h3>
+            <ul><li>Экраны для веба и приложения</li><li>Состояния ошибок</li><li>Восстановление пароля</li><li>Модалка «Email не найден»</li></ul>
+          </article>
+          <article class="lg-step" data-rv>
+            <img src="../assets/img/login/proc-3.webp" width="680" height="340" alt="" loading="lazy">
+            <span class="num">3</span>
+            <h3>Ревью и передача</h3>
+            <ul><li>Ревью сеньора и продакт-оунера</li><li>Согласование решений с командой</li><li>Передача в разработку по этапам</li><li>Состояния описаны для разработки</li></ul>
+          </article>
+        </div>
+        <p class="lg-swipe">Листайте карточки вбок →</p>
+      </div>
+    </section>
+
+    <!-- Сценарий флоу -->
+    <section class="lg-flow-sec" id="flow">
+      <div class="container">
+        <div class="lg-head">
+          <h2 class="lg-h2"><em>Сценарий</em> флоу</h2>
+          <p class="lg-sub">После ввода email или входа через Google система проверяет аккаунт и ведёт пользователя по одному из трёх путей. Модалка «Email не найден» — ключевая развилка: из неё новый пользователь сразу попадает в обязательный онбординг.</p>
+        </div>
+        <div class="lg-flow" data-rv role="img" aria-label="Схема флоу: после ввода email или входа через Google проверяется статус аккаунта. Аккаунта нет — модалка «Email не найден», создание Blocked Account, обязательный онбординг. Не активирован — код из письма, проверка кода, аккаунт создан. Активирован — пароль, проверка пароля, вход в аккаунт.">
+          <div class="lg-flow__top">
+            <span class="lg-node">Email или вход через Google</span>
+            <span class="lg-arrow" aria-hidden="true">→</span>
+            <span class="lg-node lg-node--q">Статус аккаунта?</span>
+          </div>
+          <p class="lg-arrow" aria-hidden="true">↓</p>
+          <div class="lg-branches">
+            <div class="lg-branch">
+              <span class="btag">Аккаунта нет</span><span class="lg-arrow">↓</span>
+              <span class="lg-node">Модалка «Email не найден»</span><span class="lg-arrow">↓</span>
+              <span class="lg-node">Создать Blocked Account</span><span class="lg-arrow">↓</span>
+              <span class="lg-node lg-node--end">Обязательный онбординг</span>
+              <span class="bnote">Или ввести другой email</span>
+            </div>
+            <div class="lg-branch">
+              <span class="btag">Не активирован</span><span class="lg-arrow">↓</span>
+              <span class="lg-node">Код из письма</span><span class="lg-arrow">↓</span>
+              <span class="lg-node lg-node--q">Код верный?</span><span class="lg-arrow">↓</span>
+              <span class="lg-node lg-node--end">Аккаунт создан</span>
+              <span class="bnote">Нет → сообщение об ошибке, таймер 60 с, повторная отправка кода</span>
+            </div>
+            <div class="lg-branch">
+              <span class="btag">Активирован</span><span class="lg-arrow">↓</span>
+              <span class="lg-node">Пароль</span><span class="lg-arrow">↓</span>
+              <span class="lg-node lg-node--q">Пароль верный?</span><span class="lg-arrow">↓</span>
+              <span class="lg-node lg-node--end">Вход в аккаунт</span>
+              <span class="bnote">Нет → счётчик попыток до блокировки и восстановление пароля</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ключевые решения -->
+    <section class="lg-dec">
+      <div class="container">
+        <div class="lg-dec__text">
+          <p class="lg-label">Ключевые решения</p>
+          <h2>Три решения, <br>которые <em>изменили флоу</em></h2>
+          <ol>
+            <li data-rv><span class="n">01</span><div><h3>Вход через Google</h3><p>Убрали барьер регистрации: один клик вместо заполнения формы</p></div></li>
+            <li data-rv><span class="n">02</span><div><h3>Автопереход в онбординг</h3><p>Новый пользователь сразу попадает в обязательный флоу открытия счёта — раньше это был тупик</p></div></li>
+            <li data-rv><span class="n">03</span><div><h3>Полное покрытие сценариев</h3><p>Ошибки, восстановление пароля, email не найден — все состояния прописаны и задокументированы для разработки</p></div></li>
+          </ol>
+        </div>
+        <div class="lg-dec__phones">
+          <img src="../assets/img/login/phones.webp" width="1574" height="1226" alt="Три экрана приложения: вход через Google, ввод кода из письма, ошибка пароля со счётчиком попыток" loading="lazy" data-zoom>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ключевые экраны -->
+    <section class="lg-screens">
+      <div class="container">
+        <div class="lg-head">
+          <h2 class="lg-h2">Ключевые <em>экраны</em></h2>
+          <p class="lg-sub">Каждое состояние флоу продумано: основной путь, подтверждение кодом, ошибки и модалка «Email не найден», которая ведёт в онбординг. Продукт англоязычный, поэтому экраны на английском.</p>
+        </div>
+        <div class="lg-gallery">
+          <figure data-rv><img src="../assets/img/login/scr-1.webp" width="760" height="950" alt="Экран входа: продолжить через Google или ввести email" loading="lazy" data-zoom><figcaption>Ввод email или Google</figcaption></figure>
+          <figure data-rv><img src="../assets/img/login/scr-2.webp" width="760" height="950" alt="Экран активации аккаунта: ввод кода из письма" loading="lazy" data-zoom><figcaption>Код из письма</figcaption></figure>
+          <figure data-rv><img src="../assets/img/login/scr-3.webp" width="760" height="950" alt="Экран активации аккаунта с сообщением о неверном коде" loading="lazy" data-zoom><figcaption>Неверный код</figcaption></figure>
+          <figure data-rv><img src="../assets/img/login/scr-4.webp" width="760" height="950" alt="Экран входа: ввод пароля" loading="lazy" data-zoom><figcaption>Ввод пароля</figcaption></figure>
+          <figure data-rv><img src="../assets/img/login/scr-5.webp" width="760" height="950" alt="Модальное окно «Email Not Found»: создать Blocked Account или ввести другой email" loading="lazy" data-zoom><figcaption>Email не найден → онбординг</figcaption></figure>
+          <figure data-rv><img src="../assets/img/login/scr-6.webp" width="760" height="950" alt="Экран выбора услуги: открыть Blocked Account или получить консультацию" loading="lazy" data-zoom><figcaption>Выбор услуги</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Манифест -->
+    <section class="lg-manifest" aria-label="Главная мысль">
+      <div class="container">
+        <p data-rv><em>Вход</em>, который ведёт дальше, <br><span class="dim">а не обрывается <em>на ошибке.</em></span></p>
+      </div>
+    </section>
+
+    <!-- Мобильное приложение -->
+    <section class="lg-mobile">
+      <div class="container">
+        <h2 class="lg-h2">Мобильное <em>приложение</em></h2>
+        <p class="lg-sub">Те же сценарии в нативном приложении: выбор услуги для нового пользователя и подтверждение аккаунта кодом из письма с повторной отправкой.</p>
+        <div class="lg-mobile__img" data-rv>
+          <img src="../assets/img/login/mobile-app.webp" width="1630" height="1660" alt="Два телефона: экран ввода кода из письма и экран выбора услуги" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Результат -->
+    <section class="lg-result">
+      <div class="container">
+        <div class="top">
+          <h2 class="lg-h2"><em>Результат</em></h2>
+          <div class="lg-stats">
+            <div class="lg-stat" data-rv><span class="big" data-count>3</span><span class="k">Сценария</span><p>По одному пути на каждый статус аккаунта.</p></div>
+            <div class="lg-stat" data-rv><span class="big" data-count>22</span><span class="k">Экрана для веба</span><p>Включая ошибки и восстановление пароля.</p></div>
+            <div class="lg-stat" data-rv><span class="big" data-count>15</span><span class="k">Экранов приложения</span><p>Те же сценарии в нативном приложении.</p></div>
+            <div class="lg-stat" data-rv><span class="big" data-count>4</span><span class="k">Версии флоу</span><p>V1–V3 поэтапно, V4 — полная версия.</p></div>
+          </div>
+        </div>
+        <div class="lg-takeaway" data-rv>
+          <p class="lg-label">Главный вывод</p>
+          <p>Флоу внедряли поэтапно: версии V1–V3 для разработки по шагам, V4 — полная версия со всеми сценариями и состояниями ошибок.</p>
+        </div>
+        <ul class="lg-checks">
+          <li>Решения согласованы с сеньор-дизайнером и продакт-оунером</li>
+          <li>Единый флоу для веба и мобильного приложения</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Подвал кейса -->
+  <section class="case-end" aria-label="Автор и другие кейсы">
+    <div class="case-end__bottom">
+      <div class="container">
+        <div class="case-end__owner">
+          <span class="case-end__ava" aria-hidden="true">ВЛ</span>
+          <div>
+            <p class="case-end__name">Вера Леванова</p>
+            <div class="case-end__btns"><a class="case-end__btn" href="mailto:veralevanova27@gmail.com">Написать</a><a class="case-end__btn case-end__btn--ghost" href="../index.html#projects">Все кейсы</a></div>
+          </div>
+        </div>
+        <ul class="case-end__grid" aria-label="Другие кейсы"><li><a class="case-end__card" href="transfers.html"><img src="../assets/img/cover-transfers.webp?v=1793110050" width="1156" height="800" alt="Обложка кейса «Fintiba: банковские переводы»" loading="lazy"><span><b>Fintiba: банковские переводы</b><small>Вера Леванова</small></span></a></li><li><a class="case-end__card" href="design-system.html"><img src="../assets/img/cover-ds.webp?v=1793110050" width="1156" height="800" alt="Обложка кейса «Дизайн-система»" loading="lazy"><span><b>Дизайн-система</b><small>Вера Леванова</small></span></a></li><li><a class="case-end__card" href="onboarding.html"><img src="../assets/img/cover-onb.webp?v=1793200008" width="1156" height="800" alt="Обложка кейса «Онбординг Fintiba»" loading="lazy"><span><b>Онбординг Fintiba</b><small>Вера Леванова</small></span></a></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contacts" id="contacts">
+    <div class="container">
+      <div class="contact-card">
+        <p class="eyebrow">Контакты</p>
+        <h2>Напишите мне</h2>
+        <div class="contact-actions">
+          <a class="btn btn--solid" href="mailto:veralevanova27@gmail.com">Email</a>
+          <a class="btn" href="https://t.me/verra_lv" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn" href="https://www.linkedin.com/in/vera-levanova-6b0aa3266" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <a class="orb" href="mailto:veralevanova27@gmail.com" aria-label="Написать на почту">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="site-footer">
+        <span>© 2026 Вера Леванова</span>
+        <a href="#main" style="text-decoration:none">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+  <button class="to-top" type="button" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
+  <script src="../assets/js/cases.js?v=1793200010" defer></script>
+  <script src="../assets/js/login.js?v=1793400001" defer></script>
+</body>
+</html>
