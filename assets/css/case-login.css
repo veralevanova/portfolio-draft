@@ -182,7 +182,7 @@
 /* ---------- мобильное приложение ---------- */
 .lg-mobile { padding: 90px 0 40px; overflow: hidden; }
 .lg-mobile .lg-sub { margin-top: 28px; }
-.lg-mobile__img { margin: 0 auto; max-width: 815px; }
+.lg-mobile__img { margin: 0 auto; max-width: 600px; }
 
 /* ---------- результат ---------- */
 .lg-result { padding: 60px 0 110px; }
