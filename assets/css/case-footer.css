@@ -6,8 +6,9 @@
 
 /* другие кейсы */
 .lg-more { background: var(--bg, #0a0d12); color: #fff; padding: 90px 0 100px; font-family: var(--font); }
-.lg-more__h { font-size: clamp(38px, 4vw, 56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
-.lg-more__h em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; }
+/* в тёмных кейсах заголовки без курсива — жирный Manrope, как остальные h2 */
+.lg-more__h { font-size: clamp(36px, 4vw, 52px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+.lg-more__h em { font-style: normal; }
 .lg-more__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 46px 0 0; padding: 0; list-style: none; }
 .lg-more__grid > li { display: flex; }
 .lg-more__card { display: flex; flex-direction: column; width: 100%; color: #fff; text-decoration: none; }
@@ -27,7 +28,7 @@
 }
 
 /* контакты: метка без капса, шар над заголовком, пульс, стрелка при наведении */
-.contact-card .eyebrow, .theme-dark .contact-card .eyebrow { color: var(--cf-accent); text-transform: none; letter-spacing: 0; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.2; }
+.contact-card .eyebrow, .theme-dark .contact-card .eyebrow { color: var(--cf-accent); text-transform: none; letter-spacing: .02em; font-size: 17px; font-weight: 600; line-height: 1.3; }
 .contact-card .orb { z-index: 2; animation: cf-orb-pulse 2.4s ease-out infinite; }
 .contact-card .orb svg { width: 68px; height: 68px; transition: transform .3s var(--cf-ease); }
 .contact-card .orb:hover svg, .contact-card .orb:focus-visible svg { transform: translate(6px, -6px) scale(1.15); }
