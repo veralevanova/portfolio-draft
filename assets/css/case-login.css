@@ -594,3 +594,18 @@
 .lg-process::before { right: -180px; top: 40px; width: 620px; height: 520px; background: radial-gradient(closest-side, rgba(123, 92, 245, .16), transparent); }
 .lg-result::before { left: -200px; bottom: -120px; width: 680px; height: 560px; background: radial-gradient(closest-side, rgba(123, 92, 245, .14), transparent); }
 @media (max-width: 860px) { .lg-task, .lg-process { padding-top: 56px; } .lg-process::before, .lg-result::before { width: 380px; height: 340px; } }
+
+/* обложка: широкая плашка с ноутбуком и знаком Fintiba, подзаголовок поверх плашки слева */
+.lg-hero { padding-top: 140px; }
+.lg-hero h1 { margin-top: 24px; }
+.lg-hero__row { display: block; position: relative; margin-top: 40px; border-radius: 40px; overflow: hidden; }
+.lg-hero__row > div:first-child { position: absolute; left: 64px; bottom: 60px; z-index: 1; max-width: 420px; }
+.lg-hero__visual { perspective: none; }
+.lg-hero__visual img { display: block; width: 100%; height: auto; transform: none; will-change: auto; }
+@media (max-width: 1100px) { .lg-hero__row > div:first-child { left: 40px; bottom: 40px; max-width: 280px; } .lg-hero__lead { font-size: 28px; } }
+@media (max-width: 860px) {
+  .lg-hero__row { overflow: visible; border-radius: 0; margin-top: 28px; }
+  .lg-hero__row > div:first-child { position: static; max-width: none; margin-bottom: 20px; }
+  .lg-hero__visual { border-radius: 24px; overflow: hidden; }
+  .lg-hero__visual img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 78% 50%; }
+}
