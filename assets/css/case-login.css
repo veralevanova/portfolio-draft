@@ -441,6 +441,15 @@
 .lg-sign__me b { color: #fff; font-weight: 600; }
 .lg-sign__ava { width: 36px; height: 36px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #5b3fd9, #7b5cf5); }
 
+
+/* кнопка-шар в контактах: стрелка «зовёт» по диагонали, шар мягко пульсирует */
+@keyframes lg-arrow-nudge { 0%, 55%, 100% { transform: translate(0, 0); } 25% { transform: translate(5px, -5px); } }
+@keyframes lg-orb-pulse { 0% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, .45); } 70% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 26px rgba(155, 120, 245, 0); } 100% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, 0); } }
+.lg-page .orb { animation: lg-orb-pulse 2.4s ease-out infinite; }
+.lg-page .orb svg { animation: lg-arrow-nudge 2.4s var(--ease) infinite; }
+.lg-page .orb:hover svg { animation-duration: 1.2s; }
+@media (prefers-reduced-motion: reduce) { .lg-page .orb, .lg-page .orb svg { animation: none; } }
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .lg-hero__row { grid-template-columns: minmax(0, 1fr); }
