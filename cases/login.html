@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400011">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400012">
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
@@ -289,10 +289,16 @@
       <div class="container">
         <h2 class="lg-h2">Мобильное <em>приложение</em></h2>
         <p class="lg-sub">Те же сценарии в нативном приложении: выбор услуги для нового пользователя и подтверждение аккаунта кодом из письма с повторной отправкой.</p>
-        <div class="lg-mobile__img lg-duo-ph" role="img" aria-label="Два телефона: экран ввода кода из письма и экран выбора услуги">
-          <img class="lg-duo-ph__bg" src="../assets/img/login/mob-bg.webp" width="1630" height="1790" alt="" loading="lazy">
-          <img class="lg-duo-ph__s" src="../assets/img/login/mob-silver.webp" width="1134" height="1540" alt="" loading="lazy">
-          <img class="lg-duo-ph__b" src="../assets/img/login/mob-black.webp" width="944" height="1424" alt="" loading="lazy">
+        <div class="lg-mcard" data-rv>
+          <div class="lg-duo-ph" role="img" aria-label="Два телефона: экран ввода кода из письма с повторной отправкой и экран выбора услуги">
+            <img class="lg-duo-ph__sizer" src="../assets/img/login/mob-bg.webp" width="1630" height="1790" alt="" aria-hidden="true">
+            <img class="lg-duo-ph__s" src="../assets/img/login/mob-silver.webp" width="1134" height="1540" alt="" loading="lazy">
+            <img class="lg-duo-ph__b" src="../assets/img/login/mob-black.webp" width="944" height="1424" alt="" loading="lazy">
+            <span class="lg-call lg-call--l" style="--x:27%;--y:37.6%;--i:0"><i></i>Код из 4 цифр</span>
+            <span class="lg-call lg-call--l" style="--x:28.6%;--y:47.3%;--i:1"><i></i>Повторная отправка кода</span>
+            <span class="lg-call lg-call--r" style="--x:50.5%;--y:42.6%;--len:190px;--i:2"><i></i>Выбор услуги</span>
+            <span class="lg-call lg-call--r" style="--x:41%;--y:75.6%;--len:250px;--i:3"><i></i>Вход в существующий аккаунт</span>
+          </div>
         </div>
       </div>
     </section>
@@ -363,6 +369,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/login.js?v=1793400011" defer></script>
+  <script src="../assets/js/login.js?v=1793400012" defer></script>
 </body>
 </html>

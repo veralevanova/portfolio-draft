@@ -188,6 +188,8 @@
       p = Math.max(0, Math.min(1, p));
       var e = 1 - Math.pow(1 - p, 3);
       duo.style.setProperty('--q', (1 - e).toFixed(3));
+      // выноски появляются, когда телефоны раскрылись
+      if (e > .92) duo.classList.add('is-open');
     }
     duo.style.setProperty('--q', '1');
     window.addEventListener('scroll', function () { if (!tk) { tk = true; requestAnimationFrame(upd); } }, { passive: true });
