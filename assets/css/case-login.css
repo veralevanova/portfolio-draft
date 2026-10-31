@@ -446,7 +446,8 @@
 @keyframes lg-orb-pulse { 0% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, .45); } 70% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 26px rgba(155, 120, 245, 0); } 100% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, 0); } }
 .lg-page .orb { animation: lg-orb-pulse 2.4s ease-out infinite; }
 .lg-page .orb { z-index: 2; } /* заголовок «Напишите мне» перекрывал шар, и клик по центру не срабатывал */
-.lg-page .orb svg { transition: transform var(--fast) var(--ease); }
+.lg-page .orb svg { width: 68px; height: 68px; transition: transform var(--fast) var(--ease); }
+@media (max-width: 860px) { .lg-page .orb svg { width: 48px; height: 48px; } }
 .lg-page .orb:hover svg, .lg-page .orb:focus-visible svg { transform: translate(6px, -6px) scale(1.15); }
 @media (prefers-reduced-motion: reduce) { .lg-page .orb { animation: none; } .lg-page .orb svg { transition: none; } }
 
