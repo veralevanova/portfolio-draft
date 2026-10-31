@@ -28,7 +28,8 @@
       clearTimeout(select.t); select.t = setTimeout(function () { prev.classList.remove('is-prev'); }, 300);
     }
     shots[i].classList.add('is-on');
-    if (cap) cap.innerHTML = caps[i];
+    if (cap) cap.innerHTML = caps[i] + ' <a class="lg-switch__link" href="#flow">Смотреть на схеме ↓</a>';
+    if (window.lgFlowSelect) window.lgFlowSelect(i);
     if (focus) tabs[i].focus();
   }
   tabs.forEach(function (t, i) {
@@ -83,6 +84,66 @@
     var inView = false;
     new IntersectionObserver(function (e) { inView = e[0].isIntersecting; inView ? start() : stop(); }, { threshold: .3 }).observe(ph.closest('.lg-proto'));
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (inView) start(); });
+  })();
+
+  /* схема флоу: «пользователь» (светящаяся точка) идёт от входа по одной из трёх веток.
+     Вкладка переключателя под ноутбуком выбирает ветку. */
+  (function () {
+    var fl = document.querySelector('.lg-flow'); if (!fl) return;
+    var branches = $('.lg-branch', fl);
+    var top = $('.lg-flow__top .lg-node', fl);
+    var sel = 0;
+    function mark(i) { branches.forEach(function (b, j) { b.classList.toggle('is-sel', j === i); }); }
+    mark(sel);
+    var dot = null, runId = 0, inView = false, ready = false;
+    window.lgFlowSelect = function (i) { sel = i; mark(i); if (dot && inView && ready) run(i); };
+    if (reduce || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
+    dot = document.createElement('span'); dot.className = 'lg-dot'; dot.setAttribute('aria-hidden', 'true'); fl.appendChild(dot);
+    function pt(el) { var r = el.getBoundingClientRect(), f = fl.getBoundingClientRect(); return [r.left - f.left + r.width / 2, r.top - f.top + r.height / 2]; }
+    function hit(el) { el.classList.remove('is-hit'); void el.offsetWidth; el.classList.add('is-hit'); }
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+    function move(a, b, ms) {
+      return dot.animate([{ transform: 'translate(' + a[0] + 'px,' + a[1] + 'px)' }, { transform: 'translate(' + b[0] + 'px,' + b[1] + 'px)' }],
+        { duration: ms, easing: 'cubic-bezier(.45,0,.25,1)', fill: 'forwards' }).finished;
+    }
+    function run(i) {
+      var id = ++runId;
+      var alive = function () { return id === runId && inView; };
+      fl.classList.add('is-run');
+      branches.forEach(function (b, j) { b.classList.toggle('is-path', j === i); });
+      var br = branches[i];
+      var stops = top.concat([br.querySelector('.btag')], $('.lg-node', br));
+      var pts = stops.map(pt);
+      dot.classList.add('is-on');
+      var chain = move(pts[0], pts[0], 1).then(function () { hit(stops[0]); return wait(350); });
+      for (var k = 1; k < stops.length; k++) {
+        (function (k) {
+          chain = chain.then(function () {
+            if (!alive()) throw 0;
+            // на телефоне ветки стоят друг под другом: чтобы точка не шла поверх чужой ветки, она «перепрыгивает»
+            var stacked = branches[1] && branches[1].offsetTop > branches[0].offsetTop + 10;
+            if (k === 2 && stacked && i > 0) {
+              dot.classList.remove('is-on');
+              return wait(350).then(function () { return move(pts[k], pts[k], 1); }).then(function () { dot.classList.add('is-on'); return wait(300); });
+            }
+            return move(pts[k - 1], pts[k], k === 2 ? 700 : 520);
+          })
+                       .then(function () { if (!alive()) throw 0; hit(stops[k]); return wait(stops[k].classList.contains('lg-node--q') ? 650 : 280); });
+        })(k);
+      }
+      chain.then(function () { return wait(1400); })
+           .then(function () { if (!alive()) throw 0; dot.classList.remove('is-on'); return wait(500); })
+           .then(function () { if (!alive()) throw 0; run((i + 1) % branches.length); })
+           .catch(function () {});
+    }
+    function stop() { runId++; dot.classList.remove('is-on'); fl.classList.remove('is-run'); branches.forEach(function (b) { b.classList.remove('is-path'); }); }
+    new IntersectionObserver(function (e) {
+      inView = e[0].isIntersecting;
+      if (!inView) { stop(); return; }
+      // ждём, пока узлы схемы проявятся, потом запускаем «пользователя» с выбранной ветки
+      setTimeout(function () { ready = true; if (inView) run(sel); }, ready ? 300 : 2300);
+    }, { threshold: .35 }).observe(fl);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (inView && ready) run(sel); });
   })();
 
   if (reduce || !('IntersectionObserver' in window)) { document.documentElement.classList.remove('lg-anim'); return; }
