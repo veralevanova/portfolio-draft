@@ -47,7 +47,7 @@
 .lg-crumbs a:hover { text-decoration: underline; }
 .lg-hero h1 { margin-top: 32px; text-align: center; font-size: clamp(44px, 6.4vw, 84px); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; }
 .lg-hero h1 em { display: block; font-weight: 400; }
-.lg-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 28px; }
+.lg-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 44px; }
 .lg-tags li { font-size: 15px; font-weight: 500; padding: 10px 26px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); }
 .lg-hero__row { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 760px); justify-content: space-between; align-items: end; gap: 40px; margin-top: 48px; }
 .lg-hero__lead { font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.14; letter-spacing: -0.02em; }
