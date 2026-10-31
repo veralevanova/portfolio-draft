@@ -453,13 +453,18 @@
 
 
 /* --- ревью: метка контактов в гамме кейса, без капса --- */
-.lg-page .contact-card .eyebrow { color: #b9a8ff; text-transform: none; letter-spacing: 0; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; }
+.lg-page .contact-card .eyebrow { color: #b9a8ff; text-transform: none; letter-spacing: .02em; font-family: var(--font); font-style: normal; font-weight: 600; font-size: 17px; line-height: 1.3; }
 
 /* процесс: пункты выровнены влево */
 .lg-step li { text-align: left; padding-left: 18px; padding-right: 18px; }
 
-/* ключевые решения: телефоны не уезжают за край */
+/* ключевые решения: телефоны крупнее, больше воздуха от текста, не уезжают за край экрана */
 .lg-dec__phones { margin-right: 0; }
+@media (min-width: 1101px) {
+  .lg-dec .container { grid-template-columns: minmax(0, 500px) minmax(0, 1fr); gap: 88px; }
+  .lg-dec__phones { margin-right: clamp(-80px, calc(624px - 50vw), 0px); }
+  .lg-dec__phones img { max-width: none; }
+}
 
 /* схема флоу — светлая карточка, чтобы разбить череду тёмно-фиолетовых блоков */
 .lg-flow { background: linear-gradient(180deg, #f7f6fd 0%, #ece7fd 100%); color: var(--p-ink); border: 1px solid #e3ddfa; }
