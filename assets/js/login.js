@@ -58,7 +58,8 @@
     var ph = document.querySelector('.lg-ph'); if (!ph) return;
     var boxes = $('.lg-ph__code span', ph), code = ph.querySelector('.lg-ph__code');
     var err = ph.querySelector('.lg-ph__err'), btn = ph.querySelector('.lg-ph__btn'), exp = ph.querySelector('.lg-ph__exp b');
-    var digits = ['9', '2', '5', '1'];
+    var bad = ['9', '2', '5', '1'], good = ['7', '3', '8', '4'], digits = bad;
+    var okScr = ph.querySelector('.lg-ph__ok');
     function setErr(on) { err.classList.toggle('is-on', on); boxes.forEach(function (b) { b.classList.toggle('is-err', on); }); }
     function fill(n) { boxes.forEach(function (b, i) { b.firstChild && b.removeChild(b.firstChild); if (i < n) b.appendChild(document.createTextNode(digits[i])); b.classList.toggle('is-focus', i === n && n < 4); }); btn.classList.toggle('is-on', n === 4); }
     // статичное состояние (без анимации): введённый код и ошибка, как в макете
@@ -66,15 +67,22 @@
     fill(0);
     var sec = 60, timers = [], running = false, tick = null;
     function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
+    function type(t0) { digits.forEach(function (d, i) { at(t0 + i * 420, function () { fill(i + 1); }); }); return t0 + 4 * 420 + 500; }
+    // попытка 1: неверный код → ошибка; попытка 2: верный код → «Welcome To Fintiba»; затем сначала
     function cycle() {
       timers.forEach(clearTimeout); timers = [];
-      setErr(false); fill(0);
-      var t = 700;
-      digits.forEach(function (d, i) { at(t + i * 420, function () { fill(i + 1); }); });
-      t += 4 * 420 + 500;
+      okScr.classList.remove('is-on'); boxes.forEach(function (b) { b.classList.remove('is-ok'); });
+      digits = bad; setErr(false); fill(0);
+      var t = type(700);
       at(t, function () { btn.classList.add('is-press'); });
       at(t + 180, function () { btn.classList.remove('is-press'); setErr(true); code.classList.remove('is-shake'); void code.offsetWidth; code.classList.add('is-shake'); });
-      at(t + 3400, function () { cycle(); });
+      t += 2600;
+      at(t, function () { digits = good; setErr(false); fill(0); });
+      t = type(t + 400);
+      at(t, function () { btn.classList.add('is-press'); });
+      at(t + 180, function () { btn.classList.remove('is-press'); boxes.forEach(function (b) { b.classList.add('is-ok'); }); });
+      at(t + 650, function () { okScr.classList.add('is-on'); });
+      at(t + 4200, function () { cycle(); });
     }
     function start() {
       if (running) return; running = true; cycle();
