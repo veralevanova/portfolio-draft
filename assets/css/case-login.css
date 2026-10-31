@@ -424,6 +424,12 @@
   .lg-call[style*="--i:3"] { display: none; }
 }
 
+
+/* кнопка «Наверх» — в фиолетовой гамме кейса */
+.lg-page .to-top { background: linear-gradient(135deg, #5b3fd9, #7b5cf5); box-shadow: 0 10px 24px rgba(91, 63, 217, .35); }
+.lg-page .to-top:hover { box-shadow: 0 14px 30px rgba(91, 63, 217, .5); }
+.lg-page .to-top:focus-visible { outline-color: #b9a8ff; }
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .lg-hero__row { grid-template-columns: minmax(0, 1fr); }
