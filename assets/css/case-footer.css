@@ -1,0 +1,42 @@
+/* ==========================================================
+   Общий подвал кейсов: «Другие кейсы», контакты, подпись.
+   Цвет акцента задаётся --cf-accent / --cf-ava (бирюзовый по умолчанию).
+   ========================================================== */
+:root { --cf-accent: #59d1e0; --cf-ava: linear-gradient(135deg, #0b5a72, #2aa5b4); --cf-ease: cubic-bezier(.2, .7, .2, 1); }
+
+/* другие кейсы */
+.lg-more { background: var(--bg, #0a0d12); color: #fff; padding: 90px 0 100px; font-family: var(--font); }
+.lg-more__h { font-size: clamp(38px, 4vw, 56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
+.lg-more__h em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; }
+.lg-more__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 46px 0 0; padding: 0; list-style: none; }
+.lg-more__grid > li { display: flex; }
+.lg-more__card { display: flex; flex-direction: column; width: 100%; color: #fff; text-decoration: none; }
+.lg-more__img { display: block; aspect-ratio: 388 / 269; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: #15151d; }
+.lg-more__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--cf-ease); }
+.lg-more__card:hover .lg-more__img img, .lg-more__card:focus-visible .lg-more__img img { transform: scale(1.04); }
+.lg-more__card h3 { margin-top: 30px; font-size: 26px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; transition: color .3s; }
+.lg-more__card:hover h3 { color: var(--cf-accent); }
+.lg-more__card p { flex: 1 0 auto; margin-top: 14px; font-size: 15px; font-weight: 500; line-height: 1.45; color: rgba(255,255,255,.85); max-width: 348px; }
+.lg-more__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; padding-top: 6px; }
+.lg-more__tags span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.85); background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 12px; }
+@media (max-width: 860px) {
+  .lg-more { padding: 56px 0 64px; }
+  .lg-more__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; margin-top: 28px; }
+  .lg-more__img { border-radius: 22px; }
+  .lg-more__card h3 { margin-top: 18px; font-size: 22px; }
+}
+
+/* контакты: метка без капса, шар над заголовком, пульс, стрелка при наведении */
+.contact-card .eyebrow, .theme-dark .contact-card .eyebrow { color: var(--cf-accent); text-transform: none; letter-spacing: 0; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.2; }
+.contact-card .orb { z-index: 2; animation: cf-orb-pulse 2.4s ease-out infinite; }
+.contact-card .orb svg { width: 68px; height: 68px; transition: transform .3s var(--cf-ease); }
+.contact-card .orb:hover svg, .contact-card .orb:focus-visible svg { transform: translate(6px, -6px) scale(1.15); }
+@keyframes cf-orb-pulse { 0% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, .45); } 70% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 26px rgba(155, 120, 245, 0); } 100% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, 0); } }
+@media (max-width: 860px) { .contact-card .orb svg { width: 48px; height: 48px; } }
+@media (prefers-reduced-motion: reduce) { .contact-card .orb { animation: none; } .contact-card .orb svg { transition: none; } }
+
+/* подпись в подвале */
+.lg-sign { align-items: center; }
+.lg-sign__me { display: inline-flex; align-items: center; gap: 12px; }
+.lg-sign__me b { color: #fff; font-weight: 600; }
+.lg-sign__ava { width: 36px; height: 36px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #fff; background: var(--cf-ava); }

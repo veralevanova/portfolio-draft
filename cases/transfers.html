@@ -18,9 +18,10 @@
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793304400">
   <link rel="stylesheet" href="../assets/css/case-dark.css?v=1793300027">
+  <link rel="stylesheet" href="../assets/css/case-footer.css?v=1793400031">
 </head>
 <body class="theme-dark tr-case">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -299,19 +300,30 @@
     </section>
   </main>
 
-  <!-- Подвал кейса -->
-  <section class="case-end" aria-label="Автор и другие кейсы">
-    <div class="case-end__bottom">
-      <div class="container">
-        <div class="case-end__owner">
-          <span class="case-end__ava" aria-hidden="true">ВЛ</span>
-          <div>
-            <p class="case-end__name">Вера Леванова</p>
-            <div class="case-end__btns"><a class="case-end__btn" href="mailto:veralevanova27@gmail.com">Написать</a><a class="case-end__btn case-end__btn--ghost" href="../index.html#projects">Все кейсы</a></div>
-          </div>
-        </div>
-        <ul class="case-end__grid" aria-label="Другие кейсы"><li><a class="case-end__card" href="design-system.html"><img src="../assets/img/cover-ds.webp?v=1793110050" width="1156" height="800" alt="Обложка кейса «Дизайн-система»" loading="lazy"><span><b>Дизайн-система</b><small>Вера Леванова</small></span></a></li><li><a class="case-end__card" href="onboarding.html"><img src="../assets/img/cover-onb.webp?v=1793110050" width="1156" height="800" alt="Обложка кейса «Онбординг Fintiba»" loading="lazy"><span><b>Онбординг Fintiba</b><small>Вера Леванова</small></span></a></li><li><a class="case-end__card" href="login.html"><img src="../assets/img/cover-login.webp?v=1793400001" width="1156" height="800" alt="Обложка кейса «Вход и регистрация»" loading="lazy"><span><b>Вход и регистрация</b><small>Вера Леванова</small></span></a></li></ul>
-      </div>
+  <!-- Другие кейсы -->
+  <section class="lg-more" aria-labelledby="more-title">
+    <div class="container">
+      <h2 id="more-title" class="lg-more__h"><em>Другие</em> кейсы</h2>
+      <ul class="lg-more__grid">
+        <li><a class="lg-more__card" href="design-system.html">
+          <span class="lg-more__img"><img src="../assets/img/cover-ds.webp?v=1793110050" width="1156" height="800" alt="" loading="lazy"></span>
+          <h3>Дизайн-система</h3>
+          <p>Токены, 150 компонентов и 944 варианта для банковского продукта.</p>
+          <span class="lg-more__tags"><span>Финтех</span><span>Design System</span><span>Figma</span></span>
+        </a></li>
+        <li><a class="lg-more__card" href="onboarding.html">
+          <span class="lg-more__img"><img src="../assets/img/cover-onb.webp?v=1793200008" width="1156" height="800" alt="" loading="lazy"></span>
+          <h3>Онбординг</h3>
+          <p>Обязательная анкета для открытия блокированного счёта.</p>
+          <span class="lg-more__tags"><span>Финтех</span><span>UI/UX</span><span>Web + Mobile</span></span>
+        </a></li>
+        <li><a class="lg-more__card" href="login.html">
+          <span class="lg-more__img"><img src="../assets/img/cover-login.webp?v=1793400001" width="1156" height="800" alt="" loading="lazy"></span>
+          <h3>Вход и регистрация</h3>
+          <p>Флоу входа без тупиков: вход через Google и три пути по статусу аккаунта.</p>
+          <span class="lg-more__tags"><span>Финтех</span><span>UI/UX</span><span>Web + Mobile</span></span>
+        </a></li>
+      </ul>
     </div>
   </section>
 
@@ -329,9 +341,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
       </div>
-      <div class="site-footer">
-        <span>© 2026 Вера Леванова</span>
-        <span>UI/UX-дизайнер</span>
+      <div class="site-footer lg-sign">
+        <span class="lg-sign__me"><span class="lg-sign__ava" aria-hidden="true">ВЛ</span><span><b>Вера Леванова</b> · UI/UX-дизайнер</span></span>
+        <span>© 2026</span>
       </div>
     </div>
   </footer>
