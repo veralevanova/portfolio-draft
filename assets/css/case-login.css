@@ -320,7 +320,7 @@
 .lg-anim.js-reveal .lg-manifest .w.on { opacity: 1; }
 
 /* параллакс */
-[data-par] { will-change: transform; }
+/* без will-change: иначе браузер растрирует слой и картинка мылится */
 
 @media (prefers-reduced-motion: reduce) {
   .lg-step:hover, .lg-tc:hover, .lg-stat:hover, .lg-gallery figure:hover img, .lg-duo > img:hover, .lg-gallery figure:hover figcaption { transform: none; }

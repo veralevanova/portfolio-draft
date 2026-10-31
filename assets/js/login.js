@@ -261,7 +261,7 @@
       if (r.bottom < -200 || r.top > vh + 200) return;
       var mid = r.top + r.height / 2 - vh / 2;
       // телефоны поднимаются на место, пока блок доезжает до центра экрана (вверх не уходят — снизу обрез)
-      el.style.transform = 'translate3d(0,' + Math.max(0, mid * parseFloat(el.getAttribute('data-par'))).toFixed(1) + 'px,0)';
+      el.style.transform = 'translateY(' + Math.round(Math.max(0, mid * parseFloat(el.getAttribute('data-par')))) + 'px)';
     });
     if (words.length) {
       var mr = man.getBoundingClientRect();
