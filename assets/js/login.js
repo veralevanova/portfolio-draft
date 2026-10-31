@@ -146,6 +146,35 @@
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (inView && ready) run(sel); });
   })();
 
+  /* прогресс чтения по разделам (как в кейсе онбординга): номера слева и полоса сверху */
+  (function () {
+    var secs = [['task', 'Задача и решение'], ['process', 'Процесс'], ['flow', 'Сценарий флоу'], ['decisions', 'Ключевые решения'], ['result', 'Результат']]
+      .map(function (x) { return [document.getElementById(x[0]), x[1]]; }).filter(function (x) { return x[0]; });
+    if (!secs.length) return;
+    var nav = document.createElement('nav'); nav.className = 'sec-nav'; nav.setAttribute('aria-label', 'Разделы кейса');
+    var bar = document.createElement('div'); bar.className = 'sec-nav__bar'; bar.innerHTML = '<span></span>';
+    var items = secs.map(function (x, i) {
+      var a = document.createElement('a'); a.href = '#' + x[0].id;
+      a.innerHTML = '<b>0' + (i + 1) + '</b><span>' + x[1] + '</span>';
+      a.addEventListener('click', function (e) { e.preventDefault(); x[0].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
+      nav.appendChild(a); return a;
+    });
+    document.body.appendChild(nav); document.body.appendChild(bar);
+    var fill = bar.firstChild, tk = false;
+    function track() {
+      tk = false;
+      var y = window.innerHeight * 0.35, cur = -1;
+      secs.forEach(function (x, i) { if (x[0].getBoundingClientRect().top <= y) cur = i; });
+      items.forEach(function (a, i) { a.classList.toggle('is-current', i === cur); if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      nav.classList.toggle('is-visible', cur >= 0);
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      fill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+      bar.classList.toggle('is-visible', window.scrollY > 200);
+    }
+    window.addEventListener('scroll', function () { if (!tk) { tk = true; requestAnimationFrame(track); } }, { passive: true });
+    window.addEventListener('resize', track); track();
+  })();
+
   if (reduce || !('IntersectionObserver' in window)) { document.documentElement.classList.remove('lg-anim'); return; }
 
   /* схема флоу: порядковый номер шага для каждого узла (ветки растут одновременно) */
@@ -198,7 +227,8 @@
   els.forEach(function (el) { io.observe(el); });
 
   /* прокрутка: параллакс телефонов и слова манифеста */
-  var pars = $('[data-par]');
+  // на телефоне параллакс выключен: меньше движения и плавнее прокрутка
+  var pars = window.matchMedia('(min-width: 861px)').matches ? $('[data-par]') : [];
   var ticking = false;
   function onScroll() {
     ticking = false;

@@ -13,6 +13,9 @@
   --p-cyan: #6fe3ee;
   --p-grad: linear-gradient(135deg, #6f4cf3 0%, #5233cf 45%, #2b1a7a 100%);
   --p-dark: #0a0a12;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --fast: .3s;
+  --calm: .6s;
   --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   background: #fff;
   color: var(--p-ink);
@@ -49,7 +52,7 @@
 .lg-hero__row { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 760px); justify-content: space-between; align-items: end; gap: 40px; margin-top: 48px; }
 .lg-hero__lead { font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.14; letter-spacing: -0.02em; }
 .lg-scroll { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-size: 15px; font-weight: 600; color: #fff; text-decoration: none; }
-.lg-scroll span { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); transition: transform .2s, background .2s; }
+.lg-scroll span { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); transition: transform var(--fast) var(--ease), background var(--fast) var(--ease); }
 .lg-scroll:hover span { background: rgba(255,255,255,.22); transform: translateY(3px); }
 .lg-hero__visual img { width: 100%; }
 
@@ -135,11 +138,11 @@
 .lg-switch__base { width: 100%; }
 .lg-switch__screen { position: absolute; left: 17.125%; top: 17.088%; width: 65.833%; height: 67.388%; overflow: hidden; border-radius: .5%; }
 .lg-switch__screen { background: #fff; }
-.lg-switch__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 0; transition: opacity .25s ease; }
+.lg-switch__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 0; transition: opacity var(--fast) var(--ease); }
 .lg-switch__screen img.is-prev { opacity: 1; z-index: 1; transition: none; }
 .lg-switch__screen img.is-on { opacity: 1; z-index: 2; }
 .lg-seg { position: absolute; left: 50%; top: 88.4%; transform: translateX(-50%); display: flex; gap: 4px; padding: 5px; border-radius: 16px; background: rgba(255,255,255,.96); box-shadow: 0 14px 40px rgba(20, 10, 70, .28); }
-.lg-seg button { font: inherit; font-size: 15px; font-weight: 500; color: #3a3b4c; border: 0; border-radius: 12px; padding: 10px 18px; background: #ebeaf2; cursor: pointer; white-space: nowrap; transition: background .2s, color .2s, box-shadow .2s; }
+.lg-seg button { font: inherit; font-size: 15px; font-weight: 500; color: #3a3b4c; border: 0; border-radius: 12px; padding: 10px 18px; background: #ebeaf2; cursor: pointer; white-space: nowrap; transition: background var(--fast) var(--ease), color var(--fast) var(--ease), box-shadow var(--fast) var(--ease); }
 .lg-seg button:hover { background: #e0def0; }
 .lg-seg button[aria-selected="true"] { background: #fff; color: var(--p-ink); box-shadow: 0 2px 10px rgba(20, 10, 70, .12); }
 .lg-switch__cap { margin-top: 22px; text-align: center; font-size: 16px; color: var(--p-muted); min-height: 1.6em; }
@@ -253,7 +256,7 @@
 .lg-checks li::before { content: "✓"; color: var(--p-violet); font-weight: 700; }
 
 /* ---------- появление ---------- */
-.js-reveal .lg [data-rv] { opacity: 0; transform: translateY(24px); transition: opacity .45s ease var(--d, 0ms), transform .45s ease var(--d, 0ms); }
+.js-reveal .lg [data-rv] { opacity: 0; transform: translateY(24px); transition: opacity var(--calm) var(--ease) var(--d, 0ms), transform var(--calm) var(--ease) var(--d, 0ms); }
 .js-reveal .lg [data-rv].is-in { opacity: 1; transform: none; }
 
 
@@ -266,20 +269,20 @@
 
 /* обложка: элементы появляются по очереди при загрузке */
 .lg-anim .lg-hero .lg-crumbs { animation: lg-fade .6s ease both .05s; }
-.lg-anim .lg-hero h1 .l1 { animation: lg-up .8s cubic-bezier(.2,.7,.2,1) both .1s; }
-.lg-anim .lg-hero h1 .l2 { display: inline-block; animation: lg-up .8s cubic-bezier(.2,.7,.2,1) both .22s; }
-.lg-anim .lg-hero .lg-tags li { animation: lg-up .6s ease both; }
-.lg-anim .lg-hero .lg-tags li:nth-child(1) { animation-delay: .38s; }
-.lg-anim .lg-hero .lg-tags li:nth-child(2) { animation-delay: .46s; }
-.lg-anim .lg-hero .lg-tags li:nth-child(3) { animation-delay: .54s; }
-.lg-anim .lg-hero__row > div:first-child { animation: lg-up .7s ease both .6s; }
-.lg-anim .lg-hero__visual { animation: lg-rise 1s cubic-bezier(.2,.7,.2,1) both .45s; }
+.lg-anim .lg-hero h1 .l1 { animation: lg-up var(--calm) var(--ease) both .1s; }
+.lg-anim .lg-hero h1 .l2 { display: inline-block; animation: lg-up var(--calm) var(--ease) both .2s; }
+.lg-anim .lg-hero .lg-tags li { animation: lg-up var(--calm) var(--ease) both; }
+.lg-anim .lg-hero .lg-tags li:nth-child(1) { animation-delay: .3s; }
+.lg-anim .lg-hero .lg-tags li:nth-child(2) { animation-delay: .36s; }
+.lg-anim .lg-hero .lg-tags li:nth-child(3) { animation-delay: .42s; }
+.lg-anim .lg-hero__row > div:first-child { animation: lg-up var(--calm) var(--ease) both .5s; }
+.lg-anim .lg-hero__visual { animation: lg-rise var(--calm) var(--ease) both .4s; }
 .lg-anim .lg-scroll span { animation: lg-bob 1.8s ease-in-out infinite 1.6s; }
 .lg-hero__visual { perspective: 1400px; }
-.lg-hero__visual img { transition: transform .5s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.lg-hero__visual img { transition: transform var(--calm) var(--ease); will-change: transform; }
 
 /* паспорт: ячейки по очереди */
-.lg-anim.js-reveal .lg-passport dl > div { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.lg-anim.js-reveal .lg-passport dl > div { opacity: 0; transform: translateY(14px); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease); }
 .lg-anim.js-reveal .lg-passport dl.is-in > div { opacity: 1; transform: none; }
 .lg-passport dl > div:nth-child(2) { transition-delay: .07s; }
 .lg-passport dl > div:nth-child(3) { transition-delay: .14s; }
@@ -287,35 +290,35 @@
 .lg-passport dl > div:nth-child(5) { transition-delay: .28s; }
 
 /* карточки «было / стало»: пункты списка выезжают по очереди */
-.lg-anim.js-reveal .lg-tc li { opacity: 0; transform: translateX(-14px); transition: opacity .45s ease, transform .45s ease; }
+.lg-anim.js-reveal .lg-tc li { opacity: 0; transform: translateX(-14px); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease); }
 .lg-anim.js-reveal .lg-tc.is-in li { opacity: 1; transform: none; }
-.lg-tc li:nth-child(1) { transition-delay: .25s; }
-.lg-tc li:nth-child(2) { transition-delay: .35s; }
-.lg-tc li:nth-child(3) { transition-delay: .45s; }
+.lg-tc li:nth-child(1) { transition-delay: .3s; }
+.lg-tc li:nth-child(2) { transition-delay: .4s; }
+.lg-tc li:nth-child(3) { transition-delay: .5s; }
 
 /* наведение */
-.lg-step, .lg-tc, .lg-stat { transition: transform .3s ease, box-shadow .3s ease; }
+.lg-step, .lg-tc, .lg-stat { transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease); }
 .lg-step:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(40, 20, 120, .1); }
 .lg-tc:hover, .lg-stat:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(40, 20, 120, .1); }
 .lg-gallery figure { border-radius: 22px; overflow: hidden; }
-.lg-gallery img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.lg-gallery img { transition: transform var(--calm) var(--ease); }
 .lg-gallery figure:hover img { transform: scale(1.035); }
-.lg-gallery figcaption { transition: transform .3s ease, background .3s ease; }
+.lg-gallery figcaption { transition: transform var(--fast) var(--ease), background var(--fast) var(--ease); }
 .lg-gallery figure:hover figcaption { transform: translateY(-3px); background: var(--p-violet); }
-.lg-duo > img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.lg-duo > img { transition: transform var(--calm) var(--ease); }
 .lg-duo > img:hover { transform: scale(1.015); }
 
 /* схема флоу: узлы проявляются сверху вниз, все три ветки одновременно */
-.lg-anim.js-reveal .lg-flow [data-st] { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; transition-delay: calc(var(--st) * 110ms + 150ms); }
+.lg-anim.js-reveal .lg-flow [data-st] { opacity: 0; transform: translateY(10px); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease); transition-delay: calc(var(--st) * 100ms + 150ms); }
 .lg-anim.js-reveal .lg-flow.is-in [data-st] { opacity: 1; transform: none; }
 .lg-flow.is-in .lg-node--q { animation: lg-glow 2.6s ease-in-out infinite 2s; }
 
 /* ключевые решения: номер подсвечивается при появлении */
-.lg-dec li .n { transition: background .4s ease .3s, box-shadow .4s ease .3s; }
+.lg-dec li .n { transition: background var(--fast) var(--ease) .3s, box-shadow var(--fast) var(--ease) .3s; }
 .lg-dec li.is-in .n { background: rgba(111, 227, 238, .16); box-shadow: 0 0 24px rgba(111, 227, 238, .25); }
 
 /* манифест: слова проявляются при прокрутке */
-.lg-manifest .w { transition: opacity .25s linear; }
+.lg-manifest .w { transition: opacity var(--fast) linear; }
 .lg-anim.js-reveal .lg-manifest .w { opacity: .18; }
 .lg-anim.js-reveal .lg-manifest .w.on { opacity: 1; }
 
@@ -328,9 +331,9 @@
 
 
 /* схема флоу: «пользователь» и выбранная ветка */
-.lg-dot { position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #e9fdff; box-shadow: 0 0 0 5px rgba(111, 227, 238, .28), 0 0 22px 8px rgba(111, 227, 238, .65); pointer-events: none; z-index: 3; opacity: 0; transition: opacity .35s ease; }
+.lg-dot { position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #e9fdff; box-shadow: 0 0 0 5px rgba(111, 227, 238, .28), 0 0 22px 8px rgba(111, 227, 238, .65); pointer-events: none; z-index: 3; opacity: 0; transition: opacity var(--fast) var(--ease); }
 .lg-dot.is-on { opacity: 1; }
-.lg-branch { transition: opacity .45s ease, border-color .45s ease, background .45s ease; }
+.lg-branch { transition: opacity var(--fast) var(--ease), border-color var(--fast) var(--ease), background var(--fast) var(--ease); }
 .lg-branch.is-sel { border-color: rgba(111, 227, 238, .45); }
 .lg-flow.is-run .lg-branch:not(.is-path) { opacity: .5; }
 .lg-branch.is-path { border-color: rgba(111, 227, 238, .6); background: rgba(255,255,255,.08); }
@@ -338,6 +341,41 @@
 .lg-flow .is-hit.is-hit { animation: lg-hit .9s ease-out; }
 .lg-switch__link { margin-left: 6px; color: var(--p-violet); font-weight: 600; text-decoration: none; white-space: nowrap; }
 .lg-switch__link:hover { text-decoration: underline; }
+
+
+/* «было / стало»: путь нового пользователя — обрывается или доходит до онбординга */
+.lg-route { display: flex; align-items: center; gap: 10px; margin-top: 32px; font-size: 13px; font-weight: 600; }
+.lg-route__a, .lg-route__b { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; }
+.lg-route__b i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; }
+.lg-route__line { position: relative; flex: 1 1 auto; min-width: 24px; height: 2px; border-radius: 2px; }
+.lg-route__line i { position: absolute; inset: 0; border-radius: inherit; transform-origin: left; }
+.lg-route--dead .lg-route__a { background: #fff; color: var(--p-ink); box-shadow: 0 6px 16px rgba(20, 20, 50, .05); }
+.lg-route--dead .lg-route__line { background: repeating-linear-gradient(90deg, #d9d7e3 0 6px, transparent 6px 11px); }
+.lg-route--dead .lg-route__line i { background: #e5576a; transform: scaleX(.5); }
+.lg-route--dead .lg-route__line::after { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #e5576a; box-shadow: 0 0 0 4px rgba(229, 87, 106, .18); }
+.lg-route--dead .lg-route__b { background: #fde2e2; color: #b42318; }
+.lg-route--dead .lg-route__b i { background: #e5576a; color: #fff; }
+.lg-route--ok .lg-route__a { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); color: #fff; }
+.lg-route--ok .lg-route__line { background: rgba(255,255,255,.18); }
+.lg-route--ok .lg-route__line i { background: var(--p-cyan); box-shadow: 0 0 12px rgba(111, 227, 238, .7); }
+.lg-route--ok .lg-route__b { background: #fff; color: var(--p-ink); box-shadow: 0 10px 24px rgba(20, 10, 70, .3); }
+.lg-route--ok .lg-route__b i { background: var(--p-cyan); color: #1c1560; }
+@keyframes lg-pop { 0% { opacity: 0; transform: scale(.85); } 60% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: none; } }
+@keyframes lg-nod { 0%, 100% { transform: none; } 30% { transform: translateX(-3px); } 60% { transform: translateX(3px); } }
+.lg-anim.js-reveal .lg-tc .lg-route__line i { transform: scaleX(0); transition: transform var(--calm) var(--ease) .75s; }
+.lg-anim.js-reveal .lg-tc .lg-route--dead .lg-route__line::after { opacity: 0; transition: opacity var(--fast) var(--ease) 1.25s; }
+.lg-anim.js-reveal .lg-tc .lg-route__b { opacity: 0; }
+.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__line i { transform: scaleX(.5); }
+.lg-anim.js-reveal .lg-tc.is-in .lg-route--ok .lg-route__line i { transform: none; }
+.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__line::after { opacity: 1; }
+.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__b { animation: lg-pop var(--fast) var(--ease) 1.35s both, lg-nod var(--fast) var(--ease) 1.7s; }
+.lg-anim.js-reveal .lg-tc.is-in .lg-route--ok .lg-route__b { animation: lg-pop var(--fast) var(--ease) 1.4s both; }
+
+/* прогресс чтения по разделам — в фиолетовой гамме кейса */
+.lg-page .sec-nav a.is-current b { background: var(--p-violet); border-color: var(--p-violet); }
+.lg-page .sec-nav a:hover b { border-color: var(--p-violet); }
+.lg-page .sec-nav__bar span { background: linear-gradient(90deg, #6f4cf3, #6fe3ee); }
+.lg-page :target { scroll-margin-top: 24px; }
 
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
@@ -377,6 +415,9 @@
   .lg-tc { padding: 30px 24px 32px; border-radius: 26px; }
   .lg-tc ul { margin-top: 26px; }
   .lg-tc li { font-size: 14px; }
+  .lg-route { gap: 6px; margin-top: 24px; font-size: 12px; }
+  .lg-route__a, .lg-route__b { padding: 7px 10px; }
+  .lg-route__b { flex: 0 1 auto; }
   .lg-steps { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -20px; padding: 0 20px 6px; scrollbar-width: none; }
   .lg-steps::-webkit-scrollbar { display: none; }
   .lg-step { flex: 0 0 82%; scroll-snap-align: start; margin-top: 0 !important; }

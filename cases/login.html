@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400007">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400008">
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
@@ -139,7 +139,7 @@
     </section>
 
     <!-- Задача и решение -->
-    <section class="lg-task">
+    <section class="lg-task" id="task">
       <div class="container">
         <h2 class="lg-h2"><em>Задача</em> и решение</h2>
         <div class="lg-pair">
@@ -152,6 +152,7 @@
               <li><i aria-hidden="true">✕</i>Нет перехода в обязательный онбординг</li>
               <li><i aria-hidden="true">✕</i>Ошибки и восстановление пароля не описаны</li>
             </ul>
+            <div class="lg-route lg-route--dead" role="img" aria-label="Путь нового пользователя раньше: регистрация, дальше тупик"><span class="lg-route__a">Регистрация</span><span class="lg-route__line"><i></i></span><span class="lg-route__b"><i>✕</i>Нет следующего шага</span></div>
           </article>
           <article class="lg-tc lg-tc--after" data-rv>
             <span class="lg-pill">Стало</span>
@@ -162,13 +163,14 @@
               <li><i aria-hidden="true">✓</i>Автопереход в обязательный онбординг</li>
               <li><i aria-hidden="true">✓</i>Все состояния описаны для разработки</li>
             </ul>
+            <div class="lg-route lg-route--ok" role="img" aria-label="Путь нового пользователя теперь: регистрация и сразу обязательный онбординг"><span class="lg-route__a">Регистрация</span><span class="lg-route__line"><i></i></span><span class="lg-route__b"><i>✓</i>Обязательный онбординг</span></div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- Процесс -->
-    <section class="lg-process">
+    <section class="lg-process" id="process">
       <div class="container">
         <h2 class="lg-h2"><em>Процесс</em></h2>
         <div class="lg-steps">
@@ -237,7 +239,7 @@
     </section>
 
     <!-- Ключевые решения -->
-    <section class="lg-dec">
+    <section class="lg-dec" id="decisions">
       <div class="container">
         <div class="lg-dec__text">
           <p class="lg-label">Ключевые решения</p>
@@ -291,7 +293,7 @@
     </section>
 
     <!-- Результат -->
-    <section class="lg-result">
+    <section class="lg-result" id="result">
       <div class="container">
         <div class="top">
           <h2 class="lg-h2"><em>Результат</em></h2>
@@ -356,6 +358,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/login.js?v=1793400007" defer></script>
+  <script src="../assets/js/login.js?v=1793400008" defer></script>
 </body>
 </html>
