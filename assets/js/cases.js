@@ -95,6 +95,17 @@
     en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+  // страховка: при прыжке (End, клик по разделу, быстрая прокрутка) наблюдатель может пропустить блок —
+  // всё, что уже выше низа экрана, показываем сразу
+  var rvTick = false;
+  function rvCatchUp() {
+    rvTick = false; var vh = window.innerHeight;
+    // берём живой список: часть блоков (вкладки дизайн-системы) пересоздаётся скриптом после загрузки
+    $('[data-reveal]:not(.is-in)').forEach(function (el) { var r = el.getBoundingClientRect(); if (r.width && r.top < vh) { el.classList.add('is-in'); io.unobserve(el); } });
+  }
+  window.addEventListener('scroll', function () { if (!rvTick) { rvTick = true; requestAnimationFrame(rvCatchUp); } }, { passive: true });
+  document.addEventListener('click', function () { setTimeout(rvCatchUp, 50); });
+  setTimeout(rvCatchUp, 300);
 
   /* счётчики в карточках: числа считаются от 0 при появлении */
   $('.about-case .big, .results .big, .stat .big').forEach(function (el) {

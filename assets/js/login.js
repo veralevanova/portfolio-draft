@@ -130,11 +130,11 @@
             if (!alive()) throw 0;
             // на телефоне ветки стоят друг под другом: чтобы точка не шла поверх чужой ветки, она «перепрыгивает»
             var stacked = branches[1] && branches[1].offsetTop > branches[0].offsetTop + 10;
-            if (k === 2 && stacked && i > 0) {
+            if (k === top.length && stacked && i > 0) {
               dot.classList.remove('is-on');
               return wait(350).then(function () { return move(pts[k], pts[k], 1); }).then(function () { dot.classList.add('is-on'); return wait(300); });
             }
-            return move(pts[k - 1], pts[k], k === 2 ? 700 : 520);
+            return move(pts[k - 1], pts[k], k === top.length ? 700 : 520);
           })
                        .then(function () { if (!alive()) throw 0; hit(stops[k]); return wait(stops[k].classList.contains('lg-node--q') ? 650 : 280); });
         })(k);
