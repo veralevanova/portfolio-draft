@@ -579,3 +579,15 @@
 }
 @media (min-width: 861px) { .lg-swipe { display: none; } }
 @media (prefers-reduced-motion: reduce) { .lg-switch__screen img { transition: none; } }
+
+/* светлые участки: чередование белого и лавандового + мягкие свечения */
+.lg-task, .lg-screens { background: #f7f6fd; }
+.lg-task { padding-top: 100px; }
+.lg-process { padding-top: 100px; }
+.lg-screens .lg-gallery { background: #fff; border: 1px solid #ebe7fa; }
+.lg-process, .lg-result { overflow: hidden; }
+.lg-process > .container, .lg-result > .container { position: relative; z-index: 1; }
+.lg-process::before, .lg-result::before { content: ""; position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); }
+.lg-process::before { right: -180px; top: 40px; width: 620px; height: 520px; background: radial-gradient(closest-side, rgba(123, 92, 245, .16), transparent); }
+.lg-result::before { left: -200px; bottom: -120px; width: 680px; height: 560px; background: radial-gradient(closest-side, rgba(123, 92, 245, .14), transparent); }
+@media (max-width: 860px) { .lg-task, .lg-process { padding-top: 56px; } .lg-process::before, .lg-result::before { width: 380px; height: 340px; } }
