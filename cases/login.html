@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400008">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400009">
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
@@ -204,7 +204,7 @@
           <h2 class="lg-h2"><em>Сценарий</em> флоу</h2>
           <p class="lg-sub">После ввода email или входа через Google система проверяет аккаунт и ведёт пользователя по одному из трёх путей. Модалка «Email не найден» — ключевая развилка: из неё новый пользователь сразу попадает в обязательный онбординг.</p>
         </div>
-        <div class="lg-flow" data-rv role="img" aria-label="Схема флоу: после ввода email или входа через Google проверяется статус аккаунта. Аккаунта нет — модалка «Email не найден», создание Blocked Account, обязательный онбординг. Не активирован — код из письма, проверка кода, аккаунт создан. Активирован — пароль, проверка пароля, вход в аккаунт.">
+        <div class="lg-flow" data-rv role="img" aria-label="Схема флоу: после ввода email или входа через Google проверяется статус аккаунта. Аккаунта нет — модалка «Email не найден», создание Blocked Account, обязательный онбординг. Не активирован — код из письма, проверка кода, аккаунт создан. Активирован — пароль, проверка пароля, вход в аккаунт; если пароль забыт — код из письма, новый пароль, пароль изменён.">
           <div class="lg-flow__top">
             <span class="lg-node">Email или вход через Google</span>
             <span class="lg-arrow" aria-hidden="true">→</span>
@@ -231,7 +231,11 @@
               <span class="lg-node">Пароль</span><span class="lg-arrow">↓</span>
               <span class="lg-node lg-node--q">Пароль верный?</span><span class="lg-arrow">↓</span>
               <span class="lg-node lg-node--end">Вход в аккаунт</span>
-              <span class="bnote">Нет → счётчик попыток до блокировки и восстановление пароля</span>
+              <span class="bnote">Нет → счётчик попыток до блокировки</span>
+              <div class="lg-sub" aria-label="Восстановление пароля">
+                <span class="lg-sub__t">Забыли пароль</span><i aria-hidden="true">↓</i>
+                <span class="lg-sub__c">Код из письма</span><i aria-hidden="true">↓</i><span class="lg-sub__c">Новый пароль</span><i aria-hidden="true">↓</i><span class="lg-sub__c lg-sub__c--end">Пароль изменён</span>
+              </div>
             </div>
           </div>
         </div>
@@ -267,7 +271,7 @@
           <figure><img src="../assets/img/login/scr-1.webp" width="760" height="950" alt="Экран входа: продолжить через Google или ввести email" loading="lazy" data-zoom><figcaption>Ввод email или Google</figcaption></figure>
           <figure><img src="../assets/img/login/scr-2.webp" width="760" height="950" alt="Экран активации аккаунта: ввод кода из письма" loading="lazy" data-zoom><figcaption>Код из письма</figcaption></figure>
           <figure><img src="../assets/img/login/scr-3.webp" width="760" height="950" alt="Экран активации аккаунта с сообщением о неверном коде" loading="lazy" data-zoom><figcaption>Неверный код</figcaption></figure>
-          <figure><img src="../assets/img/login/scr-4.webp" width="760" height="950" alt="Экран входа: ввод пароля" loading="lazy" data-zoom><figcaption>Ввод пароля</figcaption></figure>
+          <figure><img src="../assets/img/login/scr-4.webp?v=2" width="760" height="950" alt="Экран создания нового пароля: требования к паролю выполнены, оба пароля совпадают" loading="lazy" data-zoom><figcaption>Новый пароль</figcaption></figure>
           <figure><img src="../assets/img/login/scr-5.webp" width="760" height="950" alt="Модальное окно «Email Not Found»: создать Blocked Account или ввести другой email" loading="lazy" data-zoom><figcaption>Email не найден → онбординг</figcaption></figure>
           <figure><img src="../assets/img/login/scr-6.webp" width="760" height="950" alt="Экран выбора услуги: открыть Blocked Account или получить консультацию" loading="lazy" data-zoom><figcaption>Выбор услуги</figcaption></figure>
         </div>
@@ -299,7 +303,7 @@
           <h2 class="lg-h2"><em>Результат</em></h2>
           <div class="lg-stats">
             <div class="lg-stat" data-rv><span class="big" data-count>3</span><span class="k">Сценария</span><p>По одному пути на каждый статус аккаунта.</p></div>
-            <div class="lg-stat" data-rv><span class="big" data-count>15</span><span class="k">Экранов в каждой версии</span><p>Одинаковые для веба и приложения, в вебе плюс hover-состояния.</p></div>
+            <div class="lg-stat" data-rv><span class="big" data-count>19</span><span class="k">Экранов в каждой версии</span><p>Одинаковые для веба и приложения, включая восстановление пароля. В вебе плюс hover-состояния.</p></div>
             <div class="lg-stat" data-rv><span class="big" data-count>2</span><span class="k">Платформы</span><p>Веб и нативное приложение.</p></div>
             <div class="lg-stat" data-rv><span class="big" data-count>4</span><span class="k">Версии флоу</span><p>V1–V3 поэтапно, V4 — полная версия.</p></div>
           </div>
