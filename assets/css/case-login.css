@@ -307,9 +307,7 @@
 .lg-duo > img { transition: transform var(--calm) var(--ease); }
 .lg-duo > img:hover { transform: scale(1.015); }
 
-/* схема флоу: узлы проявляются сверху вниз, все три ветки одновременно */
-.lg-anim.js-reveal .lg-flow [data-st] { opacity: 0; transform: translateY(10px); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease); transition-delay: calc(var(--st) * 100ms + 150ms); }
-.lg-anim.js-reveal .lg-flow.is-in [data-st] { opacity: 1; transform: none; }
+/* схема флоу: узлы видны сразу, без поэтапного появления */
 .lg-flow.is-in .lg-node--q { animation: lg-glow 2.6s ease-in-out infinite 2s; }
 
 /* ключевые решения: номер подсвечивается при появлении */
