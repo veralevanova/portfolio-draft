@@ -8,7 +8,7 @@
   var shots = $('.lg-switch__screen img');
   var cap = document.getElementById('sw-cap');
   var caps = [
-    '<b>Нет аккаунта:</b> выбор услуги → Blocked Account и онбординг',
+    '<b>Нет аккаунта:</b> окно «Email не найден» → Blocked Account и онбординг',
     '<b>Не активирован:</b> код из письма, таймер 60 с, повторная отправка',
     '<b>Активирован:</b> пароль, счётчик попыток, восстановление'
   ];
@@ -246,6 +246,8 @@
   function onScroll() {
     ticking = false;
     var vh = window.innerHeight;
+    // страховка: при быстрой прокрутке наблюдатель может пропустить блок — всё, что уже выше низа экрана, показываем сразу
+    els.forEach(function (el) { if (!el.classList.contains('is-in') && el.getBoundingClientRect().top < vh) { el.classList.add('is-in'); io.unobserve(el); setTimeout(function () { el.removeAttribute('data-rv'); }, 1100); } });
     pars.forEach(function (el) {
       var r = el.parentElement.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) return;

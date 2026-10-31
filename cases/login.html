@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=1793200010">
-  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400024">
+  <link rel="stylesheet" href="../assets/css/case-login.css?v=1793400030">
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lg-anim')</script>
 </head>
 <body class="lg-page">
@@ -43,7 +43,7 @@
     <section class="lg-hero">
       <div class="container">
         <h1><em class="l1">Редизайн входа и</em> <span class="l2">регистрации</span></h1>
-        <ul class="lg-tags" aria-label="Теги"><li>UI/UX-дизайн</li><li>Web + Mobile</li><li>2025</li></ul>
+        <ul class="lg-tags" aria-label="Теги"><li>Флоу входа</li><li>Вход через Google</li><li>Состояния ошибок</li></ul>
         <div class="lg-hero__row">
           <div>
             <p class="lg-hero__lead"><em>Без тупиков</em> для каждого статуса аккаунта</p>
@@ -77,7 +77,7 @@
         </div>
         <div class="grid row2">
           <p class="lg-label">Команда</p>
-          <p class="team" data-rv>Вела дизайн всего флоу для веба и мобильного приложения, включая ошибки и восстановление пароля. Сеньор-дизайнер и продакт-оунер ревьюили решения. Проект сделан до появления дизайн-системы, поэтому экраны в прежнем визуальном стиле продукта.</p>
+          <p class="team" data-rv>Вела дизайн всего флоу, включая ошибки и восстановление пароля. Сеньор-дизайнер и продакт-оунер ревьюили решения. Проект сделан до появления дизайн-системы, поэтому экраны в прежнем визуальном стиле продукта.</p>
         </div>
       </div>
     </section>
@@ -87,7 +87,7 @@
       <div class="container">
         <div class="lg-head">
           <p class="lg-label">Ключевые изменения</p>
-          <p class="lead">Вход через Google и понятные ошибки — два главных изменения, которые убрали тупики на входе.</p>
+          <p class="lead">Главное — новый пользователь больше не застревает после регистрации: флоу сам ведёт его в обязательный онбординг. Вход через Google и понятные ошибки убирают тупики на остальных шагах.</p>
         </div>
         <div class="lg-duo">
           <img src="../assets/img/login/vis-chips.webp" width="1240" height="1000" alt="Три способа входа: Google, email и пароль" loading="lazy" data-rv>
@@ -133,7 +133,7 @@
             <button type="button" role="tab" aria-selected="false" aria-controls="sw-screen" tabindex="-1">Активирован</button>
           </div>
         </div>
-        <p class="lg-switch__cap" id="sw-cap"><b>Нет аккаунта:</b> выбор услуги → Blocked Account и онбординг <a class="lg-switch__link" href="#flow">Смотреть на схеме ↓</a></p>
+        <p class="lg-switch__cap" id="sw-cap"><b>Нет аккаунта:</b> окно «Email не найден» → Blocked Account и онбординг <a class="lg-switch__link" href="#flow">Смотреть на схеме ↓</a></p>
       </div>
     </section>
 
@@ -155,7 +155,7 @@
           <article class="lg-tc lg-tc--after" data-rv>
             <span class="lg-pill">Стало</span>
             <h3><em>Три</em> понятных пути</h3>
-            <p>Флоу ведёт по одному из трёх путей в зависимости от статуса аккаунта — для веба и мобильного приложения.</p>
+            <p>Флоу ведёт по одному из трёх путей в зависимости от статуса аккаунта.</p>
             <ul>
               <li><i aria-hidden="true">✓</i>Вход через Google в один клик</li>
               <li><i aria-hidden="true">✓</i>Автопереход в обязательный онбординг</li>
@@ -181,13 +181,13 @@
             <img src="../assets/img/login/proc-2.webp" width="680" height="340" alt="" loading="lazy">
             <span class="num">2</span>
             <h3>Экраны и состояния</h3>
-            <ul><li>Экраны для веба и приложения</li><li>Состояния ошибок</li><li>Восстановление пароля</li><li>Модалка «Email не найден»</li></ul>
+            <ul><li>Экраны для веба и приложения</li><li>Состояния ошибок</li><li>Восстановление пароля</li><li>Модальное окно «Email не найден»</li></ul>
           </article>
           <article class="lg-step" data-rv>
             <img src="../assets/img/login/proc-3.webp" width="680" height="340" alt="" loading="lazy">
             <span class="num">3</span>
             <h3>Ревью и передача</h3>
-            <ul><li>Ревью сеньора и продакт-оунера</li><li>Согласование решений с командой</li><li>Передача в разработку по этапам</li><li>Состояния описаны для разработки</li></ul>
+            <ul><li>Ревью сеньора и продакт-оунера</li><li>Согласование решений с командой</li><li>Передача в разработку по этапам</li><li>Версии V1–V4 для внедрения</li></ul>
           </article>
         </div>
         <p class="lg-swipe">Листайте карточки вбок →</p>
@@ -199,10 +199,12 @@
       <div class="container">
         <div class="lg-head">
           <h2 class="lg-h2"><em>Сценарий</em> флоу</h2>
-          <p class="lg-sub">После ввода email или входа через Google система проверяет аккаунт и ведёт пользователя по одному из трёх путей. Модалка «Email не найден» — ключевая развилка: из неё новый пользователь сразу попадает в обязательный онбординг.</p>
+          <p class="lg-sub">Первый экран — выбор услуги: Blocked Account, Companion или вход в аккаунт. После ввода email или входа через Google система проверяет аккаунт и ведёт пользователя по одному из трёх путей. Модальное окно «Email не найден» — ключевая развилка: из него новый пользователь сразу попадает в обязательный онбординг.</p>
         </div>
-        <div class="lg-flow" data-rv role="img" aria-label="Схема флоу: после ввода email или входа через Google проверяется статус аккаунта. Аккаунта нет — модалка «Email не найден», создание Blocked Account, обязательный онбординг. Не активирован — аккаунт создан, но не подтверждён: код из письма, проверка кода, активация и переход на главную. Активирован — пароль, проверка пароля, вход в аккаунт; если пароль забыт — код из письма, новый пароль, пароль изменён.">
+        <div class="lg-flow" data-rv role="img" aria-label="Схема флоу: первый экран — выбор услуги. После ввода email или входа через Google проверяется статус аккаунта. Аккаунта нет — модальное окно «Email не найден», создание Blocked Account, обязательный онбординг. Не активирован — аккаунт создан, но не подтверждён: код из письма, проверка кода, активация и переход на главную. Активирован — пароль, проверка пароля, вход в аккаунт; если пароль забыт — код из письма, новый пароль, пароль изменён.">
           <div class="lg-flow__top">
+            <span class="lg-node lg-node--start">Выбор услуги<small>Blocked Account · Companion · Вход</small></span>
+            <span class="lg-arrow" aria-hidden="true">→</span>
             <span class="lg-node">Email или вход через Google</span>
             <span class="lg-arrow" aria-hidden="true">→</span>
             <span class="lg-node lg-node--q">Статус аккаунта?</span>
@@ -211,7 +213,7 @@
           <div class="lg-branches">
             <div class="lg-branch">
               <span class="btag">Аккаунта нет</span><span class="lg-arrow">↓</span>
-              <span class="lg-node">Модалка «Email не найден»</span><span class="lg-arrow">↓</span>
+              <span class="lg-node">Окно «Email не найден»</span><span class="lg-arrow">↓</span>
               <span class="lg-node">Создать Blocked Account</span><span class="lg-arrow">↓</span>
               <span class="lg-node lg-node--end">Обязательный онбординг</span>
               <span class="bnote">Или ввести другой email</span>
@@ -246,8 +248,8 @@
           <p class="lg-label">Ключевые решения</p>
           <h2>Три решения, <br>которые <em>изменили флоу</em></h2>
           <ol>
-            <li data-rv><span class="n">01</span><div><h3>Вход через Google</h3><p>Убрали барьер регистрации: один клик вместо заполнения формы</p></div></li>
-            <li data-rv><span class="n">02</span><div><h3>Автопереход в онбординг</h3><p>Новый пользователь сразу попадает в обязательный флоу открытия счёта — раньше это был тупик</p></div></li>
+            <li data-rv><span class="n">01</span><div><h3>Автопереход в онбординг</h3><p>Новый пользователь сразу попадает в обязательный флоу открытия счёта — раньше это был тупик</p></div></li>
+            <li data-rv><span class="n">02</span><div><h3>Вход через Google</h3><p>Убрали барьер регистрации: один клик вместо заполнения формы</p></div></li>
             <li data-rv><span class="n">03</span><div><h3>Полное покрытие сценариев</h3><p>Ошибки, восстановление пароля, email не найден — все состояния прописаны и задокументированы для разработки</p></div></li>
           </ol>
         </div>
@@ -262,15 +264,15 @@
       <div class="container">
         <div class="lg-head">
           <h2 class="lg-h2">Ключевые <em>экраны</em></h2>
-          <p class="lg-sub">Каждое состояние флоу продумано: основной путь, подтверждение кодом, ошибки и модалка «Email не найден», которая ведёт в онбординг. Продукт англоязычный, поэтому экраны на английском.</p>
+          <p class="lg-sub">Каждое состояние флоу продумано: выбор услуги, основной путь, подтверждение кодом, ошибки, восстановление пароля и модальное окно «Email не найден», которое ведёт в онбординг. Продукт англоязычный, поэтому экраны на английском.</p>
         </div>
         <div class="lg-gallery" data-rv>
+          <figure><img src="../assets/img/login/scr-6.webp" width="760" height="950" alt="Экран выбора услуги: открыть Blocked Account или получить консультацию" loading="lazy" data-zoom><figcaption>Выбор услуги — первый экран</figcaption></figure>
           <figure><img src="../assets/img/login/scr-1.webp" width="760" height="950" alt="Экран входа: продолжить через Google или ввести email" loading="lazy" data-zoom><figcaption>Ввод email или Google</figcaption></figure>
+          <figure><img src="../assets/img/login/scr-5.webp" width="760" height="950" alt="Модальное окно «Email Not Found»: создать Blocked Account или ввести другой email" loading="lazy" data-zoom><figcaption>Email не найден → онбординг</figcaption></figure>
           <figure><img src="../assets/img/login/scr-2.webp" width="760" height="950" alt="Экран активации аккаунта: ввод кода из письма" loading="lazy" data-zoom><figcaption>Код из письма</figcaption></figure>
           <figure><img src="../assets/img/login/scr-3.webp" width="760" height="950" alt="Экран активации аккаунта с сообщением о неверном коде" loading="lazy" data-zoom><figcaption>Неверный код</figcaption></figure>
           <figure><img src="../assets/img/login/scr-4.webp?v=2" width="760" height="950" alt="Экран создания нового пароля: требования к паролю выполнены, оба пароля совпадают" loading="lazy" data-zoom><figcaption>Новый пароль</figcaption></figure>
-          <figure><img src="../assets/img/login/scr-5.webp" width="760" height="950" alt="Модальное окно «Email Not Found»: создать Blocked Account или ввести другой email" loading="lazy" data-zoom><figcaption>Email не найден → онбординг</figcaption></figure>
-          <figure><img src="../assets/img/login/scr-6.webp" width="760" height="950" alt="Экран выбора услуги: открыть Blocked Account или получить консультацию" loading="lazy" data-zoom><figcaption>Выбор услуги</figcaption></figure>
         </div>
       </div>
     </section>
@@ -286,7 +288,7 @@
     <section class="lg-mobile">
       <div class="container">
         <h2 class="lg-h2">Мобильное <em>приложение</em></h2>
-        <p class="lg-sub">Те же сценарии в нативном приложении: выбор услуги для нового пользователя и подтверждение аккаунта кодом из письма с повторной отправкой.</p>
+        <p class="lg-sub">Те же сценарии в нативном приложении: выбор услуги на первом экране и подтверждение аккаунта кодом из письма с повторной отправкой.</p>
         <div class="lg-mcard" data-rv>
           <div class="lg-duo-ph" role="img" aria-label="Два телефона: экран ввода кода из письма с повторной отправкой и экран выбора услуги">
             <img class="lg-duo-ph__sizer" src="../assets/img/login/mob-bg.webp" width="1630" height="1790" alt="" aria-hidden="true">
@@ -309,18 +311,14 @@
           <div class="lg-stats">
             <div class="lg-stat" data-rv><span class="big" data-count>3</span><span class="k">Сценария</span><p>По одному пути на каждый статус аккаунта.</p></div>
             <div class="lg-stat" data-rv><span class="big" data-count>19</span><span class="k">Экранов в каждой версии</span><p>Одинаковые для веба и приложения, включая восстановление пароля. В вебе плюс hover-состояния.</p></div>
-            <div class="lg-stat" data-rv><span class="big" data-count>2</span><span class="k">Платформы</span><p>Веб и нативное приложение.</p></div>
+            <div class="lg-stat" data-rv><span class="big" data-count>2</span><span class="k">Платформы</span><p>Один флоу для веба и нативного приложения.</p></div>
             <div class="lg-stat" data-rv><span class="big" data-count>4</span><span class="k">Версии флоу</span><p>V1–V3 поэтапно, V4 — полная версия.</p></div>
           </div>
         </div>
         <div class="lg-takeaway" data-rv>
           <p class="lg-label">Главный вывод</p>
-          <p>Флоу внедряли поэтапно: версии V1–V3 для разработки по шагам, V4 — полная версия со всеми сценариями и состояниями ошибок.</p>
+          <p>Новый пользователь больше не теряется после регистрации: у любого статуса аккаунта есть следующий шаг, а каждое состояние — от ошибки кода до восстановления пароля — описано для разработки.</p>
         </div>
-        <ul class="lg-checks">
-          <li>Решения согласованы с сеньор-дизайнером и продакт-оунером</li>
-          <li>Единый флоу для веба и мобильного приложения</li>
-        </ul>
       </div>
     </section>
 
@@ -378,6 +376,6 @@
   </button>
   <script src="../assets/js/back-to-top.js?v=1793024640" defer></script>
   <script src="../assets/js/cases.js?v=1793200010" defer></script>
-  <script src="../assets/js/login.js?v=1793400016" defer></script>
+  <script src="../assets/js/login.js?v=1793400030" defer></script>
 </body>
 </html>

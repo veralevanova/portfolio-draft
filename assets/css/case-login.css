@@ -451,6 +451,43 @@
 .lg-page .orb:hover svg, .lg-page .orb:focus-visible svg { transform: translate(6px, -6px) scale(1.15); }
 @media (prefers-reduced-motion: reduce) { .lg-page .orb { animation: none; } .lg-page .orb svg { transition: none; } }
 
+
+/* --- ревью: метка контактов в гамме кейса, без капса --- */
+.lg-page .contact-card .eyebrow { color: #b9a8ff; text-transform: none; letter-spacing: 0; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; }
+
+/* процесс: пункты выровнены влево */
+.lg-step li { text-align: left; padding-left: 18px; padding-right: 18px; }
+
+/* ключевые решения: телефоны не уезжают за край */
+.lg-dec__phones { margin-right: 0; }
+
+/* схема флоу — светлая карточка, чтобы разбить череду тёмно-фиолетовых блоков */
+.lg-flow { background: linear-gradient(180deg, #f7f6fd 0%, #ece7fd 100%); color: var(--p-ink); border: 1px solid #e3ddfa; }
+.lg-flow::before { background: radial-gradient(closest-side, rgba(123, 92, 245, .12), transparent); }
+.lg-flow .lg-node { background: #fff; border-color: #e3ddfa; color: var(--p-ink); box-shadow: 0 4px 14px rgba(60, 40, 160, .06); }
+.lg-flow .lg-node--q { background: #f3f0ff; border-color: rgba(91, 63, 217, .55); color: var(--p-violet); box-shadow: 0 0 20px rgba(91, 63, 217, .15); }
+.lg-flow .lg-node--end { background: var(--p-violet); border-color: var(--p-violet); color: #fff; box-shadow: 0 10px 24px rgba(91, 63, 217, .3); }
+.lg-node--start { flex-direction: column; gap: 2px; font-weight: 600; }
+.lg-node--start small { font-size: 12px; font-weight: 500; color: var(--p-muted); }
+.lg-flow .lg-arrow { color: #a59bd6; }
+.lg-flow .lg-branch { background: rgba(255,255,255,.55); border-color: #e3ddfa; }
+.lg-flow .lg-branch .btag { background: #e6e0ff; color: var(--p-violet); }
+.lg-flow .lg-branch .bnote { color: var(--p-muted); }
+.lg-flow .lg-branch.is-sel { border-color: rgba(91, 63, 217, .45); }
+.lg-flow .lg-branch.is-path { border-color: var(--p-violet); background: #fff; }
+.lg-flow.is-run .lg-branch:not(.is-path) { opacity: .55; }
+.lg-flow .lg-dot { background: #fff; box-shadow: 0 0 0 5px rgba(91, 63, 217, .3), 0 0 22px 8px rgba(123, 92, 245, .55); }
+@keyframes lg-hit-l { 0% { box-shadow: 0 0 0 0 rgba(91, 63, 217, .7); } 40% { box-shadow: 0 0 0 3px rgba(91, 63, 217, .6), 0 0 24px rgba(123, 92, 245, .45); } 100% { box-shadow: 0 0 0 0 rgba(91, 63, 217, 0); } }
+.lg-flow .is-hit.is-hit { animation: lg-hit-l .9s ease-out; }
+@keyframes lg-glow-l { 0%, 100% { box-shadow: 0 0 18px rgba(91, 63, 217, .15); } 50% { box-shadow: 0 0 30px rgba(91, 63, 217, .4); } }
+.lg-flow.is-in .lg-node--q { animation-name: lg-glow-l; }
+.lg-flow .lg-fsub { border-color: rgba(91, 63, 217, .35); color: var(--p-ink); }
+.lg-flow .lg-fsub__t { color: var(--p-violet); }
+.lg-flow .lg-fsub__t::before { color: var(--p-muted); }
+.lg-flow .lg-fsub__c { background: #fff; border-color: #e3ddfa; }
+.lg-flow .lg-fsub__c--end { background: var(--p-violet); border-color: var(--p-violet); color: #fff; }
+.lg-flow .lg-fsub i { color: #a59bd6; }
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .lg-hero__row { grid-template-columns: minmax(0, 1fr); }
