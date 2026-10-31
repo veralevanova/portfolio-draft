@@ -175,6 +175,25 @@
     window.addEventListener('resize', track); track();
   })();
 
+  /* мобильное приложение: правый телефон выезжает из-за левого, левый поднимается — по мере прокрутки */
+  (function () {
+    var duo = document.querySelector('.lg-duo-ph'); if (!duo || reduce) return;
+    var tk = false;
+    function upd() {
+      tk = false;
+      var r = duo.getBoundingClientRect(), vh = window.innerHeight;
+      if (r.bottom < 0 || r.top > vh) return;
+      // 0 — блок только показался снизу, 1 — его центр дошёл до середины экрана
+      var p = (vh - r.top) / (vh * 0.5 + r.height * 0.5);
+      p = Math.max(0, Math.min(1, p));
+      var e = 1 - Math.pow(1 - p, 3);
+      duo.style.setProperty('--q', (1 - e).toFixed(3));
+    }
+    duo.style.setProperty('--q', '1');
+    window.addEventListener('scroll', function () { if (!tk) { tk = true; requestAnimationFrame(upd); } }, { passive: true });
+    window.addEventListener('resize', upd); upd();
+  })();
+
   if (reduce || !('IntersectionObserver' in window)) { document.documentElement.classList.remove('lg-anim'); return; }
 
   /* схема флоу: порядковый номер шага для каждого узла (ветки растут одновременно) */
