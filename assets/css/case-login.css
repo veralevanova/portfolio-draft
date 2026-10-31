@@ -342,34 +342,6 @@
 .lg-switch__link:hover { text-decoration: underline; }
 
 
-/* «было / стало»: путь нового пользователя — обрывается или доходит до онбординга */
-.lg-route { display: flex; align-items: center; gap: 10px; margin-top: 32px; font-size: 13px; font-weight: 600; }
-.lg-route__a, .lg-route__b { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; }
-.lg-route__b i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; }
-.lg-route__line { position: relative; flex: 1 1 auto; min-width: 24px; height: 2px; border-radius: 2px; }
-.lg-route__line i { position: absolute; inset: 0; border-radius: inherit; transform-origin: left; }
-.lg-route--dead .lg-route__a { background: #fff; color: var(--p-ink); box-shadow: 0 6px 16px rgba(20, 20, 50, .05); }
-.lg-route--dead .lg-route__line { background: repeating-linear-gradient(90deg, #d9d7e3 0 6px, transparent 6px 11px); }
-.lg-route--dead .lg-route__line i { background: #e5576a; transform: scaleX(.5); }
-.lg-route--dead .lg-route__line::after { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #e5576a; box-shadow: 0 0 0 4px rgba(229, 87, 106, .18); }
-.lg-route--dead .lg-route__b { background: #fde2e2; color: #b42318; }
-.lg-route--dead .lg-route__b i { background: #e5576a; color: #fff; }
-.lg-route--ok .lg-route__a { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); color: #fff; }
-.lg-route--ok .lg-route__line { background: rgba(255,255,255,.18); }
-.lg-route--ok .lg-route__line i { background: var(--p-cyan); box-shadow: 0 0 12px rgba(111, 227, 238, .7); }
-.lg-route--ok .lg-route__b { background: #fff; color: var(--p-ink); box-shadow: 0 10px 24px rgba(20, 10, 70, .3); }
-.lg-route--ok .lg-route__b i { background: var(--p-cyan); color: #1c1560; }
-@keyframes lg-pop { 0% { opacity: 0; transform: scale(.85); } 60% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: none; } }
-@keyframes lg-nod { 0%, 100% { transform: none; } 30% { transform: translateX(-3px); } 60% { transform: translateX(3px); } }
-.lg-anim.js-reveal .lg-tc .lg-route__line i { transform: scaleX(0); transition: transform var(--calm) var(--ease) .75s; }
-.lg-anim.js-reveal .lg-tc .lg-route--dead .lg-route__line::after { opacity: 0; transition: opacity var(--fast) var(--ease) 1.25s; }
-.lg-anim.js-reveal .lg-tc .lg-route__b { opacity: 0; }
-.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__line i { transform: scaleX(.5); }
-.lg-anim.js-reveal .lg-tc.is-in .lg-route--ok .lg-route__line i { transform: none; }
-.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__line::after { opacity: 1; }
-.lg-anim.js-reveal .lg-tc.is-in .lg-route--dead .lg-route__b { animation: lg-pop var(--fast) var(--ease) 1.35s both, lg-nod var(--fast) var(--ease) 1.7s; }
-.lg-anim.js-reveal .lg-tc.is-in .lg-route--ok .lg-route__b { animation: lg-pop var(--fast) var(--ease) 1.4s both; }
-
 /* прогресс чтения по разделам — в фиолетовой гамме кейса */
 .lg-page .sec-nav a.is-current b { background: var(--p-violet); border-color: var(--p-violet); }
 .lg-page .sec-nav a:hover b { border-color: var(--p-violet); }
@@ -377,13 +349,14 @@
 .lg-page :target { scroll-margin-top: 24px; }
 
 
-/* под-ветка «Забыли пароль» */
-.lg-fsub { margin-top: 2px; padding: 12px; border-radius: 14px; border: 1px dashed rgba(255,255,255,.3); display: flex; flex-direction: column; align-items: stretch; gap: 6px; font-size: 13px; color: #fff; }
-.lg-fsub__t { text-align: center; font-weight: 600; color: var(--p-cyan); }
-.lg-fsub__c { text-align: center; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; opacity: 1; }
-.lg-fsub__c--end { background: rgba(255,255,255,.92); color: var(--p-ink); font-weight: 700; }
-.lg-fsub i { font-style: normal; text-align: center; line-height: 1; color: rgba(255,255,255,.65); }
-
+/* восстановление пароля — отдельная строка под ветками */
+.lg-fsub { margin-top: 20px; padding: 14px 18px; border-radius: 18px; border: 1px dashed rgba(255,255,255,.3); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; font-size: 14px; color: #fff; }
+.lg-fsub__t { font-weight: 600; color: var(--p-cyan); }
+.lg-fsub__t::before { content: "Активирован · "; color: rgba(255,255,255,.6); font-weight: 500; }
+.lg-fsub__c { padding: 8px 14px; border-radius: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); white-space: nowrap; }
+.lg-fsub__c--end { background: #fff; color: var(--p-ink); font-weight: 700; }
+.lg-fsub i { font-style: normal; color: rgba(255,255,255,.65); }
+@media (max-width: 860px) { .lg-fsub { flex-direction: column; gap: 6px; padding: 14px; } .lg-fsub i { transform: rotate(90deg); } .lg-fsub__c { align-self: stretch; text-align: center; } }
 
 /* мобильное приложение: фиолетовая карточка, два телефона раскрываются при прокрутке, выноски */
 .lg-mcard { position: relative; margin-top: 48px; border-radius: 40px; overflow: hidden; height: 700px;
@@ -409,8 +382,10 @@
 .lg-call--l::after { left: 100%; }
 .lg-call--r { left: calc(var(--x) + var(--len, 110px)); }
 .lg-call--r::after { right: 100%; }
-.lg-anim .lg-call { opacity: 0; transform: translateY(8px); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease); transition-delay: calc(var(--i) * 120ms); }
-.lg-anim .lg-duo-ph:not(.is-fold) .lg-call { opacity: 1; transform: none; }
+.lg-call { transition: transform .7s var(--ease); }
+/* в сложенном виде выноски сдвигаются вместе со своими телефонами */
+.lg-anim .lg-duo-ph.is-fold .lg-call--l { transform: translateY(14px); }
+.lg-anim .lg-duo-ph.is-fold .lg-call--r { transform: translate(-38px, -23px); }
 @media (max-width: 1100px) { .lg-call { font-size: 13px; } }
 @media (max-width: 860px) {
   .lg-mcard { margin-top: 28px; height: 470px; border-radius: 26px; }
@@ -471,9 +446,6 @@
   .lg-tc { padding: 30px 24px 32px; border-radius: 26px; }
   .lg-tc ul { margin-top: 26px; }
   .lg-tc li { font-size: 14px; }
-  .lg-route { gap: 6px; margin-top: 24px; font-size: 12px; }
-  .lg-route__a, .lg-route__b { padding: 7px 10px; }
-  .lg-route__b { flex: 0 1 auto; }
   .lg-steps { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -20px; padding: 0 20px 6px; scrollbar-width: none; }
   .lg-steps::-webkit-scrollbar { display: none; }
   .lg-step { flex: 0 0 82%; scroll-snap-align: start; margin-top: 0 !important; }

@@ -164,9 +164,11 @@
     function track() {
       tk = false;
       var y = window.innerHeight * 0.35, cur = -1;
-      secs.forEach(function (x, i) { if (x[0].getBoundingClientRect().top <= y) cur = i; });
+      // номер подсвечен, только пока читаешь сам раздел (между разделами — ничего)
+      secs.forEach(function (x, i) { var r = x[0].getBoundingClientRect(); if (r.top <= y && r.bottom > y) cur = i; });
+      var any = secs[0][0].getBoundingClientRect().top <= y;
       items.forEach(function (a, i) { a.classList.toggle('is-current', i === cur); if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
-      nav.classList.toggle('is-visible', cur >= 0);
+      nav.classList.toggle('is-visible', any && secs[secs.length - 1][0].getBoundingClientRect().bottom > 0);
       var max = document.documentElement.scrollHeight - window.innerHeight;
       fill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
       bar.classList.toggle('is-visible', window.scrollY > 200);
