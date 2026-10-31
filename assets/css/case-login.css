@@ -379,11 +379,11 @@
 
 
 /* под-ветка «Забыли пароль» */
-.lg-sub { margin-top: 2px; padding: 12px; border-radius: 14px; border: 1px dashed rgba(255,255,255,.3); display: flex; flex-direction: column; align-items: stretch; gap: 6px; font-size: 13px; color: #fff; }
-.lg-sub__t { text-align: center; font-weight: 600; color: var(--p-cyan); }
-.lg-sub__c { text-align: center; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; opacity: 1; }
-.lg-sub__c--end { background: rgba(255,255,255,.92); color: var(--p-ink); font-weight: 700; }
-.lg-sub i { font-style: normal; text-align: center; line-height: 1; color: rgba(255,255,255,.65); }
+.lg-fsub { margin-top: 2px; padding: 12px; border-radius: 14px; border: 1px dashed rgba(255,255,255,.3); display: flex; flex-direction: column; align-items: stretch; gap: 6px; font-size: 13px; color: #fff; }
+.lg-fsub__t { text-align: center; font-weight: 600; color: var(--p-cyan); }
+.lg-fsub__c { text-align: center; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; opacity: 1; }
+.lg-fsub__c--end { background: rgba(255,255,255,.92); color: var(--p-ink); font-weight: 700; }
+.lg-fsub i { font-style: normal; text-align: center; line-height: 1; color: rgba(255,255,255,.65); }
 
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
