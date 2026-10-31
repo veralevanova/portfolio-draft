@@ -431,6 +431,13 @@
   .lg-more__card h3 { margin-top: 18px; font-size: 22px; }
 }
 
+
+/* подпись в подвале */
+.lg-sign { align-items: center; }
+.lg-sign__me { display: inline-flex; align-items: center; gap: 12px; }
+.lg-sign__me b { color: #fff; font-weight: 600; }
+.lg-sign__ava { width: 36px; height: 36px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #5b3fd9, #7b5cf5); }
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .lg-hero__row { grid-template-columns: minmax(0, 1fr); }
