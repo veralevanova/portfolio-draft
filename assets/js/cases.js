@@ -128,17 +128,4 @@
     new IntersectionObserver(function (e, ob) { if (e[0].isIntersecting) { t.classList.add('is-lit'); ob.disconnect(); } }, { threshold: .35 }).observe(t);
   });
 
-  /* большие номера разделов двигаются медленнее текста (параллакс 0.8) */
-  var bigs = $('.divider .big-num');
-  if (bigs.length) {
-    var ticking = false;
-    function par() {
-      ticking = false;
-      bigs.forEach(function (b) {
-        var r = b.parentElement.getBoundingClientRect(), mid = r.top + r.height / 2 - window.innerHeight / 2;
-        b.style.transform = 'translate3d(0,' + (mid * 0.2).toFixed(1) + 'px,0)';
-      });
-    }
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(par); } }, { passive: true }); par();
-  }
 })();
