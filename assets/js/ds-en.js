@@ -80,11 +80,20 @@
     }
     sw.forEach(function (b) { b.addEventListener('click', function () { sel(b); }); });
     cp.addEventListener('click', function () {
-      try { navigator.clipboard.writeText(cur); } catch (e) {}
+      var ok = false;
+      try {
+        var r = navigator.clipboard && navigator.clipboard.writeText(cur);
+        if (r && typeof r.then === 'function') { ok = true; r.catch(function () { fail(); }); }
+      } catch (e) {}
+      if (!ok) { fail(); return; }
       cp.innerHTML = 'Copied <em>' + cur + '</em>';
       clearTimeout(t);
       t = setTimeout(function () { cp.innerHTML = 'Copy HEX <em>' + cur + '</em>'; }, 1400);
     });
+    function fail() {
+      clearTimeout(t);
+      cp.innerHTML = 'Copy HEX <em>' + cur + '</em>';
+    }
     sel(pal.querySelector('[data-scale="teal"][data-step="400"]'));
   })();
 
