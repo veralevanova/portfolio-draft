@@ -1411,3 +1411,8 @@ body.lb-open { overflow: hidden; }
 @keyframes home-orb-pulse { 0% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, .45); } 70% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 26px rgba(155, 120, 245, 0); } 100% { box-shadow: 0 0 80px rgba(155, 93, 229, .45), 0 0 0 0 rgba(155, 120, 245, 0); } }
 @media (max-width: 860px) { .home .contact-card .orb svg { width: 48px; height: 48px; } }
 @media (prefers-reduced-motion: reduce) { .home .contact-card .orb { animation: none; } .home .contact-card .orb svg { transition: none; } }
+
+/* переключатель языка в шапке кейсов */
+.dk-head .lang-switch, .site-header .container > .lang-switch { color: #c2ccdb; background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); padding: 9px 14px; }
+.dk-head .lang-switch:hover { color: #fff; background: rgba(255,255,255,.14); }
+.site-header .container > .lang-switch { color: var(--text); background: var(--surface); border-color: var(--border); }
