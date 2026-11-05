@@ -1418,3 +1418,5 @@ body.lb-open { overflow: hidden; }
 .site-header .container > .lang-switch { color: var(--text); background: var(--surface); border-color: var(--border); }
 .dk-head .container > .nav-pill, body:not(.home) .site-header .container > .nav-pill { margin-left: auto; }
 .dk-head .container, body:not(.home) .site-header .container { justify-content: flex-start; }
+.theme-light .site-header .container > .lang-switch { color: var(--l-navy); background: rgba(255,255,255,.75); border-color: var(--l-border); }
+.theme-light .site-header .container > .lang-switch:hover { background: #eef1f5; }
